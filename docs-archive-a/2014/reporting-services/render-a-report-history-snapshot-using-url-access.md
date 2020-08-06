@@ -1,0 +1,42 @@
+---
+title: Eseguire il rendering degli snapshot della cronologia dei report tramite l'accesso con URL | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services-native
+ms.topic: conceptual
+helpviewer_keywords:
+- URL access [Reporting Services], report history
+- history snapshots [Reporting Services]
+- historical data [Reporting Services]
+- snapshots [Reporting Services], URL access
+- snapshots [Reporting Services], rendering report history
+ms.assetid: 3f87f82d-0e61-4492-9c4b-f5238c39e8cd
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: 67854a39ab7e38289627d03ac00cc4b2a6dca6f2
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87628495"
+---
+# <a name="render-a-report-history-snapshot-using-url-access"></a><span data-ttu-id="dcb0e-102">Eseguire il rendering degli snapshot della cronologia dei report tramite l'accesso con URL</span><span class="sxs-lookup"><span data-stu-id="dcb0e-102">Render a Report History Snapshot Using URL Access</span></span>
+  <span data-ttu-id="dcb0e-103">È possibile eseguire il rendering di un report in base allo snapshot della cronologia del report fornendo il parametro *rs:Snapshot* e impostandone il valore su un ID di snapshot valido.</span><span class="sxs-lookup"><span data-stu-id="dcb0e-103">You can render a report based on a report history snapshot by supplying the *rs:Snapshot* parameter and setting its value to a valid snapshot ID.</span></span> <span data-ttu-id="dcb0e-104">Il valore di questo parametro è nel formato AAAA-MM-GGTHH:MM:SS, in base allo standard ISO (International Organization for Standardization) 8601.</span><span class="sxs-lookup"><span data-stu-id="dcb0e-104">The parameter value is in the format YYYY-MM-DDTHH:MM:SS, based on the International Organization for Standardization (ISO) 8601 standard.</span></span>  
+  
+ <span data-ttu-id="dcb0e-105">Se si omette questo parametro, il rendering del report viene eseguito in base alle impostazioni dell'opzione di esecuzione del report e gestione della cache del server di report.</span><span class="sxs-lookup"><span data-stu-id="dcb0e-105">If you omit this parameter, the report is rendered according to the report execution and cache management option settings of the report server.</span></span> <span data-ttu-id="dcb0e-106">Per altre informazioni sull'esecuzione di report, vedere [Impostare proprietà di elaborazione dei report](report-server/set-report-processing-properties.md).</span><span class="sxs-lookup"><span data-stu-id="dcb0e-106">For more information about report execution, see [Set Report Processing Properties](report-server/set-report-processing-properties.md).</span></span>  
+  
+## <a name="example"></a><span data-ttu-id="dcb0e-107">Esempio</span><span class="sxs-lookup"><span data-stu-id="dcb0e-107">Example</span></span>  
+ <span data-ttu-id="dcb0e-108">Nell'esempio seguente viene illustrato un URL che consente di recuperare uno snapshot della cronologia del report:</span><span class="sxs-lookup"><span data-stu-id="dcb0e-108">The following example shows a URL that retrieves a report history snapshot:</span></span>  
+  
+```  
+http://myrshost/reportserver?/SampleReports/Company Sales&rs:Snapshot=2003-04-07T13:40:02  
+```  
+  
+## <a name="see-also"></a><span data-ttu-id="dcb0e-109">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="dcb0e-109">See Also</span></span>  
+ <span data-ttu-id="dcb0e-110">[Accesso con URL &#40;SSRS&#41;](url-access-ssrs.md) </span><span class="sxs-lookup"><span data-stu-id="dcb0e-110">[URL Access &#40;SSRS&#41;](url-access-ssrs.md) </span></span>  
+ [<span data-ttu-id="dcb0e-111">Riferimento ai parametri di accesso con URL</span><span class="sxs-lookup"><span data-stu-id="dcb0e-111">URL Access Parameter Reference</span></span>](url-access-parameter-reference.md)  
+  
+  

@@ -1,0 +1,87 @@
+---
+title: Aggiungere, modificare o eliminare valori disponibili per un parametro di report (Generatore report e SSRS) | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services-native
+ms.topic: conceptual
+f1_keywords:
+- sql12.rtp.rptdesigner.reportparameters.availablevalues.f1
+- "10455"
+- "10071"
+ms.assetid: 0e03264c-523f-4c59-b71b-ceef600f75f6
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: 985ab3e8dc1d74f94e7242ff57f46ffe4fba9586
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87628461"
+---
+# <a name="add-change-or-delete-available-values-for-a-report-parameter-report-builder-and-ssrs"></a><span data-ttu-id="2a989-102">Aggiungere, modificare o eliminare valori disponibili per un parametro di report (Generatore report e SSRS)</span><span class="sxs-lookup"><span data-stu-id="2a989-102">Add, Change, or Delete Available Values for a Report Parameter (Report Builder and SSRS)</span></span>
+  <span data-ttu-id="2a989-103">Dopo aver creato un parametro del report, è possibile specificare un elenco di valori disponibili da visualizzare.</span><span class="sxs-lookup"><span data-stu-id="2a989-103">After you create a report parameter, you can specify a list of available values to display to the user.</span></span> <span data-ttu-id="2a989-104">Tale elenco limita le scelte dell'utente ai soli valori validi per il parametro.</span><span class="sxs-lookup"><span data-stu-id="2a989-104">An available values list limits the choices a user can make to only valid values for the parameter.</span></span>  
+  
+ <span data-ttu-id="2a989-105">I valori disponibili sono visualizzati durante l'esecuzione del report in un elenco a discesa della barra degli strumenti accanto al parametro di report.</span><span class="sxs-lookup"><span data-stu-id="2a989-105">Available values appear in a drop-down list next to the report parameter on the toolbar when the report runs.</span></span> <span data-ttu-id="2a989-106">I parametri di report possono rappresentare un valore singolo o più valori.</span><span class="sxs-lookup"><span data-stu-id="2a989-106">Report parameters can represent one value or multiple values.</span></span> <span data-ttu-id="2a989-107">Per più valori, la funzionalità **Seleziona tutto** è disponibile all'inizio dell'elenco, in modo che l'utente possa selezionare o deselezionare tutti i valori con un solo clic.</span><span class="sxs-lookup"><span data-stu-id="2a989-107">For multiple values, the top of list begins with a **Select All** feature so the user can select or clear all values with a single click.</span></span>  
+  
+ <span data-ttu-id="2a989-108">È possibile fornire un elenco statico di valori o un elenco da un set di dati del report.</span><span class="sxs-lookup"><span data-stu-id="2a989-108">You can provide a static list of values or a list from a report dataset.</span></span> <span data-ttu-id="2a989-109">È inoltre possibile fornire un nome descrittivo per i valori specificando un campo etichette.</span><span class="sxs-lookup"><span data-stu-id="2a989-109">You can optionally provide a friendly name for values by specifying a label field.</span></span> <span data-ttu-id="2a989-110">Per un parametro basato su un campo `ProductID` , è possibile ad esempio visualizzare il campo `ProductName` nell'etichetta del parametro.</span><span class="sxs-lookup"><span data-stu-id="2a989-110">For example, for a parameter based on a `ProductID` field, you can display the `ProductName` field in the parameter label.</span></span> <span data-ttu-id="2a989-111">Durante l'esecuzione del report, è possibile scegliere i nomi di prodotto, ma il valore effettivo scelto è rappresentato dall'oggetto `ProductID`corrispondente.</span><span class="sxs-lookup"><span data-stu-id="2a989-111">When the report runs, the user can choose from the product names, but the actual chosen value is the corresponding `ProductID`.</span></span>  
+  
+> [!NOTE]  
+>  [!INCLUDE[ssRBRDDup](../../includes/ssrbrddup-md.md)]  
+  
+ <span data-ttu-id="2a989-112">Dopo aver pubblicato un report, è possibile eseguire l'override dei valori disponibili definiti nel report nello strumento di creazione di report, impostando i valori delle proprietà del parametro nel server di report.</span><span class="sxs-lookup"><span data-stu-id="2a989-112">After you publish a report, you can override the available values that you define in the report in the report authoring tool, by setting parameter property values on the report server.</span></span> <span data-ttu-id="2a989-113">Per ulteriori informazioni, vedere la pagina relativa al [Parametri report &#40;Generatore report e Progettazione report&#41;](report-parameters-report-builder-and-report-designer.md).</span><span class="sxs-lookup"><span data-stu-id="2a989-113">For more information, see [Report Parameters &#40;Report Builder and Report Designer&#41;](report-parameters-report-builder-and-report-designer.md).</span></span>  
+  
+### <a name="to-add-or-change-the-available-values-for-a-report-parameter"></a><span data-ttu-id="2a989-114">Per aggiungere o modificare i valori disponibili per un parametro di report</span><span class="sxs-lookup"><span data-stu-id="2a989-114">To add or change the available values for a report parameter</span></span>  
+  
+1.  <span data-ttu-id="2a989-115">Nel riquadro dei dati del report espandere il nodo Parametri.</span><span class="sxs-lookup"><span data-stu-id="2a989-115">In the Report Data pane, expand the Parameters node.</span></span> <span data-ttu-id="2a989-116">Fare clic con il pulsante destro del mouse sul parametro e scegliere **Proprietà parametri**.</span><span class="sxs-lookup"><span data-stu-id="2a989-116">Right-click the parameter and click **Parameter Properties**.</span></span> <span data-ttu-id="2a989-117">Verrà visualizzata la finestra di dialogo **Proprietà parametri report** .</span><span class="sxs-lookup"><span data-stu-id="2a989-117">The **Report Parameter Properties** dialog box opens.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="2a989-118">Se il riquadro dei dati del report non è visualizzato, scegliere **Dati report** dal menu **Visualizza**.</span><span class="sxs-lookup"><span data-stu-id="2a989-118">If the Report Data pane is not visible, click **View** and then click **Report Data**.</span></span>  
+  
+2.  <span data-ttu-id="2a989-119">Fare clic su **Valori disponibili**.</span><span class="sxs-lookup"><span data-stu-id="2a989-119">Click **Available Values**.</span></span> <span data-ttu-id="2a989-120">Selezionare un'opzione relativa ai valori disponibili.</span><span class="sxs-lookup"><span data-stu-id="2a989-120">Select an available values option:</span></span>  
+  
+    -   <span data-ttu-id="2a989-121">Fare clic su **Imposta valori** per fornire manualmente un elenco di valori. Facoltativamente, è possibile specificare i nomi descrittivi (etichette) per i valori.</span><span class="sxs-lookup"><span data-stu-id="2a989-121">Click **Specify values** to manually provide a list of values, and optionally, friendly names (the labels) for the values.</span></span>  
+  
+         <span data-ttu-id="2a989-122">Fare clic su **Aggiungi** e quindi immettere il valore nella casella di testo **Valore** . Facoltativamente, immettere anche l'etichetta nella casella di testo **Etichetta** .</span><span class="sxs-lookup"><span data-stu-id="2a989-122">Click **Add** and then enter the value in the **Value** text box, and optionally, the label in the **Label** text box.</span></span> <span data-ttu-id="2a989-123">Se non si specifica un'etichetta verrà utilizzato il valore.</span><span class="sxs-lookup"><span data-stu-id="2a989-123">If you do not provide a label, the value is used.</span></span> <span data-ttu-id="2a989-124">È possibile scrivere un'espressione per un valore.</span><span class="sxs-lookup"><span data-stu-id="2a989-124">You can write an expression for a value.</span></span> <span data-ttu-id="2a989-125">Il tipo di dati deve corrispondere al tipo di dati del parametro.</span><span class="sxs-lookup"><span data-stu-id="2a989-125">The data type must match the data type of the parameter.</span></span> <span data-ttu-id="2a989-126">Non è possibile utilizzare i nomi di campi in un'espressione per un parametro.</span><span class="sxs-lookup"><span data-stu-id="2a989-126">Field names cannot be used in an expression for a parameter.</span></span> <span data-ttu-id="2a989-127">Per esempi, vedere [Filtri di uso comune &#40;Generatore report e SSRS&#41;](commonly-used-filters-report-builder-and-ssrs.md).</span><span class="sxs-lookup"><span data-stu-id="2a989-127">For examples, see [Commonly Used Filters &#40;Report Builder and SSRS&#41;](commonly-used-filters-report-builder-and-ssrs.md).</span></span>  
+  
+         <span data-ttu-id="2a989-128">Ripetere questo passaggio per il numero desiderato di valori.</span><span class="sxs-lookup"><span data-stu-id="2a989-128">Repeat this step for as many values as you want to provide.</span></span> <span data-ttu-id="2a989-129">Gli elementi vengono visualizzati nell'elenco a discesa in base all'ordine in cui appaiono nell'elenco.</span><span class="sxs-lookup"><span data-stu-id="2a989-129">The order of items you see in this list determines the order that the user sees them in the drop-down list.</span></span> <span data-ttu-id="2a989-130">Per modificare l'ordine di un elemento nell'elenco, fare clic su una casella di testo **Valore** o **Etichetta** per selezionare l'elemento e quindi usare i pulsanti freccia per spostare l'elemento verso l'alto o verso il basso nell'elenco.</span><span class="sxs-lookup"><span data-stu-id="2a989-130">To change the order of an item in the list, click a **Value** or **Label** text box to select the item, and then use the up and down arrow buttons to move the item higher or lower in the list.</span></span>  
+  
+    -   <span data-ttu-id="2a989-131">Fare clic su **Ottieni valori da una query** per specificare il nome di un set di dati esistente per il recupero di valori e, facoltativamente, i nomi descrittivi per il parametro.</span><span class="sxs-lookup"><span data-stu-id="2a989-131">Click **Get values from a query** to provide the name of an existing dataset that retrieves the values, and optionally, the friendly names for this parameter.</span></span>  
+  
+        > [!IMPORTANT]  
+        >  <span data-ttu-id="2a989-132">Se nello stesso set di dati è contenuto il parametro di query corrispondente per il parametro di report, nel report verrà visualizzato un messaggio di errore quando si tenta di eseguirlo.</span><span class="sxs-lookup"><span data-stu-id="2a989-132">If the same dataset contains the corresponding query parameter for the report parameter, the report will display an error message when you try to run it.</span></span> <span data-ttu-id="2a989-133">Per risolvere l'errore, è necessario utilizzare un set di dati diverso per recuperare i valori.</span><span class="sxs-lookup"><span data-stu-id="2a989-133">You resolve this error by using a different dataset to retrieve the values.</span></span>  
+  
+         <span data-ttu-id="2a989-134">In **Set di dati**scegliere il nome del set di dati.</span><span class="sxs-lookup"><span data-stu-id="2a989-134">In **Dataset**, choose the name of the dataset.</span></span>  
+  
+         <span data-ttu-id="2a989-135">In **Campo valori**scegliere il nome del campo in cui sono disponibili i valori del parametro.</span><span class="sxs-lookup"><span data-stu-id="2a989-135">In **Value field**, choose the name of the field that provides parameter values.</span></span>  
+  
+         <span data-ttu-id="2a989-136">In **Campo etichette**scegliere il nome del campo in cui sono disponibili i nomi descrittivi del parametro.</span><span class="sxs-lookup"><span data-stu-id="2a989-136">In **Label field**, choose the name of the field that provides the friendly names for the parameter.</span></span> <span data-ttu-id="2a989-137">Se non esiste un campo separato per i nomi descrittivi, scegliere lo stesso campo scelto per il campo **Valore** .</span><span class="sxs-lookup"><span data-stu-id="2a989-137">If there is no separate field for friendly names, choose the same field as you chose for the **Value** field.</span></span>  
+  
+3.  [!INCLUDE[clickOK](../../includes/clickok-md.md)]  
+  
+     <span data-ttu-id="2a989-138">Nell'anteprima del report verrà visualizzato un elenco a discesa con i valori disponibili per il parametro.</span><span class="sxs-lookup"><span data-stu-id="2a989-138">When you preview the report, you see a drop-down list of available values for the parameter.</span></span>  
+  
+### <a name="to-remove-the-available-values-for-a-report-parameter"></a><span data-ttu-id="2a989-139">Per rimuovere i valori disponibili per un parametro di report</span><span class="sxs-lookup"><span data-stu-id="2a989-139">To remove the available values for a report parameter</span></span>  
+  
+1.  <span data-ttu-id="2a989-140">Nel riquadro dei dati del report espandere il nodo Parametri.</span><span class="sxs-lookup"><span data-stu-id="2a989-140">In the Report Data pane, expand the Parameters node.</span></span> <span data-ttu-id="2a989-141">Fare clic con il pulsante destro del mouse sul parametro e scegliere **Proprietà parametri**.</span><span class="sxs-lookup"><span data-stu-id="2a989-141">Right-click the parameter and click **Parameter Properties**.</span></span> <span data-ttu-id="2a989-142">Verrà visualizzata la finestra di dialogo **Parametri report** .</span><span class="sxs-lookup"><span data-stu-id="2a989-142">The **Report Parameters** dialog box opens.</span></span>  
+  
+2.  <span data-ttu-id="2a989-143">Fare clic su **Valori disponibili**.</span><span class="sxs-lookup"><span data-stu-id="2a989-143">Click **Available Values**.</span></span>  
+  
+3.  <span data-ttu-id="2a989-144">In **Selezionare una delle seguenti opzioni**fare clic su **Nessuno**.</span><span class="sxs-lookup"><span data-stu-id="2a989-144">In **Select from one of the following options**, click **None**.</span></span>  
+  
+4.  [!INCLUDE[clickOK](../../includes/clickok-md.md)]  
+  
+     <span data-ttu-id="2a989-145">Nell'anteprima del report l'elenco a discesa con i valori disponibili per il parametro non verrà più visualizzato.</span><span class="sxs-lookup"><span data-stu-id="2a989-145">When you preview the report, you the drop-down list of available values for the parameter no longer appears.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="2a989-146">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="2a989-146">See Also</span></span>  
+ <span data-ttu-id="2a989-147">[Modificare l'ordine di un parametro del report &#40;Generatore report e SSRS&#41;](change-the-order-of-a-report-parameter-report-builder-and-ssrs.md) </span><span class="sxs-lookup"><span data-stu-id="2a989-147">[Change the Order of a Report Parameter &#40;Report Builder and SSRS&#41;](change-the-order-of-a-report-parameter-report-builder-and-ssrs.md) </span></span>  
+ <span data-ttu-id="2a989-148">[Aggiungere, modificare o eliminare un parametro di report &#40;Generatore report e SSRS&#41;](add-change-or-delete-a-report-parameter-report-builder-and-ssrs.md) </span><span class="sxs-lookup"><span data-stu-id="2a989-148">[Add, Change, or Delete a Report Parameter &#40;Report Builder and SSRS&#41;](add-change-or-delete-a-report-parameter-report-builder-and-ssrs.md) </span></span>  
+ <span data-ttu-id="2a989-149">[Aggiunta di parametri di propagazione a un report &#40;Generatore report e SSRS&#41;](add-cascading-parameters-to-a-report-report-builder-and-ssrs.md) </span><span class="sxs-lookup"><span data-stu-id="2a989-149">[Add Cascading Parameters to a Report &#40;Report Builder and SSRS&#41;](add-cascading-parameters-to-a-report-report-builder-and-ssrs.md) </span></span>  
+ <span data-ttu-id="2a989-150">[Aggiungere, modificare o eliminare valori predefiniti per un parametro di report &#40;Generatore report e SSRS&#41;](add-change-or-delete-default-values-for-a-report-parameter.md) </span><span class="sxs-lookup"><span data-stu-id="2a989-150">[Add, Change, or Delete Default Values for a Report Parameter &#40;Report Builder and SSRS&#41;](add-change-or-delete-default-values-for-a-report-parameter.md) </span></span>  
+ <span data-ttu-id="2a989-151">[Riferimenti alla raccolta dei parametri &#40;Generatore report e SSRS&#41;](built-in-collections-parameters-collection-references-report-builder.md) </span><span class="sxs-lookup"><span data-stu-id="2a989-151">[Parameters Collection References &#40;Report Builder and SSRS&#41;](built-in-collections-parameters-collection-references-report-builder.md) </span></span>  
+ <span data-ttu-id="2a989-152">[Esercitazione: Aggiungere un parametro al report &#40;Generatore report&#41;](../tutorial-add-a-parameter-to-your-report-report-builder.md) </span><span class="sxs-lookup"><span data-stu-id="2a989-152">[Tutorial: Add a Parameter to Your Report &#40;Report Builder&#41;](../tutorial-add-a-parameter-to-your-report-report-builder.md) </span></span>  
+ [<span data-ttu-id="2a989-153">Espressioni &#40;Generatore report e SSRS&#41;</span><span class="sxs-lookup"><span data-stu-id="2a989-153">Expressions &#40;Report Builder and SSRS&#41;</span></span>](expressions-report-builder-and-ssrs.md)  
+  
+  

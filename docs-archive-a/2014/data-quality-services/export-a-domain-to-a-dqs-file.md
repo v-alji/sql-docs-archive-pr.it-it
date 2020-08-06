@@ -1,0 +1,56 @@
+---
+title: Esportare un dominio in un file DQS | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: data-quality-services
+ms.topic: conceptual
+ms.assetid: eba10d3d-b5c4-447b-8a30-fa07996cb28e
+author: lrtoyou1223
+ms.author: lle
+ms.openlocfilehash: 5d23e9efa2b3224aab5623201a54d1af56e49e09
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87625560"
+---
+# <a name="export-a-domain-to-a-dqs-file"></a><span data-ttu-id="44e3f-102">Esportazione di un dominio in un file DQS</span><span class="sxs-lookup"><span data-stu-id="44e3f-102">Export a Domain to a .dqs File</span></span>
+  <span data-ttu-id="44e3f-103">In questo argomento viene descritto come esportare un dominio in un file DQS [!INCLUDE[ssDQSnoversion](../includes/ssdqsnoversion-md.md)] (DQS).</span><span class="sxs-lookup"><span data-stu-id="44e3f-103">This topic describes how to export a domain to a .dqs file in [!INCLUDE[ssDQSnoversion](../includes/ssdqsnoversion-md.md)] (DQS).</span></span> <span data-ttu-id="44e3f-104">È possibile esportare un dominio o una Knowledge Base intera in un file di dati.</span><span class="sxs-lookup"><span data-stu-id="44e3f-104">You can export a domain or an entire knowledge base to a data file.</span></span> <span data-ttu-id="44e3f-105">Per informazioni sull'esportazione di una Knowledge Base, vedere [Esportare una Knowledge Base in un file DQS](../../2014/data-quality-services/export-a-knowledge-base-to-a-dqs-file.md).</span><span class="sxs-lookup"><span data-stu-id="44e3f-105">For information about exporting a knowledge base, see [Export a Knowledge Base to a .dqs File](../../2014/data-quality-services/export-a-knowledge-base-to-a-dqs-file.md).</span></span>  
+  
+ <span data-ttu-id="44e3f-106">L'esportazione di un dominio da una Knowledge Base a un file di dati DQS e la successiva importazione in un'altra semplifica il processo di generazione delle informazioni e consente di risparmiare tempo e impegno.</span><span class="sxs-lookup"><span data-stu-id="44e3f-106">Exporting a domain from one knowledge base to a .dqs data file, and then importing it to another knowledge base simplifies the knowledge generation process, saving time and effort.</span></span> <span data-ttu-id="44e3f-107">La procedura permette di condividere un dominio e la relativa Knowledge Base con altri utenti.</span><span class="sxs-lookup"><span data-stu-id="44e3f-107">It enables you to share a domain and its knowledge with others.</span></span>  
+  
+ <span data-ttu-id="44e3f-108">È possibile esportare un dominio singolo o composito.</span><span class="sxs-lookup"><span data-stu-id="44e3f-108">You can export either a single domain or composite domain.</span></span> <span data-ttu-id="44e3f-109">Un file DQS contenente un singolo dominio include tutti i dati del dominio stesso tra cui le proprietà, i valori e le regole, tranne le informazioni sui dati di riferimento collegati.</span><span class="sxs-lookup"><span data-stu-id="44e3f-109">A .dqs file containing a single domain includes all domain data including domain properties, values, and rules except for the attached reference data information.</span></span> <span data-ttu-id="44e3f-110">Un file DQS che contiene un dominio composito include tutti i dati di tale dominio, compresi i dati dei domini singoli contenuti al suo interno, nonché le proprietà, le relazioni e le regole del dominio composito stesso, tranne le informazioni sui dati di riferimento.</span><span class="sxs-lookup"><span data-stu-id="44e3f-110">A .dqs file containing a composite domain includes all composite domain data, including all domain data for the domains that are contained in the composite domain, and the composite domain properties, relations, and rules, except for the reference data information.</span></span> <span data-ttu-id="44e3f-111">È necessario collegare il dominio o il dominio composito nuovamente ai servizi dati di riferimento appropriati, se necessario, dopo avere importato il file DQS.</span><span class="sxs-lookup"><span data-stu-id="44e3f-111">You must attach the domain or the composite domain to appropriate reference data services again, if required, after importing the .dqs file.</span></span> <span data-ttu-id="44e3f-112">Vengono esportati sia i dati pubblicati che quelli non pubblicati.</span><span class="sxs-lookup"><span data-stu-id="44e3f-112">Both published and unpublished data is exported.</span></span>  
+  
+ <span data-ttu-id="44e3f-113">Il file di dati DQS creato dal processo di esportazione viene crittografato, pertanto non è possibile visualizzarne i contenuti.</span><span class="sxs-lookup"><span data-stu-id="44e3f-113">The .dqs data file created by the export process is encrypted, so the contents cannot be viewed.</span></span>  
+  
+##  <a name="before-you-begin"></a><a name="BeforeYouBegin"></a> <span data-ttu-id="44e3f-114">Prima di iniziare</span><span class="sxs-lookup"><span data-stu-id="44e3f-114">Before You Begin</span></span>  
+  
+###  <a name="prerequisites"></a><a name="Prerequisites"></a> <span data-ttu-id="44e3f-115">Prerequisiti</span><span class="sxs-lookup"><span data-stu-id="44e3f-115">Prerequisites</span></span>  
+ <span data-ttu-id="44e3f-116">Per esportare un dominio in un file di dati DQS, è necessario avere creato e selezionato un dominio singolo o composito contenente più domini singoli.</span><span class="sxs-lookup"><span data-stu-id="44e3f-116">To export a domain to a .dqs data file, you must have created and selected a single domain or a composite domain containing multiple single domains.</span></span> <span data-ttu-id="44e3f-117">Non è necessario disporre di un file DQS in cui esportare, in quanto verrà creato automaticamente.</span><span class="sxs-lookup"><span data-stu-id="44e3f-117">You do not need to have a .dqs file to export into; one will be created for you.</span></span>  
+  
+###  <a name="security"></a><a name="Security"></a> <span data-ttu-id="44e3f-118">Sicurezza</span><span class="sxs-lookup"><span data-stu-id="44e3f-118">Security</span></span>  
+  
+####  <a name="permissions"></a><a name="Permissions"></a> <span data-ttu-id="44e3f-119">Autorizzazioni</span><span class="sxs-lookup"><span data-stu-id="44e3f-119">Permissions</span></span>  
+ <span data-ttu-id="44e3f-120">Per esportare un dominio in un file DQS è necessario disporre del ruolo dqs_kb_editor o dqs_administrator nel database DQS_MAIN.</span><span class="sxs-lookup"><span data-stu-id="44e3f-120">You must have the dqs_kb_editor or the dqs_administrator role on the DQS_MAIN database to export a domain to a .dqs data file.</span></span>  
+  
+##  <a name="export-a-domain-to-a-dqs-file"></a><a name="Export"></a><span data-ttu-id="44e3f-121">Esportare un dominio in un file DQS</span><span class="sxs-lookup"><span data-stu-id="44e3f-121">Export a domain to a .dqs file</span></span>  
+ <span data-ttu-id="44e3f-122">È possibile esportare da qualsiasi pagina Gestione dominio.</span><span class="sxs-lookup"><span data-stu-id="44e3f-122">You can export from any Domain Management page.</span></span> <span data-ttu-id="44e3f-123">Il comando di esportazione è disponibile sia da un controllo nell'interfaccia utente che da un comando nel menu di scelta rapida del riquadro Elenco domini.</span><span class="sxs-lookup"><span data-stu-id="44e3f-123">The export command is available from both a control in the user interface and from a command in the context menu of the Domain List pane.</span></span>  
+  
+1.  [!INCLUDE[ssDQSInitialStep](../includes/ssdqsinitialstep-md.md)]<span data-ttu-id="44e3f-124">[Eseguire l'applicazione Data Quality Client](../../2014/data-quality-services/run-the-data-quality-client-application.md).</span><span class="sxs-lookup"><span data-stu-id="44e3f-124">[Run the Data Quality Client Application](../../2014/data-quality-services/run-the-data-quality-client-application.md).</span></span>  
+  
+2.  <span data-ttu-id="44e3f-125">Nella schermata iniziale del [!INCLUDE[ssDQSClient](../includes/ssdqsclient-md.md)] aprire una Knowledge Base nell'attività Gestione dominio.</span><span class="sxs-lookup"><span data-stu-id="44e3f-125">In the [!INCLUDE[ssDQSClient](../includes/ssdqsclient-md.md)] home screen, open a knowledge base in the Domain Management activity.</span></span>  
+  
+3.  <span data-ttu-id="44e3f-126">Nella pagina **Gestione dominio** (con qualsiasi scheda selezionata), selezionare un dominio singolo nell'elenco **Dominio** .</span><span class="sxs-lookup"><span data-stu-id="44e3f-126">In the **Domain Management page** (with any tab selected), select a single domain or a composite domain in the **Domain** list.</span></span>  
+  
+4.  <span data-ttu-id="44e3f-127">Fare clic sull'icona **Esporta dati Knowledge Base** sopra l'elenco di domini, quindi fare clic su **Esporta dominio**.</span><span class="sxs-lookup"><span data-stu-id="44e3f-127">Click the **Export Knowledge Base data** icon above the domain list, and then click **Export Domain**.</span></span> <span data-ttu-id="44e3f-128">In alternativa, è possibile fare clic con il pulsante destro del mouse sul dominio nell'elenco **Dominio** , selezionare **Esporta**, quindi fare clic su **Esporta dominio**.</span><span class="sxs-lookup"><span data-stu-id="44e3f-128">Alternatively, you can right-click the domain in the **Domain** list, point to **Export**, and then click **Export Domain**.</span></span>  
+  
+5.  <span data-ttu-id="44e3f-129">Nella finestra di dialogo **Esporta in file di dati** spostarsi nella cartella in cui si vuole salvare il file, denominare il file o mantenere il nome predefinito, mantenere **File di dati DQS (\*.dqs)** in **Salva come** e fare clic su **Salva**.</span><span class="sxs-lookup"><span data-stu-id="44e3f-129">In the **Export to Data File** dialog box, move to the folder that you want to save the file in, name the file or keep the default name, keep **DQS Data Files (\*.dqs)** as the **Save as type**, and then click **Save**.</span></span>  
+  
+6.  <span data-ttu-id="44e3f-130">Nella finestra di dialogo **Esporta dominio** verificare che la riga dello stato indichi che l'esportazione è stata completata.</span><span class="sxs-lookup"><span data-stu-id="44e3f-130">In the **Export Domain** dialog box, verify that the status line in the dialog box indicates that the export completed.</span></span> <span data-ttu-id="44e3f-131">Fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="44e3f-131">Click **OK**.</span></span>  
+  
+##  <a name="follow-up-after-exporting-a-domain-to-a-dqs-file"></a><a name="FollowUp"></a><span data-ttu-id="44e3f-132">Completamento: dopo l'esportazione di un dominio in un file DQS</span><span class="sxs-lookup"><span data-stu-id="44e3f-132">Follow Up: After Exporting a Domain to a .dqs File</span></span>  
+ <span data-ttu-id="44e3f-133">Dopo avere esportato un dominio in un file DQS, è possibile importare il dominio in un'altra Knowledge Base.</span><span class="sxs-lookup"><span data-stu-id="44e3f-133">After you export a domain to a .dqs file, you can import the domain into another knowledge base.</span></span>  
+  
+  

@@ -1,0 +1,62 @@
+---
+title: Editor elenco proprietà di ricerca | Microsoft Docs
+ms.custom: ''
+ms.date: 03/08/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: search
+ms.topic: conceptual
+f1_keywords:
+- sql12.swb.spl.searchpropertylisteditor.f1
+ms.assetid: 0f3ced6e-0dfd-49fc-b175-82378c3d668e
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 6c68ec986e2c6f4f53dfec7f188ba2a120532ae4
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87627375"
+---
+# <a name="search-property-list-editor"></a><span data-ttu-id="d3492-102">Editor dell'elenco delle proprietà di ricerca</span><span class="sxs-lookup"><span data-stu-id="d3492-102">Search Property List Editor</span></span>
+  <span data-ttu-id="d3492-103">Utilizzare questa finestra di dialogo per aggiungere o eliminare proprietà di ricerca in un elenco di proprietà di ricerca.</span><span class="sxs-lookup"><span data-stu-id="d3492-103">Use this dialog box to add or delete search properties in a search property list.</span></span>  
+  
+## <a name="to-use-sql-server-management-studio-to-manage-search-property-lists"></a><span data-ttu-id="d3492-104">Per utilizzare SQL Server Management Studio per gestire gli elenchi di proprietà di ricerca</span><span class="sxs-lookup"><span data-stu-id="d3492-104">To Use SQL Server Management Studio to Manage Search Property Lists</span></span>  
+ <span data-ttu-id="d3492-105">Per informazioni sulla creazione, la visualizzazione o l'eliminazione di un elenco di proprietà di ricerca e sulla configurazione di un indice full-text per la ricerca di proprietà, vedere la pagina relativa alla [ricerca delle proprietà dei documenti con gli elenchi delle proprietà di ricerca](../relational-databases/search/search-document-properties-with-search-property-lists.md).</span><span class="sxs-lookup"><span data-stu-id="d3492-105">For information about how to create, view, or delete a search property list, and about how to configure a full-text index for property searching, see [Search Document Properties with Search Property Lists](../relational-databases/search/search-document-properties-with-search-property-lists.md).</span></span>  
+  
+## <a name="options"></a><span data-ttu-id="d3492-106">Opzioni</span><span class="sxs-lookup"><span data-stu-id="d3492-106">Options</span></span>  
+ <span data-ttu-id="d3492-107">**Nome proprietà**</span><span class="sxs-lookup"><span data-stu-id="d3492-107">**Property Name**</span></span>  
+ <span data-ttu-id="d3492-108">Specificare il nome da utilizzare per identificare la proprietà nelle query full-text.</span><span class="sxs-lookup"><span data-stu-id="d3492-108">Specify the name to be used to identify the property in full-text queries.</span></span> <span data-ttu-id="d3492-109">Un nome di proprietà può contenere spazi interni.</span><span class="sxs-lookup"><span data-stu-id="d3492-109">A property name can contain internal spaces.</span></span> <span data-ttu-id="d3492-110">La lunghezza massima consentita per **Nome proprietà** è 256 caratteri.</span><span class="sxs-lookup"><span data-stu-id="d3492-110">The maximum length of **Property Name** is 256 characters.</span></span> <span data-ttu-id="d3492-111">Questo nome può essere un nome descrittivo, ad esempio "Autore" o "Indirizzo abitazione" oppure il nome canonico Windows della proprietà, ad esempio `System.Author` o `System.Contact.HomeAddress`.</span><span class="sxs-lookup"><span data-stu-id="d3492-111">This name can be a user-friendly name, such as "Author" or "Home Address", or it can be the Windows canonical name of the property, such as `System.Author` or `System.Contact.HomeAddress`.</span></span> <span data-ttu-id="d3492-112">**Nome proprietà** deve identificare in modo univoco la proprietà all'interno del set di proprietà.</span><span class="sxs-lookup"><span data-stu-id="d3492-112">**Property Name** must uniquely identify the property within the property set.</span></span>  
+  
+ <span data-ttu-id="d3492-113">Gli sviluppatori utilizzano il nome della proprietà per identificare la proprietà nel predicato [CONTAINS](/sql/t-sql/queries/contains-transact-sql) .</span><span class="sxs-lookup"><span data-stu-id="d3492-113">Developers use the property name to identify the property in the [CONTAINS](/sql/t-sql/queries/contains-transact-sql) predicate.</span></span> <span data-ttu-id="d3492-114">Quando si aggiunge una proprietà è pertanto importante specificare un valore che la rappresenti in modo significativo.</span><span class="sxs-lookup"><span data-stu-id="d3492-114">Therefore, when adding a property it is important to specify a value that meaningfully represents the property.</span></span>  
+  
+ <span data-ttu-id="d3492-115">**GUID set di proprietà**</span><span class="sxs-lookup"><span data-stu-id="d3492-115">**Property Set GUID**</span></span>  
+ <span data-ttu-id="d3492-116">Consente di specificare l'identificatore del set di proprietà a cui appartiene la proprietà.</span><span class="sxs-lookup"><span data-stu-id="d3492-116">Specify the identifier of the property set to which the property belongs.</span></span> <span data-ttu-id="d3492-117">Si tratta di un identificatore univoco globale (GUID, Globally Unique Identifier).</span><span class="sxs-lookup"><span data-stu-id="d3492-117">This is a globally unique identifier (GUID).</span></span> <span data-ttu-id="d3492-118">Un set di proprietà è un gruppo di proprietà correlate logicamente.</span><span class="sxs-lookup"><span data-stu-id="d3492-118">A property set is a group of logically related properties.</span></span> <span data-ttu-id="d3492-119">Per informazioni sull'acquisizione di questo valore, vedere la sezione "Osservazioni" più avanti in questo argomento.</span><span class="sxs-lookup"><span data-stu-id="d3492-119">For information about obtaining this value, see "Remarks," later in this topic.</span></span>  
+  
+ <span data-ttu-id="d3492-120">**ID interno proprietà**</span><span class="sxs-lookup"><span data-stu-id="d3492-120">**Property Int ID**</span></span>  
+ <span data-ttu-id="d3492-121">Consente di specificare un identificatore di tipo integer per la proprietà.</span><span class="sxs-lookup"><span data-stu-id="d3492-121">Specify the property integer identifier of the property.</span></span> <span data-ttu-id="d3492-122">Questo valore pre-assegnato è un numero intero positivo univoco all'interno del set di proprietà.</span><span class="sxs-lookup"><span data-stu-id="d3492-122">This pre-assigned value is a positive integer that is unique within the property set.</span></span> <span data-ttu-id="d3492-123">Per informazioni sull'acquisizione di questo valore, vedere la sezione "Osservazioni" più avanti in questo argomento.</span><span class="sxs-lookup"><span data-stu-id="d3492-123">For information about obtaining this value, see "Remarks," later in this topic.</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="d3492-124">Le proprietà documento in cui vengono utilizzati identificatori stringa non sono supportate dalla ricerca full-text.</span><span class="sxs-lookup"><span data-stu-id="d3492-124">Document properties that use string identifiers are not supported by full-text search.</span></span>  
+  
+ <span data-ttu-id="d3492-125">**Descrizione proprietà**</span><span class="sxs-lookup"><span data-stu-id="d3492-125">**Property Description**</span></span>  
+ <span data-ttu-id="d3492-126">Se lo si desidera, è possibile specificare una descrizione per la proprietà.</span><span class="sxs-lookup"><span data-stu-id="d3492-126">Optionally, specify a description of the property.</span></span> <span data-ttu-id="d3492-127">Si tratta di una stringa composta da un massimo di 512 caratteri.</span><span class="sxs-lookup"><span data-stu-id="d3492-127">This is a string of up to 512 characters.</span></span> <span data-ttu-id="d3492-128">Una descrizione può ad esempio contenere informazioni sul set di proprietà della proprietà stessa oppure informazioni su una proprietà che non è possibile dedurre dal nome.</span><span class="sxs-lookup"><span data-stu-id="d3492-128">For example, a description could contain information about the property set of the property or information about a property that is not evident from its name.</span></span>  
+  
+## <a name="remarks"></a><span data-ttu-id="d3492-129">Osservazioni</span><span class="sxs-lookup"><span data-stu-id="d3492-129">Remarks</span></span>  
+ <span data-ttu-id="d3492-130">Per aggiungere una proprietà di ricerca a un elenco di proprietà di ricerca, è necessario specificare l'identificatore univoco globale (GUID) del set di proprietà a cui appartiene la proprietà e l'identificatore di tipo integer della proprietà.</span><span class="sxs-lookup"><span data-stu-id="d3492-130">To add a search property to a search property list, you must specify the globally unique identifier (GUID) of the property set to which the property belongs and the property integer identifier of the property.</span></span> <span data-ttu-id="d3492-131">Una combinazione specifica di questi elementi deve essere univoca in un determinato elenco di proprietà di ricerca.</span><span class="sxs-lookup"><span data-stu-id="d3492-131">A given combination of these must be unique in a given search property list.</span></span> <span data-ttu-id="d3492-132">Se si tenta di aggiungere una combinazione esistente, l'operazione ha esito negativo e viene restituito un errore.</span><span class="sxs-lookup"><span data-stu-id="d3492-132">If you try to add an existing combination, the operation fails and issues an error.</span></span> <span data-ttu-id="d3492-133">Ciò significa che è possibile configurare un solo nome per una proprietà specifica.</span><span class="sxs-lookup"><span data-stu-id="d3492-133">This means that you can configure only one name for a given property.</span></span>  
+  
+ <span data-ttu-id="d3492-134">La descrizione della proprietà è facoltativa.</span><span class="sxs-lookup"><span data-stu-id="d3492-134">The property description is optional.</span></span>  
+  
+ <span data-ttu-id="d3492-135">**Per configurare un elenco di proprietà di ricerca per un indice full-text**</span><span class="sxs-lookup"><span data-stu-id="d3492-135">**To configure a search property list for a full-text index**</span></span>  
+  
+-   [<span data-ttu-id="d3492-136">Eseguire ricerche nelle proprietà dei documenti con elenchi delle proprietà di ricerca</span><span class="sxs-lookup"><span data-stu-id="d3492-136">Search Document Properties with Search Property Lists</span></span>](../relational-databases/search/search-document-properties-with-search-property-lists.md)  
+  
+## <a name="permissions"></a><span data-ttu-id="d3492-137">Autorizzazioni</span><span class="sxs-lookup"><span data-stu-id="d3492-137">Permissions</span></span>  
+ <span data-ttu-id="d3492-138">Vedere l' [elenco delle proprietà ALTER SEARCH &#40;&#41;Transact-SQL ](/sql/t-sql/statements/alter-search-property-list-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="d3492-138">See [ALTER SEARCH PROPERTY LIST &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-search-property-list-transact-sql).</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="d3492-139">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="d3492-139">See Also</span></span>  
+ <span data-ttu-id="d3492-140">[ALTER SEARCH PROPERTY LIST &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-search-property-list-transact-sql) </span><span class="sxs-lookup"><span data-stu-id="d3492-140">[ALTER SEARCH PROPERTY LIST &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-search-property-list-transact-sql) </span></span>  
+ <span data-ttu-id="d3492-141">[Eseguire ricerche nelle proprietà dei documenti con elenchi delle proprietà di ricerca](../relational-databases/search/search-document-properties-with-search-property-lists.md) </span><span class="sxs-lookup"><span data-stu-id="d3492-141">[Search Document Properties with Search Property Lists](../relational-databases/search/search-document-properties-with-search-property-lists.md) </span></span>  
+ [<span data-ttu-id="d3492-142">sys.registered_search_property_lists &#40;Transact-SQL&#41;</span><span class="sxs-lookup"><span data-stu-id="d3492-142">sys.registered_search_property_lists &#40;Transact-SQL&#41;</span></span>](/sql/relational-databases/system-catalog-views/sys-registered-search-property-lists-transact-sql)  
+  
+  

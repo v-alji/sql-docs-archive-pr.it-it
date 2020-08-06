@@ -1,0 +1,61 @@
+---
+title: Calcoli (Progettazione cubi) (Analysis Services-Dati multidimensionali) | Microsoft Docs
+ms.custom: ''
+ms.date: 06/14/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: analysis-services
+ms.topic: conceptual
+f1_keywords:
+- sql12.asvs.cubeeditor.calculationsview.f1
+ms.assetid: 46e2fbe2-bb41-4eaa-91f8-eb2bd3b8d00d
+author: minewiskan
+ms.author: owend
+ms.openlocfilehash: fdbc35a8e47557923b90cda4e72280c3cca940dc
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87626415"
+---
+# <a name="calculations-cube-designer-analysis-services---multidimensional-data"></a><span data-ttu-id="27c24-102">Calcoli (Progettazione cubi) (Analysis Services - Dati multidimensionali)</span><span class="sxs-lookup"><span data-stu-id="27c24-102">Calculations (Cube Designer) (Analysis Services - Multidimensional Data)</span></span>
+  <span data-ttu-id="27c24-103">Usare la scheda **Calcoli** in Progettazione cubi per visualizzare e modificare i calcoli, inclusi i membri calcolati, i set denominati e i comandi di script MDX (Multidimensional Expressions) per il cubo selezionato.</span><span class="sxs-lookup"><span data-stu-id="27c24-103">Use the **Calculations** tab in Cube Designer to view and edit calculations, including calculated members, named sets, and Multidimensional Expressions (MDX) script commands for the selected cube.</span></span>  
+  
+## <a name="form-view-and-script-view"></a><span data-ttu-id="27c24-104">Visualizzazione Form e visualizzazione Script</span><span class="sxs-lookup"><span data-stu-id="27c24-104">Form View and Script View</span></span>  
+ <span data-ttu-id="27c24-105">La scheda **Calcoli** supporta due visualizzazioni diverse per visualizzare o modificare i calcoli:</span><span class="sxs-lookup"><span data-stu-id="27c24-105">The **Calculations** tab supports two different views when viewing or editing calculations:</span></span>  
+  
+-   <span data-ttu-id="27c24-106">Visualizzazione Form</span><span class="sxs-lookup"><span data-stu-id="27c24-106">Form view</span></span>  
+  
+     <span data-ttu-id="27c24-107">Questa visualizzazione contiene un elenco organizzato dei membri calcolati, dei set denominati e dei comandi script contenuti nello script MDX associato al cubo e include editor di form per la visualizzazione e la modifica di membri calcolati e set denominati. Sono inoltre visualizzati i metadati, le funzioni e gli strumenti disponibili per il cubo.</span><span class="sxs-lookup"><span data-stu-id="27c24-107">This view displays an organized view of the calculated members, named sets, and script commands contained in the MDX script associated with the cube and provides form editors to view and edit calculated members and named sets, as well as displaying the metadata, functions, and tools available to the cube.</span></span>  
+  
+-   <span data-ttu-id="27c24-108">Visualizzazione Script</span><span class="sxs-lookup"><span data-stu-id="27c24-108">Script view</span></span>  
+  
+     <span data-ttu-id="27c24-109">Questa visualizzazione è destinata agli utenti esperti e consente di esaminare l'intero script MDX associato al cubo. Sono inoltre visualizzati i metadati, le funzioni e gli strumenti disponibili per il cubo.</span><span class="sxs-lookup"><span data-stu-id="27c24-109">For advanced users, this view displays the entire MDX script associated with the cube, as well as displaying the metadata, functions, and tools available to the cube.</span></span>  
+  
+## <a name="panes"></a><span data-ttu-id="27c24-110">Riquadri</span><span class="sxs-lookup"><span data-stu-id="27c24-110">Panes</span></span>  
+ <span data-ttu-id="27c24-111">**Barra degli strumenti**</span><span class="sxs-lookup"><span data-stu-id="27c24-111">**Toolbar**</span></span>  
+ <span data-ttu-id="27c24-112">Utilizzare la barra degli strumenti nella visualizzazione form e nella visualizzazione script per eseguire operazioni frequenti in questa scheda. Per ulteriori informazioni su questo riquadro, vedere [barra degli strumenti &#40;scheda calcoli, Progettazione cubi&#41; &#40;Analysis Services-&#41;dati multidimensionali ](toolbar-calculations-tab-cube-designer-analysis-services-multidimensional-data.md).</span><span class="sxs-lookup"><span data-stu-id="27c24-112">Use the toolbar in both form view and script view to perform common operations on this tab. For more information about this pane, see [Toolbar &#40;Calculations Tab, Cube Designer&#41; &#40;Analysis Services - Multidimensional Data&#41;](toolbar-calculations-tab-cube-designer-analysis-services-multidimensional-data.md).</span></span>  
+  
+ <span data-ttu-id="27c24-113">**Libreria script**</span><span class="sxs-lookup"><span data-stu-id="27c24-113">**Script Organizer**</span></span>  
+ <span data-ttu-id="27c24-114">Usare il riquadro **Libreria script** nella visualizzazione Form per visualizzare il contenuto dello script del cubo in formato ordinato.</span><span class="sxs-lookup"><span data-stu-id="27c24-114">Use the **Script Organizer** pane in form view to display the contents of the cube script in an ordered format.</span></span> <span data-ttu-id="27c24-115">Per altre informazioni su questo riquadro, vedere [Libreria script &#40;scheda Calcoli, Progettazione cubi&#41; &#40;Analysis Services - Dati multidimensionali&#41;](script-organizer-cube-designer-analysis-services-multidimensional-data.md).</span><span class="sxs-lookup"><span data-stu-id="27c24-115">For more information about this pane, see [Script Organizer &#40;Calculations Tab, Cube Designer&#41; &#40;Analysis Services - Multidimensional Data&#41;](script-organizer-cube-designer-analysis-services-multidimensional-data.md).</span></span>  
+  
+ <span data-ttu-id="27c24-116">**Strumenti di calcolo**</span><span class="sxs-lookup"><span data-stu-id="27c24-116">**Calculation Tools**</span></span>  
+ <span data-ttu-id="27c24-117">Usare il riquadro **Strumenti di calcolo** nella visualizzazione Form e nella visualizzazione Script per visualizzare i metadati, le funzioni e gli strumenti disponibili per il cubo.</span><span class="sxs-lookup"><span data-stu-id="27c24-117">Use the **Calculation Tools** pane in both form view and script view to display metadata, functions, and tools available to the cube.</span></span> <span data-ttu-id="27c24-118">Per altre informazioni su questo riquadro, vedere [Strumenti di calcolo &#40;scheda Calcoli, Progettazione cubi&#41; &#40;Analysis Services - Dati multidimensionali&#41;](calculation-tools-cube-designer-analysis-services-multidimensional-data.md).</span><span class="sxs-lookup"><span data-stu-id="27c24-118">For more information about this pane, see [Calculation Tools &#40;Calculations Tab, Cube Designer&#41; &#40;Analysis Services - Multidimensional Data&#41;](calculation-tools-cube-designer-analysis-services-multidimensional-data.md).</span></span>  
+  
+ <span data-ttu-id="27c24-119">**Editor di script**</span><span class="sxs-lookup"><span data-stu-id="27c24-119">**Script Editor**</span></span>  
+ <span data-ttu-id="27c24-120">Usare il riquadro **Editor di script** nella visualizzazione Script per modificare l'intero script del cubo e nella visualizzazione Form per modificare i comandi dello script contenuti nello script del cubo.</span><span class="sxs-lookup"><span data-stu-id="27c24-120">Use the **Script Editor** pane in script view to edit the entire cube script and in form view to edit script commands contained in the cube script.</span></span> <span data-ttu-id="27c24-121">Per altre informazioni su questo riquadro, vedere [Editor script &#40;scheda Calcoli, Progettazione cubi&#41; &#40;Analysis Services - Dati multidimensionali&#41;](script-editor-calculations-cube-designer-analysis-services-multidimensional-data.md).</span><span class="sxs-lookup"><span data-stu-id="27c24-121">For more information about this pane, see [Script Editor &#40;Calculations Tab, Cube Designer&#41; &#40;Analysis Services - Multidimensional Data&#41;](script-editor-calculations-cube-designer-analysis-services-multidimensional-data.md).</span></span>  
+  
+ <span data-ttu-id="27c24-122">**Editor form membro calcolato**</span><span class="sxs-lookup"><span data-stu-id="27c24-122">**Calculated Member Form Editor**</span></span>  
+ <span data-ttu-id="27c24-123">Usare il riquadro **Editor form membro calcolato** nella visualizzazione Form per modificare i membri calcolati nello script del cubo.</span><span class="sxs-lookup"><span data-stu-id="27c24-123">Use the **Calculated Member Form Editor** pane in form view to edit calculated members in the cube script.</span></span> <span data-ttu-id="27c24-124">Per altre informazioni su questo riquadro, vedere [Editor form membro calcolato &#40;scheda Calcoli, Progettazione cubi&#41; &#40;Analysis Services - Dati multidimensionali&#41;](calculated-member-form-editor-cube-designer-analysis-services-multidimensional-data.md).</span><span class="sxs-lookup"><span data-stu-id="27c24-124">For more information about this pane, see [Calculated Member Form Editor &#40;Calculations Tab, Cube Designer&#41; &#40;Analysis Services - Multidimensional Data&#41;](calculated-member-form-editor-cube-designer-analysis-services-multidimensional-data.md).</span></span>  
+  
+ <span data-ttu-id="27c24-125">**Editor form set denominato**</span><span class="sxs-lookup"><span data-stu-id="27c24-125">**Named Set Form Editor**</span></span>  
+ <span data-ttu-id="27c24-126">Usare il riquadro **Editor form set denominato** nella visualizzazione Form per modificare i set denominati nello script del cubo.</span><span class="sxs-lookup"><span data-stu-id="27c24-126">Use the **Named Set Form Editor** pane in form view to edit named sets in the cube script.</span></span> <span data-ttu-id="27c24-127">Per altre informazioni su questo riquadro, vedere [Editor form set denominato &#40;scheda Calcoli, Progettazione cubi&#41; &#40;Analysis Services - Dati multidimensionali&#41;](named-set-form-editor-cube-designer-analysis-services-multidimensional-data.md).</span><span class="sxs-lookup"><span data-stu-id="27c24-127">For more information about this pane, see [Named Set Form Editor &#40;Calculations Tab, Cube Designer&#41; &#40;Analysis Services - Multidimensional Data&#41;](named-set-form-editor-cube-designer-analysis-services-multidimensional-data.md).</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="27c24-128">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="27c24-128">See Also</span></span>  
+ <span data-ttu-id="27c24-129">[Oggetti Cube &#40;Analysis Services-Dati multidimensionali&#41;](multidimensional-models-olap-logical-cube-objects/cube-objects-analysis-services-multidimensional-data.md) </span><span class="sxs-lookup"><span data-stu-id="27c24-129">[Cube Objects &#40;Analysis Services - Multidimensional Data&#41;](multidimensional-models-olap-logical-cube-objects/cube-objects-analysis-services-multidimensional-data.md) </span></span>  
+ <span data-ttu-id="27c24-130">[Calcoli](multidimensional-models-olap-logical-cube-objects/calculations.md) </span><span class="sxs-lookup"><span data-stu-id="27c24-130">[Calculations](multidimensional-models-olap-logical-cube-objects/calculations.md) </span></span>  
+ <span data-ttu-id="27c24-131">[Nozioni fondamentali sullo scripting MDX &#40;Analysis Services&#41;](multidimensional-models/mdx/mdx-scripting-fundamentals-analysis-services.md) </span><span class="sxs-lookup"><span data-stu-id="27c24-131">[MDX Scripting Fundamentals &#40;Analysis Services&#41;](multidimensional-models/mdx/mdx-scripting-fundamentals-analysis-services.md) </span></span>  
+ <span data-ttu-id="27c24-132">[Progettazione cubi &#40;Analysis Services-Dati multidimensionali&#41;](cube-designer-analysis-services-multidimensional-data.md) </span><span class="sxs-lookup"><span data-stu-id="27c24-132">[Cube Designer &#40;Analysis Services - Multidimensional Data&#41;](cube-designer-analysis-services-multidimensional-data.md) </span></span>  
+ [<span data-ttu-id="27c24-133">Creare set denominati</span><span class="sxs-lookup"><span data-stu-id="27c24-133">Create Named Sets</span></span>](multidimensional-models/create-named-sets.md)  
+  
+  

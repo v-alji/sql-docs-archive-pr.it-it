@@ -1,0 +1,81 @@
+---
+title: Visualizzare e risolvere i conflitti di dati per le pubblicazioni di tipo merge (SQL Server Management Studio) | Microsoft Docs
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: replication
+ms.topic: conceptual
+helpviewer_keywords:
+- merge replication conflict resolution [SQL Server replication], viewing conflicts
+- viewing conflict information
+- conflict resolution [SQL Server replication], merge replication
+ms.assetid: aeee9546-4480-49f9-8b1e-c71da1f056c7
+author: MashaMSFT
+ms.author: mathoma
+ms.openlocfilehash: 77aa9ece0073149c017f6eca35a756b22751a74b
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87627179"
+---
+# <a name="view-and-resolve-data-conflicts-for-merge-publications-sql-server-management-studio"></a><span data-ttu-id="c5762-102">Visualizzazione e risoluzione di conflitti di dati per le pubblicazioni di tipo merge (SQL Server Management Studio)</span><span class="sxs-lookup"><span data-stu-id="c5762-102">View and Resolve Data Conflicts for Merge Publications (SQL Server Management Studio)</span></span>
+  <span data-ttu-id="c5762-103">I conflitti nella replica di tipo merge vengono risolti in base al sistema di risoluzione specificato per ogni articolo.</span><span class="sxs-lookup"><span data-stu-id="c5762-103">Conflicts in merge replication are resolved based on the resolver specified for each article.</span></span> <span data-ttu-id="c5762-104">Per impostazione predefinita, i conflitti vengono risolti senza che sia necessario l'intervento dell'utente.</span><span class="sxs-lookup"><span data-stu-id="c5762-104">By default, conflicts are resolved without the need for user intervention.</span></span> <span data-ttu-id="c5762-105">È tuttavia possibile visualizzare i conflitti e modificare il risultato della risoluzione nel Visualizzatore conflitti di replica [!INCLUDE[msCoName](../../includes/msconame-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="c5762-105">But conflicts can be viewed, and the outcome of the resolution can be changed, in the [!INCLUDE[msCoName](../../includes/msconame-md.md)] Replication Conflict Viewer.</span></span>  
+  
+ <span data-ttu-id="c5762-106">I dati dei conflitti sono disponibili nel Visualizzatore conflitti di replica per l'intervallo di tempo specificato per il periodo di memorizzazione dei conflitti, che per impostazione predefinita è di 14 giorni.</span><span class="sxs-lookup"><span data-stu-id="c5762-106">Conflict data is available in the Replication Conflict Viewer for the amount of time specified for the conflict retention period (with a default of 14 days).</span></span> <span data-ttu-id="c5762-107">Per impostare il periodo di memorizzazione dei conflitti, eseguire una delle operazioni seguenti:</span><span class="sxs-lookup"><span data-stu-id="c5762-107">To set the conflict retention period, either:</span></span>  
+  
+-   <span data-ttu-id="c5762-108">Specificare un valore di memorizzazione per il **@conflict_retention** parametro di [sp_addmergepublication &#40;&#41;Transact-SQL ](/sql/relational-databases/system-stored-procedures/sp-addmergepublication-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="c5762-108">Specify a retention value for the **@conflict_retention** parameter of [sp_addmergepublication &#40;Transact-SQL&#41;](/sql/relational-databases/system-stored-procedures/sp-addmergepublication-transact-sql).</span></span>  
+  
+-   <span data-ttu-id="c5762-109">Specificare il valore **conflict_retention** per il **@property** parametro e un valore di conservazione per il **@value** parametro di [SP_CHANGEMERGEPUBLICATION &#40;&#41;Transact-SQL ](/sql/relational-databases/system-stored-procedures/sp-changemergepublication-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="c5762-109">Specify a value of **conflict_retention** for the **@property** parameter and a retention value for the **@value** parameter of [sp_changemergepublication &#40;Transact-SQL&#41;](/sql/relational-databases/system-stored-procedures/sp-changemergepublication-transact-sql).</span></span>  
+  
+ <span data-ttu-id="c5762-110">Per impostazione predefinita, le informazioni sui conflitti vengono archiviate:</span><span class="sxs-lookup"><span data-stu-id="c5762-110">By default, conflict information is stored:</span></span>  
+  
+-   <span data-ttu-id="c5762-111">Nel server di pubblicazione e nel Sottoscrittore se il livello di compatibilità della pubblicazione è pari a 90RTM o superiore.</span><span class="sxs-lookup"><span data-stu-id="c5762-111">At the Publisher and Subscriber if the publication compatibility level is 90RTM or higher.</span></span>  
+  
+-   <span data-ttu-id="c5762-112">Nel server di pubblicazione se il livello di compatibilità della pubblicazione è inferiore a 80RTM.</span><span class="sxs-lookup"><span data-stu-id="c5762-112">At the Publisher if the publication compatibility level is lower than 80RTM.</span></span>  
+  
+-   <span data-ttu-id="c5762-113">Nel server di pubblicazione se i Sottoscrittori eseguono [!INCLUDE[ssEW](../../includes/ssew-md.md)].</span><span class="sxs-lookup"><span data-stu-id="c5762-113">At the Publisher if Subscribers are running [!INCLUDE[ssEW](../../includes/ssew-md.md)].</span></span> <span data-ttu-id="c5762-114">I dati in conflitto non possono essere archiviati nei sottoscrittori di [!INCLUDE[ssEW](../../includes/ssew-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="c5762-114">Conflict data cannot be stored on [!INCLUDE[ssEW](../../includes/ssew-md.md)] Subscribers.</span></span>  
+  
+ <span data-ttu-id="c5762-115">L'archivio delle informazioni sui conflitti viene controllato dalla proprietà **conflict_logging** della pubblicazione.</span><span class="sxs-lookup"><span data-stu-id="c5762-115">Storage of conflict information is controlled by the **conflict_logging** publication property.</span></span> <span data-ttu-id="c5762-116">Per altre informazioni, vedere [sp_addmergepublication &#40;Transact-SQL&#41;](/sql/relational-databases/system-stored-procedures/sp-addmergepublication-transact-sql) e [sp_changemergepublication &#40;Transact-SQL&#41;](/sql/relational-databases/system-stored-procedures/sp-changemergepublication-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="c5762-116">For more information, see [sp_addmergepublication &#40;Transact-SQL&#41;](/sql/relational-databases/system-stored-procedures/sp-addmergepublication-transact-sql) and [sp_changemergepublication &#40;Transact-SQL&#41;](/sql/relational-databases/system-stored-procedures/sp-changemergepublication-transact-sql).</span></span>  
+  
+ <span data-ttu-id="c5762-117">I conflitti possono inoltre essere risolti in modo interattivo durante la sincronizzazione tramite il sistema di risoluzione interattivo [!INCLUDE[msCoName](../../includes/msconame-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="c5762-117">Conflicts can also be resolved interactively during synchronization using the [!INCLUDE[msCoName](../../includes/msconame-md.md)] Interactive Resolver.</span></span> <span data-ttu-id="c5762-118">Il sistema di risoluzione interattivo è disponibile tramite Gestione sincronizzazione [!INCLUDE[msCoName](../../includes/msconame-md.md)] Windows.</span><span class="sxs-lookup"><span data-stu-id="c5762-118">The Interactive Resolver is available through the [!INCLUDE[msCoName](../../includes/msconame-md.md)] Windows Synchronization Manager.</span></span> <span data-ttu-id="c5762-119">Per altre informazioni, vedere [Sincronizzare una sottoscrizione mediante Gestione sincronizzazione Microsoft Windows &#40;Gestione sincronizzazione Microsoft Windows&#41;](synchronize-a-subscription-using-windows-synchronization-manager.md).</span><span class="sxs-lookup"><span data-stu-id="c5762-119">For more information, see [Synchronize a Subscription Using Windows Synchronization Manager &#40;Windows Synchronization Manager&#41;](synchronize-a-subscription-using-windows-synchronization-manager.md).</span></span>  
+  
+### <a name="to-view-and-resolve-conflicts-for-merge-publications"></a><span data-ttu-id="c5762-120">Per visualizzare e risolvere i conflitti relativi alle pubblicazioni di tipo merge</span><span class="sxs-lookup"><span data-stu-id="c5762-120">To view and resolve conflicts for merge publications</span></span>  
+  
+1.  <span data-ttu-id="c5762-121">Connettersi al server di pubblicazione, o al Sottoscrittore, se appropriato [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] , in e quindi espandere il nodo del server.</span><span class="sxs-lookup"><span data-stu-id="c5762-121">Connect to the Publisher (or Subscriber if appropriate) in [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)], and then expand the server node.</span></span>  
+  
+2.  <span data-ttu-id="c5762-122">Espandere la cartella **Replica** e quindi la cartella **Pubblicazioni locali** .</span><span class="sxs-lookup"><span data-stu-id="c5762-122">Expand the **Replication** folder, and then expand the **Local Publications** folder.</span></span>  
+  
+3.  <span data-ttu-id="c5762-123">Fare clic con il pulsante destro del mouse sulla pubblicazione per la quale si desidera visualizzare i conflitti e quindi scegliere **Visualizza conflitti**.</span><span class="sxs-lookup"><span data-stu-id="c5762-123">Right-click the publication for which you want to view conflicts, and then click **View Conflicts**.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="c5762-124">Se è stato specificato il valore **'subscriber'** per la proprietà **conflict_logging** , la voce di menu **Visualizza conflitti** non sarà disponibile.</span><span class="sxs-lookup"><span data-stu-id="c5762-124">If you specified a value of **'subscriber'** for the **conflict_logging** property, the **View Conflicts** menu option is not available.</span></span> <span data-ttu-id="c5762-125">Per visualizzare i conflitti, avviare ConflictViewer.exe dal prompt dei comandi.</span><span class="sxs-lookup"><span data-stu-id="c5762-125">To view conflicts, start ConflictViewer.exe from the command prompt.</span></span> <span data-ttu-id="c5762-126">Per impostazione predefinita, ConflictViewer.exe si trova nella directory Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE.</span><span class="sxs-lookup"><span data-stu-id="c5762-126">By default, ConflictViewer.exe is located in the following directory: Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE.</span></span> <span data-ttu-id="c5762-127">Per un elenco di parametri di avvio validi, eseguire ConflictViewer.exe -?.</span><span class="sxs-lookup"><span data-stu-id="c5762-127">For a list of valid startup parameters, run ConflictViewer.exe -?.</span></span>  
+  
+4.  <span data-ttu-id="c5762-128">Nella finestra di dialogo **Seleziona tabella con conflitti** selezionare un database, una pubblicazione e una tabella per cui visualizzare i conflitti.</span><span class="sxs-lookup"><span data-stu-id="c5762-128">In the **Select Conflict Table** dialog box, select a database, publication, and table for which to view conflicts.</span></span>  
+  
+5.  <span data-ttu-id="c5762-129">Nel Visualizzatore conflitti di replica è possibile:</span><span class="sxs-lookup"><span data-stu-id="c5762-129">In the Replication Conflict Viewer, you can:</span></span>  
+  
+    -   <span data-ttu-id="c5762-130">Filtrare le righe con i pulsanti a destra della griglia superiore.</span><span class="sxs-lookup"><span data-stu-id="c5762-130">Filter rows with the buttons to the right of the upper grid.</span></span>  
+  
+    -   <span data-ttu-id="c5762-131">Selezionare una riga nella griglia superiore per visualizzare le informazioni su tale riga nella griglia inferiore.</span><span class="sxs-lookup"><span data-stu-id="c5762-131">Select a row in the upper grid to display information on that row in the lower grid.</span></span>  
+  
+    -   <span data-ttu-id="c5762-132">Selezionare una o più righe nella griglia superiore e quindi fare clic su **Rimuovi**, che equivale a fare clic sul pulsante **Invia riga in conflitto confermata** , senza apportare alcuna modifica ai dati.</span><span class="sxs-lookup"><span data-stu-id="c5762-132">Select one or more rows in the upper grid, and then click **Remove**, which is equivalent to clicking the **Submit Winner** button (without making any changes to the data).</span></span>  
+  
+    -   <span data-ttu-id="c5762-133">Fare clic sul pulsante delle proprietà (**...**) per visualizzare altre informazioni su una colonna coinvolta in un conflitto.</span><span class="sxs-lookup"><span data-stu-id="c5762-133">Click the properties button (**...**) to view more information on a column involved in a conflict.</span></span>  
+  
+    -   <span data-ttu-id="c5762-134">Modificare i dati nella colonna **Riga in conflitto confermata** o **Riga in conflitto ignorata** prima di inviare i dati, che sono di sola lettura se la colonna è grigia.</span><span class="sxs-lookup"><span data-stu-id="c5762-134">Edit data in the **Conflict winner** or **Conflict loser** column before submitting the data (data is read-only if the column is gray).</span></span>  
+  
+    -   <span data-ttu-id="c5762-135">Fare clic su **Invia riga in conflitto confermata** per accettare la riga designata come riga confermata.</span><span class="sxs-lookup"><span data-stu-id="c5762-135">Click **Submit Winner** to accept the row designated as the winner of the conflict.</span></span>  
+  
+    -   <span data-ttu-id="c5762-136">Fare clic su **Invia riga in conflitto ignorata** per non accettare la risoluzione e per propagare a tutti i nodi della topologia il valore designato come ignorato.</span><span class="sxs-lookup"><span data-stu-id="c5762-136">Click **Submit Loser** to override the resolution and to propagate the value designated as the loser of the conflict to all nodes in the topology.</span></span>  
+  
+    -   <span data-ttu-id="c5762-137">Selezionare **Registra informazioni dettagliate sul conflitto** per registrare i dati del conflitto in un file.</span><span class="sxs-lookup"><span data-stu-id="c5762-137">Select **Log the details of this conflict** to log conflict data to a file.</span></span> <span data-ttu-id="c5762-138">Per specificare un percorso per il file, scegliere **Opzioni** dal menu **Visualizza**.</span><span class="sxs-lookup"><span data-stu-id="c5762-138">To specify a location for the file, point to the **View** menu, and then click **Options**.</span></span> <span data-ttu-id="c5762-139">Immettere un valore o fare clic sul pulsante Sfoglia (**...**) e quindi passare al file appropriato.</span><span class="sxs-lookup"><span data-stu-id="c5762-139">Enter a value, or click the browse button (**...**), and then navigate to the appropriate file.</span></span> <span data-ttu-id="c5762-140">Fare clic su **OK** per chiudere la finestra di dialogo **Opzioni** .</span><span class="sxs-lookup"><span data-stu-id="c5762-140">Click **OK** to exit the **Options** dialog box.</span></span>  
+  
+6.  <span data-ttu-id="c5762-141">Chiudere il Visualizzatore conflitti di replica.</span><span class="sxs-lookup"><span data-stu-id="c5762-141">Close the Replication Conflict Viewer.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="c5762-142">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="c5762-142">See Also</span></span>  
+ <span data-ttu-id="c5762-143">[Advanced Merge Replication Conflict Detection and Resolution](merge/advanced-merge-replication-conflict-detection-and-resolution.md) </span><span class="sxs-lookup"><span data-stu-id="c5762-143">[Advanced Merge Replication Conflict Detection and Resolution](merge/advanced-merge-replication-conflict-detection-and-resolution.md) </span></span>  
+ [<span data-ttu-id="c5762-144">Specificare un sistema di risoluzione dei conflitti dell'articolo di merge</span><span class="sxs-lookup"><span data-stu-id="c5762-144">Specify a Merge Article Resolver</span></span>](publish/specify-a-merge-article-resolver.md)  
+  
+  

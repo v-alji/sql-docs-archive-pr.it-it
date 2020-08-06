@@ -1,0 +1,66 @@
+---
+title: Definire query denominate in una vista origine dati (Analysis Services) | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: analysis-services
+ms.topic: conceptual
+helpviewer_keywords:
+- named queries [Analysis Services], creating
+- modifying named queries
+- data source views [Analysis Services], named queries
+ms.assetid: f09ba8aa-950e-4c0d-961e-970de13200be
+author: minewiskan
+ms.author: owend
+ms.openlocfilehash: dfe2dbc6081e0c33f681ba894b16057c8890e0b0
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87626362"
+---
+# <a name="define-named-queries-in-a-data-source-view-analysis-services"></a><span data-ttu-id="b3675-102">Definire query denominate in una vista origine dati (Analysis Services)</span><span class="sxs-lookup"><span data-stu-id="b3675-102">Define Named Queries in a Data Source View (Analysis Services)</span></span>
+  <span data-ttu-id="b3675-103">Una query denominata è un'espressione SQL rappresentata come tabella.</span><span class="sxs-lookup"><span data-stu-id="b3675-103">A named query is a SQL expression represented as a table.</span></span> <span data-ttu-id="b3675-104">In una query denominata è possibile specificare un'espressione SQL per la selezione di righe e colonne restituite da una o più tabelle in una o più origini dati.</span><span class="sxs-lookup"><span data-stu-id="b3675-104">In a named query, you can specify an SQL expression to select rows and columns returned from one or more tables in one or more data sources.</span></span> <span data-ttu-id="b3675-105">Una query denominata è simile a qualsiasi altra tabella in una vista origine dati con righe e relazioni, con la differenza che la query denominata è basata su un'espressione.</span><span class="sxs-lookup"><span data-stu-id="b3675-105">A named query is like any other table in a data source view (DSV) with rows and relationships, except that the named query is based on an expression.</span></span>  
+  
+ <span data-ttu-id="b3675-106">Una query denominata consente di estendere lo schema relazionale delle tabelle esistenti in una vista origine dati senza modificare l'origine dati sottostante.</span><span class="sxs-lookup"><span data-stu-id="b3675-106">A named query lets you extend the relational schema of existing tables in DSV without modifying the underlying data source.</span></span> <span data-ttu-id="b3675-107">Una serie di query denominate può, ad esempio, essere utilizzata per suddividere una tabella delle dimensioni complessa in tabelle delle dimensioni più piccole e più semplici, da utilizzare nelle dimensioni del database.</span><span class="sxs-lookup"><span data-stu-id="b3675-107">For example, a series of named queries can be used to split up a complex dimension table into smaller, simpler dimension tables for use in database dimensions.</span></span> <span data-ttu-id="b3675-108">È inoltre possibile utilizzare una query denominata per unire in join più tabelle di database di una o più origini dati in una singola tabella della vista origine dati.</span><span class="sxs-lookup"><span data-stu-id="b3675-108">A named query can also be used to join multiple database tables from one or more data sources into a single data source view table.</span></span>  
+  
+## <a name="creating-a-named-query"></a><span data-ttu-id="b3675-109">Creazione di una query denominata</span><span class="sxs-lookup"><span data-stu-id="b3675-109">Creating a Named Query</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="b3675-110">Non è possibile aggiungere un calcolo denominato a una query denominata, né basare una query denominata su una tabella contenente un calcolo denominato.</span><span class="sxs-lookup"><span data-stu-id="b3675-110">You cannot add a named calculation to a named query, nor can you base a named query on a table that contains a named calculation.</span></span>  
+  
+ <span data-ttu-id="b3675-111">Quando si crea una query denominata è necessario specificare un nome, la query SQL che restituisce le colonne e i dati per la tabella e, facoltativamente, una descrizione della query denominata.</span><span class="sxs-lookup"><span data-stu-id="b3675-111">When you create a named query, you specify a name, the SQL query returning the columns and data for the table, and optionally, a description of the named query.</span></span> <span data-ttu-id="b3675-112">L'espressione SQL può fare riferimento ad altre tabelle della vista origine dati.</span><span class="sxs-lookup"><span data-stu-id="b3675-112">The SQL expression can refer to other tables in the data source view.</span></span> <span data-ttu-id="b3675-113">Dopo avere definito la query denominata, la query SQL in una query denominata viene inviata al provider dell'origine dei dati e convalidata.</span><span class="sxs-lookup"><span data-stu-id="b3675-113">After the named query is defined, the SQL query in a named query is sent to the provider for the data source and validated as a whole.</span></span> <span data-ttu-id="b3675-114">Se il provider non rileva errori nella query SQL, la colonna viene aggiunta alla tabella.</span><span class="sxs-lookup"><span data-stu-id="b3675-114">If the provider does not find any errors in the SQL query, the column is added to the table.</span></span>  
+  
+ <span data-ttu-id="b3675-115">È necessario che le tabelle e le colonne a cui fa riferimento la query SQL non siano qualificate oppure siano qualificate solo in base al nome della tabella.</span><span class="sxs-lookup"><span data-stu-id="b3675-115">Tables and columns referenced in the SQL query should not be qualified or should be qualified by the table name only.</span></span> <span data-ttu-id="b3675-116">Per fare riferimento alla colonna SaleAmount di una tabella, ad esempio, è possibile utilizzare `SaleAmount` o `Sales.SaleAmount` , mentre `dbo.Sales.SaleAmount` genera un errore.</span><span class="sxs-lookup"><span data-stu-id="b3675-116">For example, to refer to the SaleAmount column in a table, `SaleAmount` or `Sales.SaleAmount` is valid, but `dbo.Sales.SaleAmount` generates an error.</span></span>  
+  
+ <span data-ttu-id="b3675-117">**Nota** In caso di definizione di una query denominata su un'origine dati [!INCLUDE[ssVersion2000](../../includes/ssversion2000-md.md)] o [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] 7.0, una query denominata contenente una sottoquery e una clausola GROUP BY correlate avrà esito negativo.</span><span class="sxs-lookup"><span data-stu-id="b3675-117">**Note** When defining a named query that queries a [!INCLUDE[ssVersion2000](../../includes/ssversion2000-md.md)] or [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] 7.0 data source, a named query that contains a correlated subquery and a GROUP BY clause will fail.</span></span> <span data-ttu-id="b3675-118">Per altre informazioni, vedere l'articolo [Internal Error with SELECT Statement Containing Correlated Subquery and GROUP BY](https://support.microsoft.com/kb/274729) (Errore interno con l'istruzione SELECT contenente la sottoquery e GROUP BY correlati) della [!INCLUDE[msCoName](../../includes/msconame-md.md)] Knowledge Base.</span><span class="sxs-lookup"><span data-stu-id="b3675-118">For more information, see [Internal Error with SELECT Statement Containing Correlated Subquery and GROUP BY](https://support.microsoft.com/kb/274729) in the [!INCLUDE[msCoName](../../includes/msconame-md.md)] Knowledge Base.</span></span>  
+  
+## <a name="add-or-edit-a-named-query"></a><span data-ttu-id="b3675-119">Aggiungere o modificare una query denominata</span><span class="sxs-lookup"><span data-stu-id="b3675-119">Add or Edit a Named Query</span></span>  
+  
+1.  <span data-ttu-id="b3675-120">In [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)]aprire il progetto o connettersi al database contenente la vista origine dati in cui si desidera aggiungere una query denominata.</span><span class="sxs-lookup"><span data-stu-id="b3675-120">In [!INCLUDE[ssBIDevStudioFull](../../includes/ssbidevstudiofull-md.md)], open the project or connect to the database that contains the data source view in which you want to add a named query.</span></span>  
+  
+2.  <span data-ttu-id="b3675-121">In Esplora soluzioni espandere la cartella **Viste origine dati** e quindi fare doppio clic sulla vista origine dati.</span><span class="sxs-lookup"><span data-stu-id="b3675-121">In Solution Explorer, expand the **Data Source Views** folder, then double-click the data source view.</span></span>  
+  
+3.  <span data-ttu-id="b3675-122">Nel riquadro **Tabelle** o **Diagramma** fare clic con il pulsante destro del mouse su un'area vuota e quindi scegliere **Nuova query denominata**.</span><span class="sxs-lookup"><span data-stu-id="b3675-122">In the **Tables** or **Diagram** pane, right-click an open area and then click **New Named Query**.</span></span>  
+  
+4.  <span data-ttu-id="b3675-123">Nella finestra di dialogo **Crea query denominata** effettuare le operazioni seguenti:</span><span class="sxs-lookup"><span data-stu-id="b3675-123">In the **Create Named Query** dialog box, do the following:</span></span>  
+  
+    1.  <span data-ttu-id="b3675-124">Nella casella di testo **Name** digitare un nome di query.</span><span class="sxs-lookup"><span data-stu-id="b3675-124">In the **Name** text box, type a query name.</span></span>  
+  
+    2.  <span data-ttu-id="b3675-125">Facoltativamente, digitare una descrizione per la query nella casella di testo **Descrizione** .</span><span class="sxs-lookup"><span data-stu-id="b3675-125">Optionally, in the **Description** text box, type a description for the query.</span></span>  
+  
+    3.  <span data-ttu-id="b3675-126">Nella casella di riepilogo **Origine dati** selezionare l'origine dei dati su cui verrà eseguita la query denominata.</span><span class="sxs-lookup"><span data-stu-id="b3675-126">In the **Data Source** list box, select the data source against which the named query will execute.</span></span>  
+  
+    4.  <span data-ttu-id="b3675-127">Digitare la query nel riquadro inferiore oppure creare una query mediante gli strumenti grafici per la compilazione di query.</span><span class="sxs-lookup"><span data-stu-id="b3675-127">Type the query in the bottom pane, or use the graphical query building tools to create a query.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="b3675-128">L'interfaccia utente per la compilazione di query dipende dall'origine dei dati.</span><span class="sxs-lookup"><span data-stu-id="b3675-128">The query-building user interface (UI) depends on the data source.</span></span> <span data-ttu-id="b3675-129">Anziché un'interfaccia utente grafica, potrebbe venire visualizzata un'interfaccia utente generica, basata su testo.</span><span class="sxs-lookup"><span data-stu-id="b3675-129">Instead of getting a graphical UI, you can get a generic UI, which is text-based.</span></span> <span data-ttu-id="b3675-130">È possibile ottenere gli stessi risultati con interfacce utente diverse, ma è necessario eseguire procedure diverse.</span><span class="sxs-lookup"><span data-stu-id="b3675-130">You can accomplish the same things with these different UIs, but you must do so in different ways.</span></span> <span data-ttu-id="b3675-131">Per altre informazioni, vedere [Finestra di dialogo Crea query denominata o Modifica query denominata &#40;Analysis Services - Dati multidimensionali&#41;](../create-or-edit-named-query-dialog-box-analysis-services-multidimensional-data.md).</span><span class="sxs-lookup"><span data-stu-id="b3675-131">For more information, see [Create or Edit Named Query Dialog Box &#40;Analysis Services - Multidimensional Data&#41;](../create-or-edit-named-query-dialog-box-analysis-services-multidimensional-data.md).</span></span>  
+  
+5.  <span data-ttu-id="b3675-132">Fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="b3675-132">Click **OK**.</span></span> <span data-ttu-id="b3675-133">Nell'intestazione di tabella verrà visualizzata un'icona con due tabelle sovrapposte, indicante che la tabella è stata sostituita da una query denominata.</span><span class="sxs-lookup"><span data-stu-id="b3675-133">An icon showing two overlapping tables appears in the table header to indicate that the table has been replaced by a named query.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="b3675-134">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="b3675-134">See Also</span></span>  
+ <span data-ttu-id="b3675-135">[Viste origine dati in modelli multidimensionali](data-source-views-in-multidimensional-models.md) </span><span class="sxs-lookup"><span data-stu-id="b3675-135">[Data Source Views in Multidimensional Models](data-source-views-in-multidimensional-models.md) </span></span>  
+ [<span data-ttu-id="b3675-136">Definire calcoli denominati in una vista origine dati &#40;Analysis Services&#41;</span><span class="sxs-lookup"><span data-stu-id="b3675-136">Define Named Calculations in a Data Source View &#40;Analysis Services&#41;</span></span>](define-named-calculations-in-a-data-source-view-analysis-services.md)  
+  
+  
