@@ -1,0 +1,53 @@
+---
+title: Opzioni (editor di testo-tutti i linguaggi-pagina schede) | Microsoft Docs
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: database-engine
+ms.topic: conceptual
+ms.assetid: bd715d6b-f873-41d4-aa10-57b7098b61cc
+author: rothja
+ms.author: jroth
+ms.openlocfilehash: 13f791e34b2099e8c0492c25886ee6b37ef1a1a6
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87636382"
+---
+# <a name="options-text-editor---all-languages--tabs-page"></a><span data-ttu-id="312eb-102">Opzioni (Editor di testo - Tutte le lingue - pagina Schede)</span><span class="sxs-lookup"><span data-stu-id="312eb-102">Options (Text Editor - All Languages -Tabs Page)</span></span>
+  <span data-ttu-id="312eb-103">Utilizzare questa finestra di dialogo per impostare il comportamento di tabulazione in tutti e cinque gli editor di [!INCLUDE[ssManStudioFull](../includes/ssmanstudiofull-md.md)].</span><span class="sxs-lookup"><span data-stu-id="312eb-103">Use this dialog box to set the tabbing behavior in all five of the editors in [!INCLUDE[ssManStudioFull](../includes/ssmanstudiofull-md.md)].</span></span> <span data-ttu-id="312eb-104">Per visualizzare le opzioni disponibili, scegliere **Opzioni** dal menu **Strumenti**.</span><span class="sxs-lookup"><span data-stu-id="312eb-104">To display these options, click **Options** on the **Tools** menu.</span></span> <span data-ttu-id="312eb-105">Selezionare la cartella **Editor di testo**, espandere la cartella **Tutti i linguaggi**, quindi fare clic su **Tabulazioni**.</span><span class="sxs-lookup"><span data-stu-id="312eb-105">Select the **Text Editor** folder, expand the **All Languages** folder and then click **Tabs**.</span></span>  
+  
+## <a name="tabbing-options-by-editor"></a><span data-ttu-id="312eb-106">Opzioni di tabulazione in base all'editor</span><span class="sxs-lookup"><span data-stu-id="312eb-106">Tabbing Options by Editor</span></span>  
+ <span data-ttu-id="312eb-107">Per impostare le opzioni per gli editor DMX, MDX e SQL Server Compact è necessario usare le finestre di dialogo **Tutti i linguaggi**.</span><span class="sxs-lookup"><span data-stu-id="312eb-107">You must use the **All Languages** dialogs to set options for the DMX, MDX, and SQL Server Compact editors.</span></span> <span data-ttu-id="312eb-108">Le opzioni impostate in queste finestre vengono applicate anche agli editor di testo normale, Transact-SQL e XML, tuttavia, per tali editor, è possibile impostare separatamente le opzioni espandendo le sottocartelle per questi linguaggi e selezionando le relative pagine di opzioni.</span><span class="sxs-lookup"><span data-stu-id="312eb-108">Options set here are also applied to the Plain Text, Transact-SQL, and XML editors, but you can set options separately for those editors by expanding the subfolders for those languages and selecting their option pages.</span></span> <span data-ttu-id="312eb-109">Alcuni linguaggi non supportano tutte le opzioni di tabulazione.</span><span class="sxs-lookup"><span data-stu-id="312eb-109">Some languages do not support all of the tabbing options.</span></span>  
+  
+> [!CAUTION]  
+>  <span data-ttu-id="312eb-110">Se si imposta un'opzione mediante questa finestra di dialogo, ma si desidera un'impostazione diversa per gli editor di testo normale, Transact-SQL o XML, le opzioni per questi editor devono essere impostate dopo l'applicazione delle selezioni nella finestra di dialogo **Tutti i linguaggi**.</span><span class="sxs-lookup"><span data-stu-id="312eb-110">If you set an option using this dialog, but want a different setting for the Plain Text, Transact-SQL, or XML editors, you must set the options for those editors after applying your selections in the **All Languages** dialog.</span></span>  
+  
+ <span data-ttu-id="312eb-111">Se si selezionano impostazioni diverse per editor particolari, viene visualizzato il messaggio "Le impostazioni dei rientri (o delle tabulazioni) per singoli formati di testo sono in conflitto".</span><span class="sxs-lookup"><span data-stu-id="312eb-111">The message "The indentation (or tab) settings for individual text formats conflict with each other" is displayed when different settings have been selected for particular editors.</span></span> <span data-ttu-id="312eb-112">Ad esempio, questo promemoria viene visualizzato se è stata selezionata l'opzione **Blocco** per **Testo normale** e l'opzione **Nessuno** per **XML**.</span><span class="sxs-lookup"><span data-stu-id="312eb-112">For example, this reminder is displayed if the **Block indenting** option is selected for **Plain Text**, but **None** is selected for **XML**.</span></span>  
+  
+## <a name="indenting"></a><span data-ttu-id="312eb-113">Stili rientri</span><span class="sxs-lookup"><span data-stu-id="312eb-113">Indenting</span></span>  
+ <span data-ttu-id="312eb-114">**Nessuno**</span><span class="sxs-lookup"><span data-stu-id="312eb-114">**None**</span></span>  
+ <span data-ttu-id="312eb-115">Quando questa opzione è selezionata, la nuova riga creata in seguito alla pressione di INVIO non viene rientrata.</span><span class="sxs-lookup"><span data-stu-id="312eb-115">When this option is selected, the new line created when you press ENTER is not indented.</span></span> <span data-ttu-id="312eb-116">Il cursore viene posizionato in corrispondenza della prima colonna della nuova riga.</span><span class="sxs-lookup"><span data-stu-id="312eb-116">The cursor is placed at the first column of the new line.</span></span>  
+  
+ <span data-ttu-id="312eb-117">**Bloccato**</span><span class="sxs-lookup"><span data-stu-id="312eb-117">**Block**</span></span>  
+ <span data-ttu-id="312eb-118">Quando questa opzione è selezionata, la nuova riga creata in seguito al pressione di INVIO viene automaticamente rientrata utilizzando la stessa distanza con cui è stata rientrata la riga precedente.</span><span class="sxs-lookup"><span data-stu-id="312eb-118">When this option is selected, the new line created when you press ENTER is automatically indented the same distance as the previous line was indented.</span></span>  
+  
+ <span data-ttu-id="312eb-119">**Intelligenti**</span><span class="sxs-lookup"><span data-stu-id="312eb-119">**Smart**</span></span>  
+ <span data-ttu-id="312eb-120">Quando questa opzione è selezionata, la nuova riga creata in seguito alla pressione di INVIO viene posizionata in base al contesto.</span><span class="sxs-lookup"><span data-stu-id="312eb-120">When this option is selected, the new line created when you press ENTER is positioned according to the context.</span></span>  
+  
+## <a name="tabs"></a><span data-ttu-id="312eb-121">Schede</span><span class="sxs-lookup"><span data-stu-id="312eb-121">Tabs</span></span>  
+ <span data-ttu-id="312eb-122">**Dimensione tabulazione**</span><span class="sxs-lookup"><span data-stu-id="312eb-122">**Tab size**</span></span>  
+ <span data-ttu-id="312eb-123">Consente di impostare la distanza in spazi tra le tabulazioni.</span><span class="sxs-lookup"><span data-stu-id="312eb-123">Sets the distance in spaces between tab stops.</span></span> <span data-ttu-id="312eb-124">Il valore predefinito è quattro spazi.</span><span class="sxs-lookup"><span data-stu-id="312eb-124">The default is four spaces.</span></span>  
+  
+ <span data-ttu-id="312eb-125">**Dimensione rientro**</span><span class="sxs-lookup"><span data-stu-id="312eb-125">**Indent size**</span></span>  
+ <span data-ttu-id="312eb-126">Consente di impostare la dimensione in spazi di un rientro automatico.</span><span class="sxs-lookup"><span data-stu-id="312eb-126">Sets the size in spaces of an automatic indentation.</span></span> <span data-ttu-id="312eb-127">Il valore predefinito è quattro spazi.</span><span class="sxs-lookup"><span data-stu-id="312eb-127">The default is four spaces.</span></span> <span data-ttu-id="312eb-128">Per riempire la dimensione specificata verranno inseriti caratteri di tabulazione, caratteri spazio o entrambi i caratteri.</span><span class="sxs-lookup"><span data-stu-id="312eb-128">Tab characters, space characters, or both will be inserted to fill the specified size.</span></span>  
+  
+ <span data-ttu-id="312eb-129">**Inserisci spazi**</span><span class="sxs-lookup"><span data-stu-id="312eb-129">**Insert spaces**</span></span>  
+ <span data-ttu-id="312eb-130">Quando questa opzione è selezionata, durante le operazioni di rientro vengono inseriti solo caratteri spazio, non caratteri di tabulazione.</span><span class="sxs-lookup"><span data-stu-id="312eb-130">When this option is selected, indent operations insert only space characters, not tab characters.</span></span> <span data-ttu-id="312eb-131">Se, ad esempio, l'opzione **Dimensione rientro** è impostata su 5, vengono inseriti cinque caratteri spazio ogni volta che si preme il tasto TAB o si fa clic sul pulsante **Aumenta rientro** sulla barra degli strumenti della finestra principale di [!INCLUDE[ssManStudioFull](../includes/ssmanstudiofull-md.md)].</span><span class="sxs-lookup"><span data-stu-id="312eb-131">If **Indent size** is set to 5, for example, then five space characters are inserted whenever you press the TAB key or click the **Increase Indent** button on the toolbar of the [!INCLUDE[ssManStudioFull](../includes/ssmanstudiofull-md.md)] main window.</span></span>  
+  
+ <span data-ttu-id="312eb-132">**Mantieni tabulazioni**</span><span class="sxs-lookup"><span data-stu-id="312eb-132">**Keep tabs**</span></span>  
+ <span data-ttu-id="312eb-133">Quando questa opzione è selezionata, durante le operazioni di rientro viene inserito il numero massimo di caratteri di tabulazione possibile.</span><span class="sxs-lookup"><span data-stu-id="312eb-133">When this option is selected, indent operations insert as many tab characters as possible.</span></span> <span data-ttu-id="312eb-134">Ogni carattere di tabulazione riempie il numero di spazi specificato in **Dimensione tabulazione**.</span><span class="sxs-lookup"><span data-stu-id="312eb-134">Each tab character fills the number of spaces specified in **Tab size**.</span></span> <span data-ttu-id="312eb-135">Se il valore specificato per l'opzione **Dimensione rientro** non è un multiplo pari del valore specificato per l'opzione **Dimensione tabulazione**, per riempire la differenza vengono aggiunti caratteri spazio.</span><span class="sxs-lookup"><span data-stu-id="312eb-135">If **Indent size** is not an even multiple of **Tab size**, space characters are added to fill in the difference.</span></span>  
+  
+  

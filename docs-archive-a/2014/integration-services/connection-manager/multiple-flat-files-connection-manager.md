@@ -1,0 +1,79 @@
+---
+title: Gestione connessione per più file flat | Microsoft Docs
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: integration-services
+ms.topic: conceptual
+helpviewer_keywords:
+- Multiple Flat Files connection manager
+- connections [Integration Services], flat files
+- flat files
+- flat file connections [Integration Services]
+- connection managers [Integration Services], Multiple Flat Files
+- multiple flat file connections
+ms.assetid: 31fc3f7a-d323-44f5-a907-1fa3de66631a
+author: chugugrace
+ms.author: chugu
+ms.openlocfilehash: a17125fedb495daabc4838161b3260c0d5590319
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87636343"
+---
+# <a name="multiple-flat-files-connection-manager"></a><span data-ttu-id="91808-102">gestione connessione per più file flat</span><span class="sxs-lookup"><span data-stu-id="91808-102">Multiple Flat Files Connection Manager</span></span>
+  <span data-ttu-id="91808-103">Una gestione connessione per più file flat consente a un pacchetto di accedere a dati contenuti in più file flat.</span><span class="sxs-lookup"><span data-stu-id="91808-103">A Multiple Flat Files connection manager enables a package to access data in multiple flat files.</span></span> <span data-ttu-id="91808-104">Ad esempio, un'origine file flat può utilizzare una gestione connessione per più file quando l'attività Flusso di dati si trova in un contenitore Ciclo, ad esempio il contenitore Ciclo For.</span><span class="sxs-lookup"><span data-stu-id="91808-104">For example, a Flat File source can use a Multiple Flat Files connection manager when the Data Flow task is inside a loop container, such as the For Loop container.</span></span> <span data-ttu-id="91808-105">In ogni ciclo del contenitore, l'origine file flat carica dati dal nome file successivo fornito dalla gestione connessione per più file.</span><span class="sxs-lookup"><span data-stu-id="91808-105">On each loop of the container, the Flat File source loads data from the next file name that the Multiple Flat Files connection manager provides.</span></span>  
+  
+ <span data-ttu-id="91808-106">Quando si aggiunge una gestione connessione per più file flat a un pacchetto, [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] Crea una gestione connessione che in fase di esecuzione verrà risolta in una connessione per più file flat, imposta le proprietà della gestione connessione per più file flat e aggiunge la gestione connessione per più file flat alla `Connections` raccolta del pacchetto.</span><span class="sxs-lookup"><span data-stu-id="91808-106">When you add a Multiple Flat Files connection manager to a package, [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] creates a connection manager that will resolve to a Multiple Flat Files connection at run time, sets the properties on the Multiple Flat Files connection manager, and adds the Multiple Flat Files connection manager to the `Connections` collection of the package.</span></span>  
+  
+ <span data-ttu-id="91808-107">La proprietà `ConnectionManagerType` della gestione connessione viene impostata su `MULTIFLATFILE`.</span><span class="sxs-lookup"><span data-stu-id="91808-107">The `ConnectionManagerType` property of the connection manager is set to `MULTIFLATFILE`.</span></span>  
+  
+ <span data-ttu-id="91808-108">Per configurare la gestione connessione per più file flat, procedere nel modo seguente:</span><span class="sxs-lookup"><span data-stu-id="91808-108">You can configure the Multiple Flat Files connection manager in the following ways:</span></span>  
+  
+-   <span data-ttu-id="91808-109">Specificare i file, le impostazioni locali e la tabella codici da utilizzare.</span><span class="sxs-lookup"><span data-stu-id="91808-109">Specify the files, locale, and code page to use.</span></span> <span data-ttu-id="91808-110">Le impostazioni locali vengono utilizzate per interpretare i dati con formato dipendente dalla lingua, come le date, mentre la tabella codici viene utilizzata per convertire i dati stringa in formato Unicode.</span><span class="sxs-lookup"><span data-stu-id="91808-110">The locale is used to interpret locale-sensitive data such as dates, and the code page is used to convert string data to Unicode.</span></span>  
+  
+-   <span data-ttu-id="91808-111">Specificare il formato dei file.</span><span class="sxs-lookup"><span data-stu-id="91808-111">Specify the file format.</span></span> <span data-ttu-id="91808-112">È possibile utilizzare un formato delimitato, a larghezza fissa o non allineato a destra.</span><span class="sxs-lookup"><span data-stu-id="91808-112">You can use a delimited, fixed width, or ragged right format.</span></span>  
+  
+-   <span data-ttu-id="91808-113">Specificare i delimitatori della riga di intestazione, delle righe di dati e delle colonne.</span><span class="sxs-lookup"><span data-stu-id="91808-113">Specify a header row, data row, and column delimiters.</span></span> <span data-ttu-id="91808-114">I delimitatori delle colonne possono essere impostati a livello di file e sovrascritti a livello di colonna.</span><span class="sxs-lookup"><span data-stu-id="91808-114">Column delimiters can be set at the file level and overwritten at the column level.</span></span>  
+  
+-   <span data-ttu-id="91808-115">Indicare se la prima riga dei file contiene i nomi delle colonne.</span><span class="sxs-lookup"><span data-stu-id="91808-115">Indicate whether the first row in the files contains column names.</span></span>  
+  
+-   <span data-ttu-id="91808-116">Specificare un qualificatore di testo.</span><span class="sxs-lookup"><span data-stu-id="91808-116">Specify a text qualifier character.</span></span> <span data-ttu-id="91808-117">Ogni colonna può essere configurata in modo da riconoscere un qualificatore di testo.</span><span class="sxs-lookup"><span data-stu-id="91808-117">Each column can be configured to recognize a text qualifier.</span></span>  
+  
+-   <span data-ttu-id="91808-118">Impostare proprietà quali il nome, il tipo di dati e la larghezza massima delle singole colonne.</span><span class="sxs-lookup"><span data-stu-id="91808-118">Set properties such as the name, data type, and maximum width on individual columns.</span></span>  
+  
+ <span data-ttu-id="91808-119">Quando la gestione connessione per più file flat fa riferimento a più file, i percorsi dei file sono separati da una barra verticale.</span><span class="sxs-lookup"><span data-stu-id="91808-119">When the Multiple Flat Files connection manager references multiple files, the paths of the files are separated by the pipe (|) character.</span></span> <span data-ttu-id="91808-120">La proprietà `ConnectionString` della gestione connessione ha il formato seguente:</span><span class="sxs-lookup"><span data-stu-id="91808-120">The `ConnectionString` property of the connection manager has the following format:</span></span>  
+  
+ \<*path*>|\<*path*>  
+  
+ <span data-ttu-id="91808-121">Per specificare più file è inoltre possibile utilizzare caratteri jolly.</span><span class="sxs-lookup"><span data-stu-id="91808-121">You can also specify multiple files by using wildcard characters.</span></span> <span data-ttu-id="91808-122">Ad esempio, per fare riferimento a tutti i file di testo sull'unità C, il valore della `ConnectionString` proprietà può essere impostato su C: \\ \*. txt.</span><span class="sxs-lookup"><span data-stu-id="91808-122">For example, to reference all the text files on the C drive, the value of the `ConnectionString` property can be set to C:\\*.txt.</span></span>  
+  
+ <span data-ttu-id="91808-123">Se una gestione connessione per più file flat fa riferimento a più file, tutti i file devono avere lo stesso formato.</span><span class="sxs-lookup"><span data-stu-id="91808-123">If a Multiple Flat Files connection manager references multiple files, all the files must have the same format.</span></span>  
+  
+ <span data-ttu-id="91808-124">Per impostazione predefinita la gestione connessione per più file flat imposta la lunghezza delle colonne di tipo stringa su 50 caratteri.</span><span class="sxs-lookup"><span data-stu-id="91808-124">By default, the Multiple Flat Files connection manager sets the length of string columns to 50 characters.</span></span> <span data-ttu-id="91808-125">Nella finestra di dialogo **Editor gestione connessione per più file flat** è possibile valutare dati di esempio e modificare automaticamente la lunghezza di tali colonne, in modo da evitare il troncamento dei dati o il superamento della larghezza massima delle colonne.</span><span class="sxs-lookup"><span data-stu-id="91808-125">In the **Multiple Flat Files Connection Manager Editor** dialog box, you can evaluate sample data and automatically resize the length of these columns to prevent truncation of data or excess column width.</span></span> <span data-ttu-id="91808-126">La lunghezza della colonna rimane invariata per tutto il flusso di dati, a meno che non venga modificata in un'origine file flat o in una trasformazione.</span><span class="sxs-lookup"><span data-stu-id="91808-126">Unless you resize the column length in a Flat File source or a transformation, the column length remains the same throughout the data flow.</span></span> <span data-ttu-id="91808-127">Se su tali colonne viene eseguito il mapping a colonne di destinazione di larghezza inferiore, verrà visualizzato un avviso nell'interfaccia utente e in fase di esecuzione potrebbero verificarsi errori dovuti al troncamento dei dati.</span><span class="sxs-lookup"><span data-stu-id="91808-127">If these columns map to destination columns that are narrower, warnings appear in the user interface, and at run time, errors may occur due to data truncation.</span></span> <span data-ttu-id="91808-128">È possibile ridimensionare le colonne in modo che siano compatibili con le colonne di destinazione nella gestione connessione file flat, nell'origine file flat o in una trasformazione.</span><span class="sxs-lookup"><span data-stu-id="91808-128">You can resize the columns to be compatible with the destination columns in the Flat File connection manager, the Flat File source, or a transformation.</span></span> <span data-ttu-id="91808-129">Per modificare la lunghezza delle colonne di output, impostare la `Length` proprietà della colonna di output nella scheda **Proprietà input e output** della finestra di dialogo **Editor avanzato** .</span><span class="sxs-lookup"><span data-stu-id="91808-129">To modify the length of output columns, you set the `Length` property of the output column on the **Input and Output Properties** tab in the **Advanced Editor** dialog box.</span></span>  
+  
+ <span data-ttu-id="91808-130">Se, dopo avere aggiunto e configurato l'origine file flat che utilizza la gestione connessione, si modifica la lunghezza delle colonne nella gestione connessione per più file flat, non sarà necessario ridimensionare manualmente le colonne di output nell'origine file flat.</span><span class="sxs-lookup"><span data-stu-id="91808-130">If you update column lengths in the Multiple Flat Files connection manager after you have added and configured the Flat File source that uses the connection manager, you do not have to manually resize the output columns in the Flat File source.</span></span> <span data-ttu-id="91808-131">Nella finestra di dialogo **Origine file flat** è disponibile un'opzione che consente di sincronizzare i metadati delle colonne per l'origine file flat.</span><span class="sxs-lookup"><span data-stu-id="91808-131">When you open the **Flat File Source** dialog box, the Flat File source provides an option to synchronize the column metadata.</span></span>  
+  
+## <a name="configuration-of-the-multiple-flat-files-connection-manager"></a><span data-ttu-id="91808-132">Configurazione della gestione connessione per più file flat</span><span class="sxs-lookup"><span data-stu-id="91808-132">Configuration of the Multiple Flat Files Connection Manager</span></span>  
+ <span data-ttu-id="91808-133">È possibile impostare le proprietà tramite Progettazione [!INCLUDE[ssIS](../../includes/ssis-md.md)] o a livello di codice.</span><span class="sxs-lookup"><span data-stu-id="91808-133">You can set properties through [!INCLUDE[ssIS](../../includes/ssis-md.md)] Designer or programmatically.</span></span>  
+  
+ <span data-ttu-id="91808-134">Per ulteriori informazioni sulle proprietà che è possibile impostare in Progettazione [!INCLUDE[ssIS](../../includes/ssis-md.md)] , fare clic su uno degli argomenti seguenti:</span><span class="sxs-lookup"><span data-stu-id="91808-134">For more information about the properties that you can set in [!INCLUDE[ssIS](../../includes/ssis-md.md)] Designer, click one of the following topics:</span></span>  
+  
+-   [<span data-ttu-id="91808-135">Editor gestione connessione per più file flat &#40;pagina Generale&#41;</span><span class="sxs-lookup"><span data-stu-id="91808-135">Multiple Flat Files Connection Manager Editor &#40;General Page&#41;</span></span>](../general-page-of-integration-services-designers-options.md)  
+  
+-   [<span data-ttu-id="91808-136">Editor gestione connessione per più file flat &#40;pagina Colonne&#41;</span><span class="sxs-lookup"><span data-stu-id="91808-136">Multiple Flat Files Connection Manager Editor &#40;Columns Page&#41;</span></span>](../multiple-flat-files-connection-manager-editor-columns-page.md)  
+  
+-   [<span data-ttu-id="91808-137">Editor gestione connessione per più file flat &#40;pagina Avanzate&#41;</span><span class="sxs-lookup"><span data-stu-id="91808-137">Multiple Flat Files Connection Manager Editor &#40;Advanced Page&#41;</span></span>](../multiple-flat-files-connection-manager-editor-advanced-page.md)  
+  
+-   [<span data-ttu-id="91808-138">Editor gestione connessione per più file flat &#40;pagina Anteprima&#41;</span><span class="sxs-lookup"><span data-stu-id="91808-138">Multiple Flat Files Connection Manager Editor &#40;Preview Page&#41;</span></span>](../multiple-flat-files-connection-manager-editor-preview-page.md)  
+  
+ <span data-ttu-id="91808-139">Per informazioni sulla configurazione di una gestione connessione a livello di programmazione, vedere l'articolo relativo a <xref:Microsoft.SqlServer.Dts.Runtime.ConnectionManager> e [Aggiunta di connessioni a livello di programmazione](../building-packages-programmatically/adding-connections-programmatically.md).</span><span class="sxs-lookup"><span data-stu-id="91808-139">For information about configuring a connection manager programmatically, see <xref:Microsoft.SqlServer.Dts.Runtime.ConnectionManager> and [Adding Connections Programmatically](../building-packages-programmatically/adding-connections-programmatically.md).</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="91808-140">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="91808-140">See Also</span></span>  
+ <span data-ttu-id="91808-141">[Origine file flat](../data-flow/flat-file-source.md) </span><span class="sxs-lookup"><span data-stu-id="91808-141">[Flat File Source](../data-flow/flat-file-source.md) </span></span>  
+ <span data-ttu-id="91808-142">[Destinazione file flat](../data-flow/flat-file-destination.md) </span><span class="sxs-lookup"><span data-stu-id="91808-142">[Flat File Destination](../data-flow/flat-file-destination.md) </span></span>  
+ [<span data-ttu-id="91808-143">Connessioni in Integration Services &#40;SSIS&#41;</span><span class="sxs-lookup"><span data-stu-id="91808-143">Integration Services &#40;SSIS&#41; Connections</span></span>](integration-services-ssis-connections.md)  
+  
+  
