@@ -1,0 +1,46 @@
+---
+title: Ulteriori esempi di componente script | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: integration-services
+ms.topic: reference
+dev_langs:
+- VB
+helpviewer_keywords:
+- Script component [Integration Services], examples
+ms.assetid: 849dd38a-abb5-4702-a413-882aae3980a5
+author: chugugrace
+ms.author: chugu
+ms.openlocfilehash: 897ca075674f5c3dbaf355390fe8346580bf638a
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87629928"
+---
+# <a name="additional-script-component-examples"></a><span data-ttu-id="aeb90-102">Ulteriori esempi di componente script</span><span class="sxs-lookup"><span data-stu-id="aeb90-102">Additional Script Component Examples</span></span>
+  <span data-ttu-id="aeb90-103">Il componente script è uno strumento configurabile che è possibile utilizzare nel flusso di dati di un pacchetto per rispondere ai requisiti non soddisfatti dalle origini, dalle trasformazioni e dalle destinazioni incluse in [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="aeb90-103">The Script component is a configurable tool that you can use in the data flow of a package to fill almost any requirement that is not met by the sources, transformations, and destinations that are included with [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)].</span></span> <span data-ttu-id="aeb90-104">Questa sezione contiene esempi di codice del componente script che dimostrano i vari tipi di funzionalità disponibili.</span><span class="sxs-lookup"><span data-stu-id="aeb90-104">This section contains Script component code samples that demonstrate the various types of functionality that are available.</span></span>  
+  
+ <span data-ttu-id="aeb90-105">Per esempi che dimostrano come configurare il componente script come origine, trasformazione o destinazione di base, vedere [Sviluppo di tipi specifici di componenti script](../extending-packages-scripting-data-flow-script-component-types/developing-specific-types-of-script-components.md).</span><span class="sxs-lookup"><span data-stu-id="aeb90-105">For samples that demonstrate how to configure the Script component as a basic source, transformation, or destination, see [Developing Specific Types of Script Components](../extending-packages-scripting-data-flow-script-component-types/developing-specific-types-of-script-components.md).</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="aeb90-106">Se si desidera creare componenti da riutilizzare più facilmente con più attività Flusso di dati e più pacchetti, è possibile utilizzare il codice di questi esempi di componente script come punto iniziale per i componenti del flusso di dati personalizzati.</span><span class="sxs-lookup"><span data-stu-id="aeb90-106">If you want to create components that you can more easily reuse across multiple Data Flow tasks and multiple packages, consider using the code in these Script component samples as the starting point for custom data flow components.</span></span> <span data-ttu-id="aeb90-107">Per altre informazioni, vedere [Sviluppo di un componente del flusso di dati personalizzato](../extending-packages-custom-objects/data-flow/developing-a-custom-data-flow-component.md).</span><span class="sxs-lookup"><span data-stu-id="aeb90-107">For more information, see [Developing a Custom Data Flow Component](../extending-packages-custom-objects/data-flow/developing-a-custom-data-flow-component.md).</span></span>  
+  
+## <a name="in-this-section"></a><span data-ttu-id="aeb90-108">Contenuto della sezione</span><span class="sxs-lookup"><span data-stu-id="aeb90-108">In This Section</span></span>  
+ [<span data-ttu-id="aeb90-109">Simulazione di un output degli errori per il componente script</span><span class="sxs-lookup"><span data-stu-id="aeb90-109">Simulating an Error Output for the Script Component</span></span>](../extending-packages-scripting-data-flow-script-component-examples/simulating-an-error-output-for-the-script-component.md)  
+ <span data-ttu-id="aeb90-110">Il componente script non supporta un output degli errori standard, ma è possibile simularlo con pochi interventi aggiuntivi di configurazione e codice.</span><span class="sxs-lookup"><span data-stu-id="aeb90-110">The Script component does not support a standard error output, but you can simulate a standard error output with very little additional configuration and coding.</span></span>  
+  
+ [<span data-ttu-id="aeb90-111">Ottimizzazione di un output degli errori con il componente script</span><span class="sxs-lookup"><span data-stu-id="aeb90-111">Enhancing an Error Output with the Script Component</span></span>](../extending-packages-scripting-data-flow-script-component-examples/enhancing-an-error-output-with-the-script-component.md)  
+ <span data-ttu-id="aeb90-112">Viene descritto e illustrato come aggiungere ulteriori informazioni in un output degli errori standard tramite il componente script.</span><span class="sxs-lookup"><span data-stu-id="aeb90-112">Explains and demonstrates how to add additional information to a standard error output by using the Script component.</span></span>  
+  
+ [<span data-ttu-id="aeb90-113">Creazione di una destinazione ODBC con il componente script</span><span class="sxs-lookup"><span data-stu-id="aeb90-113">Creating an ODBC Destination with the Script Component</span></span>](../extending-packages-scripting-data-flow-script-component-examples/creating-an-odbc-destination-with-the-script-component.md)  
+ <span data-ttu-id="aeb90-114">Viene descritto e illustrato come creare una destinazione del flusso di dati ODBC tramite il componente script.</span><span class="sxs-lookup"><span data-stu-id="aeb90-114">Explains and demonstrates how to create an ODBC data flow destination by using the Script component.</span></span>  
+  
+ [<span data-ttu-id="aeb90-115">Analisi di formati di file di testo non standard con il componente script</span><span class="sxs-lookup"><span data-stu-id="aeb90-115">Parsing Non-Standard Text File Formats with the Script Component</span></span>](../extending-packages-scripting-data-flow-script-component-examples/parsing-non-standard-text-file-formats-with-the-script-component.md)  
+ <span data-ttu-id="aeb90-116">Viene descritto e illustrato come analizzare due formati di file di testo diversi non standard in tabelle di destinazione.</span><span class="sxs-lookup"><span data-stu-id="aeb90-116">Explains and demonstrates how to parse two different non-standard text file formats into destination tables.</span></span>  
+  
+<span data-ttu-id="aeb90-117">![Integration Services icona (piccola)](../media/dts-16.gif "Icona di Integration Services (piccola)")  **rimane aggiornata con Integration Services**</span><span class="sxs-lookup"><span data-stu-id="aeb90-117">![Integration Services icon (small)](../media/dts-16.gif "Integration Services icon (small)")  **Stay Up to Date with Integration Services**</span></span><br /> <span data-ttu-id="aeb90-118">Per i download, gli articoli, gli esempi e i video Microsoft più recenti, oltre alle soluzioni selezionate dalla community, visitare la pagina [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] sul sito MSDN:</span><span class="sxs-lookup"><span data-stu-id="aeb90-118">For the latest downloads, articles, samples, and videos from Microsoft, as well as selected solutions from the community, visit the [!INCLUDE[ssISnoversion](../../includes/ssisnoversion-md.md)] page on MSDN:</span></span><br /><br /> [<span data-ttu-id="aeb90-119">Visitare la pagina relativa a Integration Services su MSDN</span><span class="sxs-lookup"><span data-stu-id="aeb90-119">Visit the Integration Services page on MSDN</span></span>](https://go.microsoft.com/fwlink/?LinkId=136655)<br /><br /> <span data-ttu-id="aeb90-120">Per ricevere una notifica automatica su questi aggiornamenti, sottoscrivere i feed RSS disponibili nella pagina.</span><span class="sxs-lookup"><span data-stu-id="aeb90-120">For automatic notification of these updates, subscribe to the RSS feeds available on the page.</span></span>  
+  
+  
