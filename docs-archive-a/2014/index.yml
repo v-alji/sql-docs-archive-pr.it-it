@@ -1,0 +1,128 @@
+### YamlMime:Landing
+title: Documentazione di SQL Server 2014
+summary: Microsoft SQL Server 2014 locale è un database relazionale.
+metadata:
+  title: Argomenti di SQL Server 2014
+  description: Scegliere l'area di SQL Server database relazionale locale 2014 o i prodotti e i servizi correlati a cui si è interessati.
+  ms.prod: sql
+  ms.topic: landing-page
+  author: MightyPen
+  ms.author: genemi
+  ms.date: 07/19/2020
+  ms.openlocfilehash: b730593f26876a9138bc23b4e1679e950f90476c
+  ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 08/04/2020
+  ms.locfileid: "87624893"
+landingContent:
+- title: Articoli specifici
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Novità di SQL Server 2014
+      url: sql-server/what-s-new-in-sql-server-2016.md?view=sql-server-2014
+    - text: Versioni precedenti 2012-2005
+      url: /sql/toc/previous-versions-sql-server?view=sql-server-ver15
+    - text: Ultima versione di SQL Server
+      url: /sql/sql-server/index?view=sql-server-ver15
+    - text: Dati unificati nell'ultima versione di SQL
+      url: https://www.microsoft.com/sql-server/
+- title: Sviluppo back-end
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Panoramica del motore
+      url: database-engine/sql-server-database-engine-overview.md?view=sql-server-2014
+  - linkListType: reference
+    links:
+    - text: T-SQL in documenti offline di SQL 2014
+      url: sql-server/sql-server-offline-documentation.md?view=sql-server-2014
+    - text: CREARE DATABASE e altre T-SQL
+      url: /sql/t-sql/statements/create-database-transact-sql?view=sql-server-2016
+    - text: CREATE TABLE e altre T-SQL
+      url: /sql/t-sql/statements/create-table-transact-sql?view=sql-server-2016
+    - text: SELECT - JOIN - GROUP BY
+      url: /sql/t-sql/queries/select-transact-sql?view=sql-server-2016
+- title: Sviluppo back-end avanzato
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: FOR XML
+      url: relational-databases/xml/xml-data-sql-server.md?view=sql-server-2014
+  - linkListType: architecture
+    links:
+    - text: Integrazione di CLR .NET
+      url: relational-databases/clr-integration/common-language-runtime-integration-overview.md?view=sql-server-2014
+    - text: Tabelle e indici partizionati
+      url: relational-databases/partitions/partitioned-tables-and-indexes.md?view=sql-server-2014
+    - text: OLTP in memoria
+      url: relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization.md?view=sql-server-2014
+    - text: Stored procedure compilate in modo nativo
+      url: relational-databases/in-memory-oltp/native-compilation-of-tables-and-stored-procedures.md?view=sql-server-2014
+    - text: Indici columnstore
+      url: relational-databases/indexes/columnstore-indexes-described.md?view=sql-server-2014
+- title: Amministrazione
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Installare SQL Server
+      url: database-engine/install-windows/install-sql-server.md?view=sql-server-2014
+  - linkListType: overview
+    links:
+    - text: Ripristino e continuità
+      url: relational-databases/backup-restore/complete-database-restores-simple-recovery-model.md?view=sql-server-2014
+    - text: Sicurezza
+      url: relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database.md?view=sql-server-2014
+    - text: Gestione configurazione
+      url: tools/configuration-manager/sql-server-configuration-manager-help.md?view=sql-server-2014
+    - text: Opzioni di sp_configure a livello di server
+      url: relational-databases/databases/database-properties-options-page.md?view=sql-server-2014
+    - text: Opzioni di avvio del database
+      url: database-engine/configure-windows/database-engine-service-startup-options.md?view=sql-server-2014
+  - linkListType: architecture
+    links:
+    - text: Replica
+      url: relational-databases/replication/sql-server-replication.md?view=sql-server-2014
+    - text: Monitoraggio e ottimizzazione delle prestazioni
+      url: relational-databases/performance/monitor-and-tune-for-performance.md?view=sql-server-2014
+    - text: Ottimizzazione guidata motore di database (DTA)
+      url: relational-databases/performance/database-engine-tuning-advisor.md?view=sql-server-2014
+    - text: SQL Server Profiler
+      url: tools/sql-server-profiler/sql-server-profiler.md?view=sql-server-2014
+- title: Amministrazione dati
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Importazione ed esportazione bulk di dati
+      url: relational-databases/import-export/bulk-import-and-export-of-data-sql-server.md?view=sql-server-2014
+    - text: Programma per la copia bulk (BCP.exe)
+      url: tools/bcp-utility.md?view=sql-server-2014
+    - text: Compressione dei dati
+      url: relational-databases/data-compression/data-compression.md?view=sql-server-2014
+  - linkListType: architecture
+    links:
+    - text: Data Quality Services(DQS)
+      url: data-quality-services/data-quality-services.md?view=sql-server-2014
+    - text: Master Data Services (MDS)
+      url: master-data-services/master-data-services.md?view=sql-server-2014
+- title: Sviluppo front-end
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Connessione a SQL Server
+      url: relational-databases/lesson-1-connecting-to-the-database-engine.md?view=sql-server-2014
+  - linkListType: overview
+    links:
+    - text: Oggetti SMO (SQL Server Management Objects)
+      url: relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide.md?view=sql-server-2014
+- title: Servizi client
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Analysis Services (SSAS)
+      url: analysis-services/analysis-services.md?view=sql-server-2014
+    - text: Integration Services (SSIS)
+      url: integration-services/sql-server-integration-services.md?view=sql-server-2014
+    - text: Reporting Services (SSRS)
+      url: reporting-services/create-deploy-and-manage-mobile-and-paginated-reports.md?view=sql-server-2014
