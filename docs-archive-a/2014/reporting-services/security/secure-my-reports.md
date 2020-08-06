@@ -1,0 +1,62 @@
+---
+title: Proteggere i report personali | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services-native
+ms.topic: conceptual
+helpviewer_keywords:
+- denying My Reports folder access
+- private folders [Reporting Services]
+- user workspace [Reporting Services]
+- security [Reporting Services], My Reports folder
+- My Reports folder [Reporting Services]
+ms.assetid: 3b23a382-13b8-4196-9a93-7fe62d03a63c
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: b0a832133852e05c54a80b73fad8a91426840467
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87713763"
+---
+# <a name="secure-my-reports"></a><span data-ttu-id="a5468-102">Proteggere i report personali</span><span class="sxs-lookup"><span data-stu-id="a5468-102">Secure My Reports</span></span>
+  <span data-ttu-id="a5468-103">La caratteristica Report personali è un'area di lavoro gestita dall'utente nella quale è possibile eseguire varie operazioni sui report.</span><span class="sxs-lookup"><span data-stu-id="a5468-103">The My Reports feature provides a user-managed workspace for working with reports.</span></span> <span data-ttu-id="a5468-104">Per garantire che la cartella Report personali possa essere utilizzata in base alle caratteristiche per cui è stata progettata, le autorizzazioni necessarie per questa cartella sono meno restrittive rispetto a quelle di altre cartelle disponibili a livello generale.</span><span class="sxs-lookup"><span data-stu-id="a5468-104">In order to serve its intended purpose, the My Reports folder requires less restrictive permissions than other folders that are available for general use.</span></span> <span data-ttu-id="a5468-105">Per gli utenti con autorizzazioni di sola visualizzazione ed esecuzione di report in altre cartelle, potrebbe essere necessario un set di autorizzazioni più ampio che consenta di gestire le cartelle Report personali e il contenuto di cui sono proprietari.</span><span class="sxs-lookup"><span data-stu-id="a5468-105">Users who have permissions to only view and run reports in other folders might require an expanded set of permissions to manage their My Reports folders and content that they own.</span></span> [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] <span data-ttu-id="a5468-106">sono disponibili un'assegnazione e una definizione di ruoli specifici per questo scopo.</span><span class="sxs-lookup"><span data-stu-id="a5468-106">provides a specialized role assignment and role definition for this purpose.</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="a5468-107">La funzionalità Report personali è disponibile solo in Gestione report,</span><span class="sxs-lookup"><span data-stu-id="a5468-107">My Reports is available only in Report Manager.</span></span> <span data-ttu-id="a5468-108">ma non è disponibile in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)][!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)].</span><span class="sxs-lookup"><span data-stu-id="a5468-108">It is not available in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)][!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)].</span></span>  
+  
+## <a name="role-assignment-for-my-reports"></a><span data-ttu-id="a5468-109">Assegnazione di ruolo per la funzionalità Report personali</span><span class="sxs-lookup"><span data-stu-id="a5468-109">Role Assignment for My Reports</span></span>  
+ <span data-ttu-id="a5468-110">L'assegnazione di ruolo per la funzionalità Report personali include elementi predefiniti e viene creata automaticamente per ogni utente che attiva una cartella Report personali.</span><span class="sxs-lookup"><span data-stu-id="a5468-110">The role assignment for My Reports has preset elements and is automatically created for each user who activates a My Reports folder.</span></span> <span data-ttu-id="a5468-111">L'assegnazione automatica della sicurezza da parte del server di report è particolarmente utile per le organizzazioni nelle quali la funzionalità Report personali viene ampiamente utilizzata, in quanto ciò consente di evitare che gli amministratori definiscano le impostazioni di accesso per ogni utente di questa funzionalità.</span><span class="sxs-lookup"><span data-stu-id="a5468-111">Having the report server automatically assign security is especially useful for organizations that use My Reports widely because administrators do not have to enable access for each My Reports user.</span></span>  
+  
+ <span data-ttu-id="a5468-112">Un'assegnazione di ruolo per la funzionalità **Report personali** è costituita dai componenti seguenti:</span><span class="sxs-lookup"><span data-stu-id="a5468-112">A **My Reports** role assignment consists of the following elements:</span></span>  
+  
+-   <span data-ttu-id="a5468-113">La cartella Report personali dell'utente, che si trova nella cartella utenti cartelle \\ *\<username>* \My Reports.</span><span class="sxs-lookup"><span data-stu-id="a5468-113">The user's My Reports folder, which is located in Users Folders\\*\<username>* \My Reports folder.</span></span>  
+  
+-   <span data-ttu-id="a5468-114">L'account utente, che viene determinato quando la cartella Report personali viene attivata.</span><span class="sxs-lookup"><span data-stu-id="a5468-114">The user account, which is determined when the My Reports folder is activated.</span></span> <span data-ttu-id="a5468-115">La cartella viene attivata quando un utente fa clic su una cartella Report personali in Gestione report oppure quando viene eseguita la pubblicazione di un report in una cartella Report personali da Progettazione report.</span><span class="sxs-lookup"><span data-stu-id="a5468-115">A folder is activated when a user clicks a My Reports folder in Report Manager or when publishing a report to a My Reports folder from Report Designer.</span></span> <span data-ttu-id="a5468-116">La cartella viene inoltre attivata quando un utente richiede proprietà tramite il collegamento Report personali.</span><span class="sxs-lookup"><span data-stu-id="a5468-116">This folder is also activated when a user requests properties on the My Reports link.</span></span>  
+  
+-   <span data-ttu-id="a5468-117">Definizione di ruolo predefinita per la funzionalità Report personali.</span><span class="sxs-lookup"><span data-stu-id="a5468-117">The predefined role definition for My Reports.</span></span>  
+  
+## <a name="role-definition-for-my-reports"></a><span data-ttu-id="a5468-118">Definizione di ruolo per la funzionalità Report personali</span><span class="sxs-lookup"><span data-stu-id="a5468-118">Role Definition for My Reports</span></span>  
+ <span data-ttu-id="a5468-119">La definizione di ruolo per la funzionalità **Report personali** include attività che supportano la gestione del contenuto di una cartella Report personali.</span><span class="sxs-lookup"><span data-stu-id="a5468-119">The **My Reports** role definition includes tasks that support content management of a My Reports folder.</span></span> <span data-ttu-id="a5468-120">Il ruolo **Report personali** è finalizzato a un unico scopo.</span><span class="sxs-lookup"><span data-stu-id="a5468-120">The **My Reports** role is intended to be a single-purpose role.</span></span> <span data-ttu-id="a5468-121">Sebbene sia possibile sceglierlo per tutti i criteri di sicurezza a livello di elemento, è sconsigliabile utilizzarlo in questo modo per evitare che in seguito sia necessario modificarlo per soddisfare altri requisiti relativi alle cartelle.</span><span class="sxs-lookup"><span data-stu-id="a5468-121">Although you can choose it for any item-level security policy, you should avoid doing so to minimize the chance that you will modify it to accommodate other folder requirements.</span></span> <span data-ttu-id="a5468-122">Se si riserva il ruolo **Report personali** alla caratteristica Report personali, gli utenti potranno godere dei vantaggi di un sistema più coerente.</span><span class="sxs-lookup"><span data-stu-id="a5468-122">Reserving the **My Reports** role for the My Reports feature can help you maintain a consistent experience for users.</span></span>  
+  
+ <span data-ttu-id="a5468-123">Per impostazione predefinita, solo gli amministratori del server di report sono autorizzati a modificare il ruolo **Report personali** .</span><span class="sxs-lookup"><span data-stu-id="a5468-123">By default, only report server administrators modify the **My Reports** role.</span></span> <span data-ttu-id="a5468-124">È possibile personalizzare il ruolo **Report personali** modificando le attività in esso contenute.</span><span class="sxs-lookup"><span data-stu-id="a5468-124">You can customize the **My Reports** role by changing the tasks it contains.</span></span> <span data-ttu-id="a5468-125">È inoltre possibile sostituirlo con un altro ruolo.</span><span class="sxs-lookup"><span data-stu-id="a5468-125">You can also substitute a different role.</span></span>  
+  
+## <a name="denying-access-to-my-reports"></a><span data-ttu-id="a5468-126">Negazione delle autorizzazioni di accesso alla funzionalità Report personali</span><span class="sxs-lookup"><span data-stu-id="a5468-126">Denying Access to My Reports</span></span>  
+ <span data-ttu-id="a5468-127">È possibile impedire a determinati utenti di accedere alla funzionalità Report personali eseguendo le operazioni seguenti:</span><span class="sxs-lookup"><span data-stu-id="a5468-127">You can prevent users from accessing My Reports by:</span></span>  
+  
+-   <span data-ttu-id="a5468-128">Disabilitazione della funzionalità Report personali nella pagina Impostazioni sito.</span><span class="sxs-lookup"><span data-stu-id="a5468-128">Disabling My Reports on the Site Settings page.</span></span> <span data-ttu-id="a5468-129">Per altre informazioni, vedere [Abilitare e disabilitare la funzionalità Report personali](../report-server/enable-and-disable-my-reports.md).</span><span class="sxs-lookup"><span data-stu-id="a5468-129">For more information, see [Enable and Disable My Reports](../report-server/enable-and-disable-my-reports.md).</span></span>  
+  
+-   <span data-ttu-id="a5468-130">Rimozione di tutte le attività dal ruolo **Report personali** .</span><span class="sxs-lookup"><span data-stu-id="a5468-130">Removing all tasks from the **My Reports** role.</span></span>  
+  
+ <span data-ttu-id="a5468-131">Quando si disabilita la funzionalità Report personali, il collegamento alla cartella Report personali viene rimosso da Gestione report.</span><span class="sxs-lookup"><span data-stu-id="a5468-131">When you disable My Reports, the link to a My Reports folder is removed from Report Manager.</span></span> <span data-ttu-id="a5468-132">La struttura di cartelle sottostante che supporta la funzionalità Report personali, ovvero la cartella Cartelle utenti e le relative sottocartelle, sarà comunque disponibile e accessibile da un utente che ne conosce il percorso.</span><span class="sxs-lookup"><span data-stu-id="a5468-132">The underlying folder structure that supports My Reports (that is, the Users Folders folder and subfolders) is still available and can be accessed if a user knows the folder path.</span></span> <span data-ttu-id="a5468-133">Se si rimuovono le attività dal ruolo **Report personali** , l'accesso alla cartella verrà impedito.</span><span class="sxs-lookup"><span data-stu-id="a5468-133">Removing tasks from **My Reports** role ensures that access is prevented.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="a5468-134">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="a5468-134">See Also</span></span>  
+ <span data-ttu-id="a5468-135">[Garantire la sicurezza di report e risorse](secure-reports-and-resources.md) </span><span class="sxs-lookup"><span data-stu-id="a5468-135">[Secure Reports and Resources](secure-reports-and-resources.md) </span></span>  
+ <span data-ttu-id="a5468-136">[Proteggere le cartelle](secure-folders.md) </span><span class="sxs-lookup"><span data-stu-id="a5468-136">[Secure Folders](secure-folders.md) </span></span>  
+ [<span data-ttu-id="a5468-137">Concessione di autorizzazioni in un server di report in modalità nativa</span><span class="sxs-lookup"><span data-stu-id="a5468-137">Granting Permissions on a Native Mode Report Server</span></span>](granting-permissions-on-a-native-mode-report-server.md)  
+  
+  

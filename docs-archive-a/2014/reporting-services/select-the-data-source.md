@@ -1,0 +1,56 @@
+---
+title: Selezionare l'origine dati | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services-native
+ms.topic: conceptual
+f1_keywords:
+- sql12.rtp.rptwizard.selectdatasource.f1
+ms.assetid: cdd84ad8-7c6a-41ac-bf51-1b0973434829
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: 641aa04f7fe658123aa21cc1bd21264ec0ee28ea
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87713755"
+---
+# <a name="select-the-data-source"></a><span data-ttu-id="48426-102">Selezione origine dati</span><span class="sxs-lookup"><span data-stu-id="48426-102">Select the Data Source</span></span>
+  <span data-ttu-id="48426-103">Utilizzare questa pagina della Creazione guidata report per definire un'origine dati per il report.</span><span class="sxs-lookup"><span data-stu-id="48426-103">Use this page of the Report Wizard to define a data source for the report.</span></span>  
+  
+## <a name="options"></a><span data-ttu-id="48426-104">Opzioni</span><span class="sxs-lookup"><span data-stu-id="48426-104">Options</span></span>  
+ <span data-ttu-id="48426-105">**Origine dati condivisa**</span><span class="sxs-lookup"><span data-stu-id="48426-105">**Shared data source**</span></span>  
+ <span data-ttu-id="48426-106">Selezionare **Origine dati condivisa** per usare un'origine dei dati condivisa in cui siano già disponibili le informazioni sulla connessione all'origine dei dati che si desidera usare.</span><span class="sxs-lookup"><span data-stu-id="48426-106">Select **Shared Data Source** to use a predefined shared data source that already has the data source connection information you want to use.</span></span> <span data-ttu-id="48426-107">Nell'elenco sono presenti tutte le origini dei dati incluse nel progetto.</span><span class="sxs-lookup"><span data-stu-id="48426-107">The list contains all shared data sources that are included in the project.</span></span>  
+  
+ <span data-ttu-id="48426-108">**Nuova origine dati**</span><span class="sxs-lookup"><span data-stu-id="48426-108">**New data source**</span></span>  
+ <span data-ttu-id="48426-109">Selezionare **Nuova origine dati** per definire una nuova origine dei dati.</span><span class="sxs-lookup"><span data-stu-id="48426-109">Select **New data source** to define a new data source.</span></span> <span data-ttu-id="48426-110">Le informazioni dell'origine dati verranno utilizzate solo per il report corrente.</span><span class="sxs-lookup"><span data-stu-id="48426-110">The data source information will be used only with the current report.</span></span>  
+  
+ <span data-ttu-id="48426-111">**Nome**</span><span class="sxs-lookup"><span data-stu-id="48426-111">**Name**</span></span>  
+ <span data-ttu-id="48426-112">Consente di digitare un nome per la connessione all'origine dati.</span><span class="sxs-lookup"><span data-stu-id="48426-112">Type a name for the connection to the data source.</span></span> <span data-ttu-id="48426-113">Tale nome deve essere univoco all'interno del report.</span><span class="sxs-lookup"><span data-stu-id="48426-113">The data source name must be unique within the report.</span></span>  
+  
+ <span data-ttu-id="48426-114">**Tipo**</span><span class="sxs-lookup"><span data-stu-id="48426-114">**Type**</span></span>  
+ <span data-ttu-id="48426-115">Selezionare il tipo di origine dati in uso, ad esempio se si utilizza un [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] database, scegliere [!INCLUDE[msCoName](../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="48426-115">Select the type of data source you are using (for example, if you are using a [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] database, choose [!INCLUDE[msCoName](../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)]).</span></span>  
+  
+ <span data-ttu-id="48426-116">**Stringa di connessione**</span><span class="sxs-lookup"><span data-stu-id="48426-116">**Connection string**</span></span>  
+ <span data-ttu-id="48426-117">Consente di digitare una stringa di connessione per l'origine dati.</span><span class="sxs-lookup"><span data-stu-id="48426-117">Type a connection string for the data source.</span></span> <span data-ttu-id="48426-118">Per ulteriori informazioni sulle stringhe di connessione, vedere [connessioni dati, origini dati e stringhe di connessione in Reporting Services](../../2014/reporting-services/data-connections-data-sources-and-connection-strings-in-reporting-services.md).</span><span class="sxs-lookup"><span data-stu-id="48426-118">For more information about connection strings, see [Data Connections, Data Sources, and Connection Strings in Reporting Services](../../2014/reporting-services/data-connections-data-sources-and-connection-strings-in-reporting-services.md).</span></span>  
+  
+ <span data-ttu-id="48426-119">Fare clic su **Modifica** per specificare il server dell'origine dati nella finestra di dialogo **Proprietà connessione** .</span><span class="sxs-lookup"><span data-stu-id="48426-119">Click **Edit** to specify the data source server in the **Connection Properties** dialog box.</span></span> <span data-ttu-id="48426-120">È possibile specificare un'origine dati remota o locale.</span><span class="sxs-lookup"><span data-stu-id="48426-120">You can specify a local or remote data source.</span></span>  
+  
+ <span data-ttu-id="48426-121">Fare clic su **Credenziali** per specificare le credenziali per il database.</span><span class="sxs-lookup"><span data-stu-id="48426-121">Click **Credentials** to supply database credentials.</span></span> <span data-ttu-id="48426-122">Le credenziali specificate devono essere sufficienti per connettersi all'origine dei dati per la progettazione dei report.</span><span class="sxs-lookup"><span data-stu-id="48426-122">At a minimum, the credentials you specify must be sufficient for you to connect to the data source for report design purposes.</span></span> <span data-ttu-id="48426-123">Quando il report è distribuito in un server di report, le credenziali per il database devono poter essere utilizzate da tutti gli utenti del report.</span><span class="sxs-lookup"><span data-stu-id="48426-123">When the report is deployed on a report server, the database credentials must accommodate all users of the report.</span></span> <span data-ttu-id="48426-124">Se, ad esempio, si desidera che tutti gli utenti del report usino le proprie credenziali per connettersi all'origine dati, selezionare **Usa autenticazione di Windows (sicurezza integrata)**.</span><span class="sxs-lookup"><span data-stu-id="48426-124">For example, if you want all report users to connect to the data source using their credentials, choose **Use Windows Authentication (Integrated Security)**.</span></span> <span data-ttu-id="48426-125">Le credenziali specificate devono essere valide per l'origine dati. Se, pertanto, si seleziona l'autenticazione di Windows, accertarsi che l'origine dati accetti connessioni da tutti gli account utente che eseguiranno il report.</span><span class="sxs-lookup"><span data-stu-id="48426-125">The credentials you specify must be valid for the data source, so if you choose Windows Authentication, be sure that the data source accepts connections from all user accounts that will be running the report.</span></span> <span data-ttu-id="48426-126">Le credenziali per il database possono essere gestite separatamente dal report.</span><span class="sxs-lookup"><span data-stu-id="48426-126">Database credentials can be managed separately from the report.</span></span> <span data-ttu-id="48426-127">Per altre informazioni, vedere [Gestire origini dati dei report](report-data/manage-report-data-sources.md).</span><span class="sxs-lookup"><span data-stu-id="48426-127">For more information, see [Manage Report Data Sources](report-data/manage-report-data-sources.md).</span></span>  
+  
+ <span data-ttu-id="48426-128">**Imposta come origine dati condivisa**</span><span class="sxs-lookup"><span data-stu-id="48426-128">**Make this a shared data source**</span></span>  
+ <span data-ttu-id="48426-129">Selezionare questa opzione per archiviare l'origine dati nel progetto, anziché nel report, come origine dati condivisa.</span><span class="sxs-lookup"><span data-stu-id="48426-129">Select this option to store the data source in the project as a shared data source, instead of in the report.</span></span> <span data-ttu-id="48426-130">In questo modo, potrà essere utilizzata come origine dati per altri report nel progetto.</span><span class="sxs-lookup"><span data-stu-id="48426-130">That way, you can use it as the data source for other reports in the project.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="48426-131">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="48426-131">See Also</span></span>  
+ <span data-ttu-id="48426-132">[Connessioni dati o origini dati incorporate e condivise &#40;Generatore report e SSRS&#41;](../../2014/reporting-services/embedded-and-shared-data-connections-or-data-sources-report-builder-and-ssrs.md) </span><span class="sxs-lookup"><span data-stu-id="48426-132">[Embedded and Shared Data Connections or Data Sources &#40;Report Builder and SSRS&#41;](../../2014/reporting-services/embedded-and-shared-data-connections-or-data-sources-report-builder-and-ssrs.md) </span></span>  
+ <span data-ttu-id="48426-133">[Specificare le credenziali e le informazioni sulla connessione per le origini dati del report](report-data/specify-credential-and-connection-information-for-report-data-sources.md) </span><span class="sxs-lookup"><span data-stu-id="48426-133">[Specify Credential and Connection Information for Report Data Sources](report-data/specify-credential-and-connection-information-for-report-data-sources.md) </span></span>  
+ <span data-ttu-id="48426-134">[Reporting Services server di report](../../2014/reporting-services/reporting-services-report-server.md) </span><span class="sxs-lookup"><span data-stu-id="48426-134">[Reporting Services Report Server](../../2014/reporting-services/reporting-services-report-server.md) </span></span>  
+ <span data-ttu-id="48426-135">[File di configurazione RSReportDesigner](report-server/rsreportdesigner-configuration-file.md) </span><span class="sxs-lookup"><span data-stu-id="48426-135">[RSReportDesigner Configuration File](report-server/rsreportdesigner-configuration-file.md) </span></span>  
+ <span data-ttu-id="48426-136">[Connessioni dati, origini dati e stringhe di connessione in Reporting Services](../../2014/reporting-services/data-connections-data-sources-and-connection-strings-in-reporting-services.md) </span><span class="sxs-lookup"><span data-stu-id="48426-136">[Data Connections, Data Sources, and Connection Strings in Reporting Services](../../2014/reporting-services/data-connections-data-sources-and-connection-strings-in-reporting-services.md) </span></span>  
+ [<span data-ttu-id="48426-137">Guida della Creazione guidata report</span><span class="sxs-lookup"><span data-stu-id="48426-137">Report Wizard Help</span></span>](../../2014/reporting-services/report-wizard-help.md)  
+  
+  

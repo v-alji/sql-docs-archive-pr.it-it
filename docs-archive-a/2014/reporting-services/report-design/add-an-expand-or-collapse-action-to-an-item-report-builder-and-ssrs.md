@@ -1,0 +1,102 @@
+---
+title: Aggiungere un'azione Espandi o Comprimi a un elemento (Generatore report e SSRS) | Microsoft Docs
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services-native
+ms.topic: conceptual
+ms.assetid: 49f07ad6-242b-4861-8fc1-91ca78c36d6c
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: 331c6a14a4a898ffcdf86f274c00e7ad3c801ec7
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87712743"
+---
+# <a name="add-an-expand-or-collapse-action-to-an-item-report-builder-and-ssrs"></a><span data-ttu-id="c187b-102">Aggiungere un'azione Espandi o Comprimi a un elemento (Generatore report e SSRS)</span><span class="sxs-lookup"><span data-stu-id="c187b-102">Add an Expand or Collapse Action to an Item (Report Builder and SSRS)</span></span>
+  <span data-ttu-id="c187b-103">È possibile permettere a un utente di espandere o comprimere in modo interattivo elementi del report oppure, per una tabella o una matrice, righe e colonne associate a un gruppo.</span><span class="sxs-lookup"><span data-stu-id="c187b-103">You can enable a user to interactively expand or collapse report items, or expand or collapse rows and columns associated with a group for a table or matrix.</span></span> <span data-ttu-id="c187b-104">Per consentire agli utenti di espandere o comprimere un elemento, impostare le proprietà di visibilità per tale elemento.</span><span class="sxs-lookup"><span data-stu-id="c187b-104">To allow users to expand or collapse an item, you set the visibility properties for that item.</span></span> <span data-ttu-id="c187b-105">L'impostazione della visibilità può essere usata in un visualizzatore di report HTML ed è a volte definita azione *drill-down* .</span><span class="sxs-lookup"><span data-stu-id="c187b-105">Setting visibility works in an HTML report viewer, and is sometimes called a *drilldown* action.</span></span>  
+  
+ <span data-ttu-id="c187b-106">Nella visualizzazione di progettazione report specificare il nome della casella di testo del report in cui si desidera espandere e comprimere le icone degli elementi Toggle.</span><span class="sxs-lookup"><span data-stu-id="c187b-106">In report design view, you specify the name of the text box where you want to display the expand and collapse toggle icons.</span></span> <span data-ttu-id="c187b-107">Nella casella di testo del report visualizzabile vengono visualizzati, oltre al contenuto, un segno più (+) o un segno meno (-).</span><span class="sxs-lookup"><span data-stu-id="c187b-107">In the rendered report, the text box displays a plus (+) or minus (-) sign in addition to its contents.</span></span> <span data-ttu-id="c187b-108">Quando l'utente fa clic sull'elemento Toggle, la visualizzazione del report viene aggiornata per visualizzare o nascondere l'elemento del report, in base alle impostazioni di visibilità correnti per gli elementi presenti nel report.</span><span class="sxs-lookup"><span data-stu-id="c187b-108">When the user clicks the toggle, the report display is refreshed to show or hide the report item, based on the current visibility settings for items in the report.</span></span>  
+  
+ <span data-ttu-id="c187b-109">In genere, l'azione di espansione e compressione viene utilizzata per visualizzare inizialmente solo dati di riepilogo e per consentire all'utente di fare clic sul segno più per visualizzare i dati di dettaglio.</span><span class="sxs-lookup"><span data-stu-id="c187b-109">Typically, the expand and collapse action is used to initially display only summary data and to enable the user to click the plus sign to show detail data.</span></span> <span data-ttu-id="c187b-110">È possibile, ad esempio, nascondere inizialmente una tabella in cui sono visualizzati valori per un grafico oppure nascondere gruppi figlio per una tabella con gruppi di righe o di colonne annidati, come in un report drill-down.</span><span class="sxs-lookup"><span data-stu-id="c187b-110">For example, you can initially hide a table that displays values for a chart, or hide child groups for a table with nested row or column groups, as in a drilldown report.</span></span>  
+  
+> [!NOTE]  
+>  [!INCLUDE[ssRBRDDup](../../includes/ssrbrddup-md.md)]  
+  
+### <a name="to-add-expand-and-collapse-action-to-a-group"></a><span data-ttu-id="c187b-111">Per aggiungere a un gruppo un'azione per espandere e comprimere</span><span class="sxs-lookup"><span data-stu-id="c187b-111">To add expand and collapse action to a group</span></span>  
+  
+1.  <span data-ttu-id="c187b-112">Nella visualizzazione di progettazione report fare clic sulla tabella o sulla matrice per selezionarla.</span><span class="sxs-lookup"><span data-stu-id="c187b-112">In report design view, click the table or matrix to select it.</span></span> <span data-ttu-id="c187b-113">Nel riquadro di raggruppamento verranno visualizzati i gruppi di righe e di colonne.</span><span class="sxs-lookup"><span data-stu-id="c187b-113">The Grouping pane displays the row and column groups.</span></span>  
+  
+     <span data-ttu-id="c187b-114">![Riquadro di raggruppamento](../media/groupingpane.png "Riquadro di raggruppamento")</span><span class="sxs-lookup"><span data-stu-id="c187b-114">![Grouping Pane](../media/groupingpane.png "Grouping Pane")</span></span>  
+  
+     <span data-ttu-id="c187b-115">Se il riquadro di raggruppamento non è visualizzato, scegliere **Raggruppamento** dal menu **Visualizza**.</span><span class="sxs-lookup"><span data-stu-id="c187b-115">If the Grouping pane does not appear, click the **View** menu and then click **Grouping**.</span></span>  
+  
+2.  <span data-ttu-id="c187b-116">Fare clic con il pulsante destro del mouse in un punto qualsiasi sulla barra del titolo del riquadro di raggruppamento e scegliere **Avanzate**.</span><span class="sxs-lookup"><span data-stu-id="c187b-116">Right-click anywhere in the title bar of the Grouping pane, and then click **Advanced**.</span></span> <span data-ttu-id="c187b-117">La modalità del riquadro di raggruppamento viene attivata/disattivata per mostrare la struttura di visualizzazione sottostante per righe e colonne nell'area di progettazione.</span><span class="sxs-lookup"><span data-stu-id="c187b-117">The Grouping pane mode toggles to show the underlying display structure for rows and columns on the design surface.</span></span>  
+  
+     <span data-ttu-id="c187b-118">![Riquadro di raggruppamento con menu Modalità avanzata](../media/groupingpane-advancedmode.png "Riquadro di raggruppamento con menu Modalità avanzata")</span><span class="sxs-lookup"><span data-stu-id="c187b-118">![Grouping Pane with Advanced Mode menu](../media/groupingpane-advancedmode.png "Grouping Pane with Advanced Mode menu")</span></span>  
+  
+3.  <span data-ttu-id="c187b-119">Nel riquadro di gruppo appropriato fare clic sul nome del gruppo di righe o del gruppo di colonne per il quale si desidera nascondere le righe o le colonne associate.</span><span class="sxs-lookup"><span data-stu-id="c187b-119">In the appropriate group pane, click the name of the row group or column group for which you want to hide the associated rows or columns.</span></span> <span data-ttu-id="c187b-120">Il gruppo viene selezionato e nel riquadro Proprietà vengono visualizzate le proprietà **Membro Tablix** .</span><span class="sxs-lookup"><span data-stu-id="c187b-120">The group is selected and the Properties pane shows the **Tablix Member** properties.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="c187b-121">Se il riquadro Proprietà non è visualizzato, fare clic su **Visualizza** sulla barra multifunzione e quindi su **Proprietà**.</span><span class="sxs-lookup"><span data-stu-id="c187b-121">If you do not see the Properties pane, click **View** on the Ribbon and then click **Properties**.</span></span>  
+  
+4.  <span data-ttu-id="c187b-122">In `Hidden` scegliere una delle opzioni seguenti per impostare la visibilità di questo elemento del report la prima volta che si esegue un report:</span><span class="sxs-lookup"><span data-stu-id="c187b-122">In `Hidden`, choose one of the following options to set the visibility of this report item the first time you run a report:</span></span>  
+  
+    -   <span data-ttu-id="c187b-123">Selezionare `False` questa opzione per visualizzare l'elemento del report.</span><span class="sxs-lookup"><span data-stu-id="c187b-123">Select `False` to display the report item.</span></span>  
+  
+    -   <span data-ttu-id="c187b-124">Selezionare `True` questa opzione per nascondere l'elemento del report.</span><span class="sxs-lookup"><span data-stu-id="c187b-124">Select `True` to hide the report item.</span></span>  
+  
+    -   <span data-ttu-id="c187b-125">Selezionare questa **\<Expression>** casella per aprire la finestra di dialogo **espressione** per creare un'espressione che viene valutata in fase di esecuzione per determinare la visibilità.</span><span class="sxs-lookup"><span data-stu-id="c187b-125">Select **\<Expression>** to open the **Expression** dialog box to create an expression that is evaluated at run time to determine the visibility.</span></span>  
+  
+5.  <span data-ttu-id="c187b-126">Nella casella a discesa in **ToggleItem**selezionare il nome di una casella di testo alla quale aggiungere l'immagine dell'elemento Toggle.</span><span class="sxs-lookup"><span data-stu-id="c187b-126">In **ToggleItem**, from the drop-down box, select the name of a text box to which to add the toggle image.</span></span>  
+  
+     <span data-ttu-id="c187b-127">Nella figura seguente il gruppo Colora riga è configurato per permettere agli utenti a espandere e comprimere le righe associate.</span><span class="sxs-lookup"><span data-stu-id="c187b-127">In the following image, the Color row group is configured enable users to expand and collapse associated rows.</span></span>  
+  
+     <span data-ttu-id="c187b-128">![Configurazione di un gruppo di righe da espandere](../media/expandcollapse-confighiddentoggleitemwithnumbers.png "Configurazione di un gruppo di righe da espandere")</span><span class="sxs-lookup"><span data-stu-id="c187b-128">![Configuring a row group to be expanded](../media/expandcollapse-confighiddentoggleitemwithnumbers.png "Configuring a row group to be expanded")</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="c187b-129">La casella di testo con l'immagine dell'elemento Toggle non può essere il gruppo di righe o colonne per il quale si desidera nascondere le righe o le colonne associate.</span><span class="sxs-lookup"><span data-stu-id="c187b-129">The text box with the toggle image cannot be the row or column group for which you want to hide the associated rows or columns.</span></span> <span data-ttu-id="c187b-130">Deve trovarsi nello stesso gruppo dell'elemento che viene nascosto o in un gruppo predecessore.</span><span class="sxs-lookup"><span data-stu-id="c187b-130">It must either be in the same group as the item that is being hidden or in an ancestor group.</span></span> <span data-ttu-id="c187b-131">Ad esempio, per attivare/disattivare la visibilità di righe associate a un gruppo figlio, selezionare una casella di testo in una riga associata al gruppo padre.</span><span class="sxs-lookup"><span data-stu-id="c187b-131">For example, to toggle visibility of rows associated with a child group, select a text box in a row associated with the parent group.</span></span>  
+  
+6.  <span data-ttu-id="c187b-132">Per testare l'elemento Toggle, eseguire il report e fare clic sulla casella di testo con l'immagine dell'elemento Toggle.</span><span class="sxs-lookup"><span data-stu-id="c187b-132">To test the toggle, run the report and click the text box with the toggle image.</span></span> <span data-ttu-id="c187b-133">La visualizzazione del report viene aggiornata per mostrare i gruppi di righe e di colonne con la rispettiva visibilità attivata/disattivata.</span><span class="sxs-lookup"><span data-stu-id="c187b-133">The report display refreshes to show row groups and column groups with their toggled visibility.</span></span>  
+  
+     <span data-ttu-id="c187b-134">![Esecuzione di report con gruppo di righe espandibile](../media/expandcollapse-runreport-rowgroup.png "Esecuzione di report con gruppo di righe espandibile")</span><span class="sxs-lookup"><span data-stu-id="c187b-134">![Running report with expandable row group](../media/expandcollapse-runreport-rowgroup.png "Running report with expandable row group")</span></span>  
+  
+### <a name="to-add-expand-and-collapse-action-to-a-report-item"></a><span data-ttu-id="c187b-135">Per aggiungere a un elemento del report un'azione per espandere e comprimere</span><span class="sxs-lookup"><span data-stu-id="c187b-135">To add expand and collapse action to a report item</span></span>  
+  
+1.  <span data-ttu-id="c187b-136">Nella visualizzazione di progettazione report fare clic con il pulsante destro del mouse sull'elemento del report da visualizzare o nascondere, quindi scegliere *\<report item>* **Proprietà**.</span><span class="sxs-lookup"><span data-stu-id="c187b-136">In report design view, right-click the report item to show or hide, and then click *\<report item>* **Properties**.</span></span> <span data-ttu-id="c187b-137">*\<report item>* Verrà visualizzata la finestra di dialogo **Proprietà** relativa all'elemento del report.</span><span class="sxs-lookup"><span data-stu-id="c187b-137">The *\<report item>* **Properties** dialog box for the report item opens.</span></span>  
+  
+2.  <span data-ttu-id="c187b-138">Fare clic su **Visibilità**.</span><span class="sxs-lookup"><span data-stu-id="c187b-138">Click **Visibility**.</span></span>  
+  
+3.  <span data-ttu-id="c187b-139">In **Quando il report viene eseguito inizialmente**scegliere una delle opzioni seguenti per impostare la visibilità di questo elemento del report la prima volta che si esegue un report:</span><span class="sxs-lookup"><span data-stu-id="c187b-139">In **When the report is initially run**, choose one of the following options to set the visibility of this report item the first time you run a report:</span></span>  
+  
+    -   <span data-ttu-id="c187b-140">Selezionare **Mostra** per visualizzare l'elemento del report.</span><span class="sxs-lookup"><span data-stu-id="c187b-140">Select **Show** to display the report item.</span></span>  
+  
+    -   <span data-ttu-id="c187b-141">Selezionare **Nascondi** per nascondere l'elemento del report.</span><span class="sxs-lookup"><span data-stu-id="c187b-141">Select **Hide** to hide the report item.</span></span>  
+  
+    -   <span data-ttu-id="c187b-142">Selezionare **Mostra o nascondi in base a un'espressione** per determinare la visibilità usando un'espressione valutata in fase di runtime.</span><span class="sxs-lookup"><span data-stu-id="c187b-142">Select **Show or hide based on an expression** to use an expression evaluated at run time to determine the visibility.</span></span> <span data-ttu-id="c187b-143">Fare clic su (**fx**) per aprire la finestra di dialogo **Espressione** per creare un'espressione.</span><span class="sxs-lookup"><span data-stu-id="c187b-143">Click (**fx**) to open the **Expression** dialog box to create an expression.</span></span>  
+  
+        > [!NOTE]  
+        >  <span data-ttu-id="c187b-144">Quando si specifica un'espressione per la visibilità, viene impostata la proprietà Hidden dell'elemento di report.</span><span class="sxs-lookup"><span data-stu-id="c187b-144">When you specify an expression for visibility, you are setting the Hidden property of the report item.</span></span> <span data-ttu-id="c187b-145">L'espressione restituisce un valore `Boolean``True` per nascondere l'elemento e `False` per visualizzarlo.</span><span class="sxs-lookup"><span data-stu-id="c187b-145">The expression evaluates to a `Boolean` value of `True` to hide the item and `False` to show the item.</span></span>  
+  
+4.  <span data-ttu-id="c187b-146">Nella casella a discesa di **La visualizzazione può essere attivata/disattivata tramite questo elemento del report**selezionare il nome di una casella di testo nel report nella quale visualizzare l'immagine di un elemento Toggle, ad esempio Textbox1.</span><span class="sxs-lookup"><span data-stu-id="c187b-146">In **Display can be toggled by this report item**, from the drop-down box, type or select the name of a text box in the report in which to display a toggle image; for example, Textbox1.</span></span>  
+  
+     <span data-ttu-id="c187b-147">Nella figura seguente la tabella è configurata per permettere agli utenti di espanderla e comprimerla.</span><span class="sxs-lookup"><span data-stu-id="c187b-147">In the following image, the table is configured to enable users to expand and collapse it.</span></span> <span data-ttu-id="c187b-148">La visualizzazione della tabella è attivata e disattivata dalla casella di testo della tabella Products.</span><span class="sxs-lookup"><span data-stu-id="c187b-148">The display of the table is toggled by the Products Table text box.</span></span>  
+  
+     <span data-ttu-id="c187b-149">![Configurare una tabella del report da espandere](../media/expandcollapse-reporttable.png "Configurare una tabella del report da espandere")</span><span class="sxs-lookup"><span data-stu-id="c187b-149">![Configure a report table to be expanded](../media/expandcollapse-reporttable.png "Configure a report table to be expanded")</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="c187b-150">La casella di testo utilizzata per l'elemento Toggle deve trovarsi nell'ambito corrente o contenitore di questo elemento di report (tale da includere il corpo del report).</span><span class="sxs-lookup"><span data-stu-id="c187b-150">The text box that you choose must be in the current or containing scope for this report item (up to and including the report body).</span></span> <span data-ttu-id="c187b-151">Ad esempio, per attivare/disattivare la visibilità di un grafico, selezionare una casella di testo che si trovi nello stesso ambito contenitore del grafico, ad esempio il corpo del report o un rettangolo.</span><span class="sxs-lookup"><span data-stu-id="c187b-151">For example, to toggle visibility of a chart, select a text box that is in the same containing scope as the chart; for example, the report body or a rectangle.</span></span> <span data-ttu-id="c187b-152">La casella di testo deve trovarsi nella stessa gerarchia del contenitore o a un livello superiore.</span><span class="sxs-lookup"><span data-stu-id="c187b-152">The text box must be in the same container hierarchy or higher.</span></span>  
+  
+5.  <span data-ttu-id="c187b-153">Per testare l'elemento Toggle, eseguire il report e fare clic sulla casella di testo con l'immagine dell'elemento Toggle.</span><span class="sxs-lookup"><span data-stu-id="c187b-153">To test the toggle, run the report and click the text box with the toggle image.</span></span> <span data-ttu-id="c187b-154">La visualizzazione del report viene aggiornata per mostrare gli elementi del report con la rispettiva visibilità attivata/disattivata.</span><span class="sxs-lookup"><span data-stu-id="c187b-154">The report display refreshes to show report items with their toggled visibility.</span></span>  
+  
+     <span data-ttu-id="c187b-155">![Esecuzione di report con tabella di espansione](../media/expandcollapse-runreport-reporttable.png "Esecuzione di report con tabella di espansione")</span><span class="sxs-lookup"><span data-stu-id="c187b-155">![Running report with an expanding table](../media/expandcollapse-runreport-reporttable.png "Running report with an expanding table")</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="c187b-156">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="c187b-156">See Also</span></span>  
+ <span data-ttu-id="c187b-157">[Azione di drill-down &#40;Generatore report e SSRS&#41;](drilldown-action-report-builder-and-ssrs.md) </span><span class="sxs-lookup"><span data-stu-id="c187b-157">[Drilldown Action &#40;Report Builder and SSRS&#41;](drilldown-action-report-builder-and-ssrs.md) </span></span>  
+ [<span data-ttu-id="c187b-158">Nascondere un elemento &#40;Generatore report e SSRS&#41;</span><span class="sxs-lookup"><span data-stu-id="c187b-158">Hide an Item &#40;Report Builder and SSRS&#41;</span></span>](../report-builder/hide-an-item-report-builder-and-ssrs.md)  
+  
+  
