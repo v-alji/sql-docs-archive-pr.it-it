@@ -1,0 +1,52 @@
+---
+title: Selezione tabelle e viste di origine (Importazione/Esportazione guidata SQL Server) | Microsoft Docs
+ms.custom: ''
+ms.date: 06/14/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: integration-services
+ms.topic: conceptual
+f1_keywords:
+- sql12.dts.impexpwizard.selectsourcetablesandviews.f1
+ms.assetid: f60e1a19-2ea6-403c-89ab-3e60ac533ea0
+author: chugugrace
+ms.author: chugu
+ms.openlocfilehash: e18f9f34db7965033d4e1e62964060a26404a45e
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87635129"
+---
+# <a name="select-source-tables-and-views-sql-server-import-and-export-wizard"></a><span data-ttu-id="36313-102">Selezione tabelle e viste di origine (Importazione/Esportazione guidata SQL Server)</span><span class="sxs-lookup"><span data-stu-id="36313-102">Select Source Tables and Views (SQL Server Import and Export Wizard)</span></span>
+  <span data-ttu-id="36313-103">Utilizzare la pagina **Selezione tabelle e viste di origine** per specificare le tabelle e le viste da copiare dall'origine dati alla destinazione.</span><span class="sxs-lookup"><span data-stu-id="36313-103">Use the **Select Source Tables and Views** page to specify the tables and views to be copied from the data source to the destination.</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="36313-104">Non è necessario copiare tutte le colonne in una tabella quando si seleziona l'opzione Copia tabella.</span><span class="sxs-lookup"><span data-stu-id="36313-104">You do not have to copy all the columns in a table when you select the Table Copy option.</span></span> <span data-ttu-id="36313-105">Dopo aver selezionato una tabella di destinazione, fare clic su Modifica mapping per visualizzare la finestra di dialogo **Mapping colonne** .</span><span class="sxs-lookup"><span data-stu-id="36313-105">After selecting a destination table, click Edit Mappings to display the **Column Mappings** dialog box.</span></span> <span data-ttu-id="36313-106">Selezionare **\<ignore>** nella colonna **destinazione** della finestra di dialogo **Mapping colonne** per le colonne che si desidera ignorare.</span><span class="sxs-lookup"><span data-stu-id="36313-106">Select **\<ignore>** in the **Destination** column of the **Column Mappings** dialog box for columns that you want to skip.</span></span>  
+  
+ <span data-ttu-id="36313-107">Per ulteriori informazioni su questa procedura guidata, vedere [SQL Server importazione/esportazione guidata](import-and-export-data-with-the-sql-server-import-and-export-wizard.md).</span><span class="sxs-lookup"><span data-stu-id="36313-107">To learn more about this wizard, see [SQL Server Import and Export Wizard](import-and-export-data-with-the-sql-server-import-and-export-wizard.md).</span></span> <span data-ttu-id="36313-108">Per informazioni sulle opzioni per avviare la procedura guidata e sulle autorizzazioni necessarie per eseguire la procedura guidata, vedere [eseguire l'importazione/esportazione guidata SQL Server](start-the-sql-server-import-and-export-wizard.md).</span><span class="sxs-lookup"><span data-stu-id="36313-108">To learn about the options for starting the wizard, and about the permissions required to run the wizard successfully, see [Run the SQL Server Import and Export Wizard](start-the-sql-server-import-and-export-wizard.md).</span></span>  
+  
+ <span data-ttu-id="36313-109">Lo scopo di Importazione/Esportazione guidata SQL Server è la copia di dati da un'origine a una destinazione.</span><span class="sxs-lookup"><span data-stu-id="36313-109">The purpose of the SQL Server Import and Export Wizard is to copy data from a source to a destination.</span></span> <span data-ttu-id="36313-110">La procedura guidata può inoltre creare automaticamente un database di destinazione e le tabelle di destinazione.</span><span class="sxs-lookup"><span data-stu-id="36313-110">The wizard can also create a destination database and destination tables for you.</span></span> <span data-ttu-id="36313-111">Se tuttavia è necessario copiare più database o tabelle, o altri tipi di oggetti di database, è preferibile utilizzare Copia guidata database.</span><span class="sxs-lookup"><span data-stu-id="36313-111">However, if you have to copy multiple databases or tables, or other kinds of database objects, you should use the Copy Database Wizard instead.</span></span> <span data-ttu-id="36313-112">Per altre informazioni, vedere [Use the Copy Database Wizard](../../relational-databases/databases/use-the-copy-database-wizard.md).</span><span class="sxs-lookup"><span data-stu-id="36313-112">For more information, see [Use the Copy Database Wizard](../../relational-databases/databases/use-the-copy-database-wizard.md).</span></span>  
+  
+## <a name="options"></a><span data-ttu-id="36313-113">Opzioni</span><span class="sxs-lookup"><span data-stu-id="36313-113">Options</span></span>  
+  
+### <a name="tables-and-views-list"></a><span data-ttu-id="36313-114">Elenco Tabelle e viste</span><span class="sxs-lookup"><span data-stu-id="36313-114">Tables and views List</span></span>  
+ <span data-ttu-id="36313-115">**Origine**</span><span class="sxs-lookup"><span data-stu-id="36313-115">**Source**</span></span>  
+ <span data-ttu-id="36313-116">Mediante le caselle di controllo, selezionare dall'elenco di tabelle e viste disponibili quelle da copiare nella destinazione.</span><span class="sxs-lookup"><span data-stu-id="36313-116">Using the check boxes, select from the list of available tables and views to copy to the destination.</span></span> <span data-ttu-id="36313-117">Se si seleziona una tabella o una vista di origine e non si eseguono altre azioni, lo schema e i dati dell'origine verranno copiati senza essere modificati.</span><span class="sxs-lookup"><span data-stu-id="36313-117">If you select a source table or view and perform no other action, the schema and data from the source are copied without changes.</span></span>  
+  
+ <span data-ttu-id="36313-118">**Destinazione**</span><span class="sxs-lookup"><span data-stu-id="36313-118">**Destination**</span></span>  
+ <span data-ttu-id="36313-119">Consente di selezionare una tabella di destinazione dall'elenco per ogni tabella di origine.</span><span class="sxs-lookup"><span data-stu-id="36313-119">Select a destination table from the list for each source table.</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="36313-120">Se la procedura guidata viene sospesa a questo punto per creare una tabella di destinazione in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] utilizzando [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] o un altro strumento, la nuova tabella non verrà immediatamente visualizzata nell'elenco delle tabelle di destinazione disponibili.</span><span class="sxs-lookup"><span data-stu-id="36313-120">If you pause at this point in the wizard to create a destination table in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] by using [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)] or another tool, the new table is not immediately visible in the list of available destination tables.</span></span> <span data-ttu-id="36313-121">Per aggiornare l'elenco delle tabelle di destinazione, tornare indietro di due pagine alla pagina **scelta destinazione** , selezionare di nuovo il database di destinazione, quindi eseguire di nuovo l'istruzione di **Selezione tabelle e viste di origine**.</span><span class="sxs-lookup"><span data-stu-id="36313-121">To refresh the list of destination tables, step back two pages to the **Choose a Destination** page, re-select the destination database, then step forward again to the **Select Source Tables and Views**.</span></span>  
+  
+### <a name="other-options"></a><span data-ttu-id="36313-122">Altre opzioni</span><span class="sxs-lookup"><span data-stu-id="36313-122">Other Options</span></span>  
+ <span data-ttu-id="36313-123">**Modifica mapping**</span><span class="sxs-lookup"><span data-stu-id="36313-123">**Edit mappings**</span></span>  
+ <span data-ttu-id="36313-124">Utilizzare la finestra di dialogo **Mapping colonne** per specificare le colonne di destinazione per la ricezione dei dati di origine.</span><span class="sxs-lookup"><span data-stu-id="36313-124">Use the **Column Mappings** dialog box to specify destination columns to receive the source data.</span></span> <span data-ttu-id="36313-125">È possibile copiare solo un subset di colonne selezionando \<ignore> la colonna **destinazione** della finestra di dialogo **Mapping colonne** per le colonne che si desidera ignorare.</span><span class="sxs-lookup"><span data-stu-id="36313-125">You can copy only a subset of columns by selecting \<ignore> in the **Destination** column of the **Column Mappings** dialog box for columns that you want to skip.</span></span>  
+  
+ <span data-ttu-id="36313-126">**Anteprima**</span><span class="sxs-lookup"><span data-stu-id="36313-126">**Preview**</span></span>  
+ <span data-ttu-id="36313-127">Visualizzare l'anteprima dei dati di origine nella finestra di dialogo **Anteprima dati** per verificarlo prima di eseguire l'importazione o l'esportazione.</span><span class="sxs-lookup"><span data-stu-id="36313-127">Preview source data in the **Preview Data** dialog box to verify it before performing the import or export.</span></span> <span data-ttu-id="36313-128">La finestra di dialogo **Anteprima dati** Visualizza fino a 200 righe di dati.</span><span class="sxs-lookup"><span data-stu-id="36313-128">The **Preview Data** dialog box displays up to 200 rows of data.</span></span>  
+  
+ <span data-ttu-id="36313-129">Dopo avere visualizzato un'anteprima dei dati, potrebbe essere necessario modificare le opzioni selezionate per l'origine e la destinazione dei dati.</span><span class="sxs-lookup"><span data-stu-id="36313-129">After previewing the data, you might want to change the options that you have selected for the data source and destination.</span></span> <span data-ttu-id="36313-130">Per apportare queste modifiche, nella pagina **Seleziona tabelle e viste di origine** fare clic su **Indietro** per tornare alle pagine precedenti e modificare le opzioni selezionate.</span><span class="sxs-lookup"><span data-stu-id="36313-130">To make these changes, on the **Select Source Tables and Views** page, click **Back** to return to previous pages where you can change your selections.</span></span>  
+  
+  

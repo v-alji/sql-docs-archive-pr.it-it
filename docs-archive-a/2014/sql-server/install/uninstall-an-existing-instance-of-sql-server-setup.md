@@ -1,0 +1,109 @@
+---
+title: Disinstallare un'istanza esistente di SQL Server (programma di installazione) | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: install
+ms.topic: conceptual
+helpviewer_keywords:
+- removing instances of SQL Server
+- uninstalling instances of SQL Server
+- removing SQL Server
+- instances of SQL Server, uninstalling
+- uninstalling SQL Server
+ms.assetid: 3c64b29d-61d7-4b86-961c-0de62261c6a1
+author: MashaMSFT
+ms.author: mathoma
+ms.openlocfilehash: 51d426a12a2f7f1b7bedbfb7770c4d9cb369f12b
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87628145"
+---
+# <a name="uninstall-an-existing-instance-of-sql-server-setup"></a><span data-ttu-id="6a237-102">Disinstallare un'istanza esistente di SQL Server (Programma di installazione)</span><span class="sxs-lookup"><span data-stu-id="6a237-102">Uninstall an Existing Instance of SQL Server (Setup)</span></span>
+  <span data-ttu-id="6a237-103">In questo articolo viene descritto come disinstallare un'istanza autonoma di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="6a237-103">This article describes how to uninstall a stand-alone instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span></span> <span data-ttu-id="6a237-104">I passaggi inclusi in questo argomento consentono inoltre di preparare il sistema per poter reinstallare [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="6a237-104">By following the steps in this topic, you also prepare the system so that you can reinstall [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span></span>  
+  
+> [!IMPORTANT]  
+>  <span data-ttu-id="6a237-105">Per disinstallare un'istanza di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], è necessario essere un amministratore locale che dispone dell'autorizzazione necessaria per accedere come servizio.</span><span class="sxs-lookup"><span data-stu-id="6a237-105">To uninstall an instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], you must be a local administrator with permission to log on as a service.</span></span>  
+  
+> [!NOTE]  
+>  <span data-ttu-id="6a237-106">Per disinstallare un cluster di failover di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , utilizzare la funzionalità per la rimozione del nodo disponibile nel programma di installazione di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] per rimuovere ogni nodo singolarmente.</span><span class="sxs-lookup"><span data-stu-id="6a237-106">To uninstall a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] failover cluster, use the Remove Node functionality provided by [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Setup to remove each node individually.</span></span> <span data-ttu-id="6a237-107">Per ulteriori informazioni, vedere [aggiungere o rimuovere nodi in un cluster di failover di SQL Server &#40;il programma di installazione&#41;](../failover-clusters/install/add-or-remove-nodes-in-a-sql-server-failover-cluster-setup.md)</span><span class="sxs-lookup"><span data-stu-id="6a237-107">For more information, see [Add or Remove Nodes in a SQL Server Failover Cluster &#40;Setup&#41;](../failover-clusters/install/add-or-remove-nodes-in-a-sql-server-failover-cluster-setup.md)</span></span>  
+  
+ <span data-ttu-id="6a237-108">Prima di disinstallare [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], considerare le informazioni importanti seguenti:</span><span class="sxs-lookup"><span data-stu-id="6a237-108">Consider the following important information before you uninstall [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]:</span></span>  
+  
+-   <span data-ttu-id="6a237-109">Prima di rimuovere i componenti di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] da un computer che soddisfa i requisiti minimi di memoria fisica, verificare che la dimensione del file di paging sia sufficiente.</span><span class="sxs-lookup"><span data-stu-id="6a237-109">Before you remove [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] components from a computer that has the minimum required amount of physical memory, make sure that the page file size is sufficient.</span></span> <span data-ttu-id="6a237-110">La dimensione del file di paging deve essere doppia rispetto alla quantità di memoria fisica.</span><span class="sxs-lookup"><span data-stu-id="6a237-110">The page file size must be equal to two times the amount of physical memory.</span></span> <span data-ttu-id="6a237-111">L'insufficienza di memoria virtuale può provocare una rimozione incompleta di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="6a237-111">Insufficient virtual memory can cause an incomplete removal of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span></span>  
+  
+-   <span data-ttu-id="6a237-112">Se si dispone di più istanze di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Browser verrà automaticamente disinstallato quando viene disinstallata l'ultima istanza di [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="6a237-112">If you have multiple instances of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Browser uninstalls automatically when the last instance of [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] is uninstalled.</span></span>  
+  
+     <span data-ttu-id="6a237-113">Per disinstallare tutti i componenti di [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)], è necessario disinstallare manualmente il componente [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Browser da **Programmi e funzionalità** nel **Pannello di controllo**.</span><span class="sxs-lookup"><span data-stu-id="6a237-113">If you want to uninstall all components of [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)], you must uninstall the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Browser component manually from **Programs and Features** in **Control Panel**.</span></span>  
+  
+### <a name="before-you-uninstall"></a><span data-ttu-id="6a237-114">Operazioni preliminari alla disinstallazione</span><span class="sxs-lookup"><span data-stu-id="6a237-114">Before You Uninstall</span></span>  
+  
+1.  <span data-ttu-id="6a237-115">**Eseguire il backup dei dati.**</span><span class="sxs-lookup"><span data-stu-id="6a237-115">**Back up your data.**</span></span> <span data-ttu-id="6a237-116">È possibile che siano presenti database da salvare nello stato attuale.</span><span class="sxs-lookup"><span data-stu-id="6a237-116">Although this is not a required step, you might have databases that you want to save in their present state.</span></span> <span data-ttu-id="6a237-117">Potrebbe inoltre essere necessario salvare le modifiche apportate ai database di sistema.</span><span class="sxs-lookup"><span data-stu-id="6a237-117">You might also want to save changes that were made to the system databases.</span></span> <span data-ttu-id="6a237-118">Se si verifica una di queste situazioni, accertarsi di eseguire il backup dei dati prima di disinstallare [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="6a237-118">If either situation is true, make sure that back up the data before you uninstall [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span></span> <span data-ttu-id="6a237-119">In alternativa è possibile salvare una copia di tutti i dati e di tutti i file di log in una cartella diversa da MSSQL.</span><span class="sxs-lookup"><span data-stu-id="6a237-119">Alternatively, save a copy of all the data and log files in a folder other than the MSSQL folder.</span></span> <span data-ttu-id="6a237-120">La cartella MSSQL viene eliminata durante la disinstallazione.</span><span class="sxs-lookup"><span data-stu-id="6a237-120">The MSSQL folder is deleted during uninstallation.</span></span>  
+  
+     <span data-ttu-id="6a237-121">Nei file da salvare sono inclusi i file di database seguenti:</span><span class="sxs-lookup"><span data-stu-id="6a237-121">The files that you must save include the following database files:</span></span>  
+  
+    -   <span data-ttu-id="6a237-122">Master.mdf</span><span class="sxs-lookup"><span data-stu-id="6a237-122">Master.mdf</span></span>  
+  
+    -   <span data-ttu-id="6a237-123">Mastlog.ldf</span><span class="sxs-lookup"><span data-stu-id="6a237-123">Mastlog.ldf</span></span>  
+  
+    -   <span data-ttu-id="6a237-124">Model.mdf</span><span class="sxs-lookup"><span data-stu-id="6a237-124">Model.mdf</span></span>  
+  
+    -   <span data-ttu-id="6a237-125">Modellog.ldf</span><span class="sxs-lookup"><span data-stu-id="6a237-125">Modellog.ldf</span></span>  
+  
+    -   <span data-ttu-id="6a237-126">Msdbdata.mdf</span><span class="sxs-lookup"><span data-stu-id="6a237-126">Msdbdata.mdf</span></span>  
+  
+    -   <span data-ttu-id="6a237-127">Msdblog.ldf</span><span class="sxs-lookup"><span data-stu-id="6a237-127">Msdblog.ldf</span></span>  
+  
+    -   <span data-ttu-id="6a237-128">Mssqlsystemresource.mdf</span><span class="sxs-lookup"><span data-stu-id="6a237-128">Mssqlsystemresource.mdf</span></span>  
+  
+    -   <span data-ttu-id="6a237-129">Mssqlsustemresource.ldf</span><span class="sxs-lookup"><span data-stu-id="6a237-129">Mssqlsustemresource.ldf</span></span>  
+  
+    -   <span data-ttu-id="6a237-130">Tempdb.mdf</span><span class="sxs-lookup"><span data-stu-id="6a237-130">Tempdb.mdf</span></span>  
+  
+    -   <span data-ttu-id="6a237-131">Templog.ldf</span><span class="sxs-lookup"><span data-stu-id="6a237-131">Templog.ldf</span></span>  
+  
+    -   <span data-ttu-id="6a237-132">`ReportServer[$InstanceName]`Si tratta del [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] database predefinito.</span><span class="sxs-lookup"><span data-stu-id="6a237-132">`ReportServer[$InstanceName]` (Thisis the [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] default database.)</span></span>  
+  
+    -   <span data-ttu-id="6a237-133">ReportServer[$InstanceName]TempDB, ovvero il database temporaneo predefinito di [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="6a237-133">ReportServer[$InstanceName]TempDB (This is the [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] default temporary database.)</span></span>  
+  
+2.  <span data-ttu-id="6a237-134">**Eliminare i gruppi di sicurezza locali.**</span><span class="sxs-lookup"><span data-stu-id="6a237-134">**Delete the local security groups.**</span></span> <span data-ttu-id="6a237-135">Prima di disinstallare [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], eliminare i gruppi di sicurezza locali per i componenti di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="6a237-135">Before you uninstall [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], delete the local security groups for [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] components.</span></span>  
+  
+3.  <span data-ttu-id="6a237-136">\*\*Arrestare tutti i \*\*  [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] **servizi** di .</span><span class="sxs-lookup"><span data-stu-id="6a237-136">**Stop all**  [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] **services.**</span></span> <span data-ttu-id="6a237-137">Prima di disinstallare i componenti di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], è consigliabile arrestare tutti i servizi [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="6a237-137">We recommend that you stop all [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] services before you uninstall [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] components.</span></span> <span data-ttu-id="6a237-138">Le connessioni attive possono impedire la corretta esecuzione della disinstallazione.</span><span class="sxs-lookup"><span data-stu-id="6a237-138">Active connections can prevent successful uninstallation.</span></span>  
+  
+4.  <span data-ttu-id="6a237-139">**Utilizzare un account dotato di autorizzazioni appropriate.**</span><span class="sxs-lookup"><span data-stu-id="6a237-139">**Use an account that has the appropriate permissions.**</span></span> <span data-ttu-id="6a237-140">Accedere al server utilizzando l'account del servizio [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] o un account che dispone di autorizzazioni equivalenti.</span><span class="sxs-lookup"><span data-stu-id="6a237-140">Log on to the server by using the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] service account or by using an account that has equivalent permissions.</span></span> <span data-ttu-id="6a237-141">È possibile, ad esempio, accedere al server utilizzando un account membro del gruppo di amministratori locali.</span><span class="sxs-lookup"><span data-stu-id="6a237-141">For example, you can log on to the server by using an account that is a member of the local Administrators group.</span></span>  
+  
+### <a name="to-uninstall-an-instance-of-ssnoversion"></a><span data-ttu-id="6a237-142">To Uninstall an Instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]</span><span class="sxs-lookup"><span data-stu-id="6a237-142">To Uninstall an Instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]</span></span>  
+  
+1.  <span data-ttu-id="6a237-143">Per avviare il processo di disinstallazione, nel **Pannello di controllo** scegliere **Programmi e funzionalità**.</span><span class="sxs-lookup"><span data-stu-id="6a237-143">To begin the uninstall process, go to **Control Panel** and then **Programs and Features**.</span></span>  
+  
+2.  <span data-ttu-id="6a237-144">Fare clic con il pulsante destro del mouse **[!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]** e scegliere **Disinstalla**.</span><span class="sxs-lookup"><span data-stu-id="6a237-144">Right click **[!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssSQL14](../../includes/sssql14-md.md)]** and select **Uninstall**.</span></span> <span data-ttu-id="6a237-145">Fare clic su **Rimuovi**.</span><span class="sxs-lookup"><span data-stu-id="6a237-145">Then click **Remove**.</span></span> <span data-ttu-id="6a237-146">Verrà avviata l'Installazione guidata di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="6a237-146">This starts the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Installation Wizard.</span></span>  
+  
+     <span data-ttu-id="6a237-147">Verranno eseguite le regole di supporto dell'installazione per verificare la configurazione del computer.</span><span class="sxs-lookup"><span data-stu-id="6a237-147">Setup Support Rules runs to verify your computer configuration.</span></span> <span data-ttu-id="6a237-148">Scegliere **Avanti**per continuare.</span><span class="sxs-lookup"><span data-stu-id="6a237-148">To continue, click **Next**.</span></span>  
+  
+3.  <span data-ttu-id="6a237-149">Nella pagina Seleziona istanza utilizzare la casella di riepilogo a discesa per specificare un'istanza di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] da rimuovere o indicare l'opzione per rimuovere solo gli strumenti di gestione e le funzionalità condivise di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="6a237-149">On the Select Instance page, use the drop-down box to specify an instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] to remove, or specify the option to remove only the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] shared features and management tools.</span></span> <span data-ttu-id="6a237-150">Scegliere **Avanti**per continuare.</span><span class="sxs-lookup"><span data-stu-id="6a237-150">To continue, click **Next**.</span></span>  
+  
+4.  <span data-ttu-id="6a237-151">Nella pagina Seleziona funzionalità specificare le funzionalità da rimuovere dall'istanza specificata di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="6a237-151">On the Select Features page, specify the features to remove from the specified instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span></span>  
+  
+     <span data-ttu-id="6a237-152">Verranno eseguite le regole di rimozione per verificare l'esecuzione corretta dell'operazione.</span><span class="sxs-lookup"><span data-stu-id="6a237-152">Removal rules runs to verify that the operation can complete successfully.</span></span>  
+  
+5.  <span data-ttu-id="6a237-153">Nella pagina **Inizio rimozione** esaminare l'elenco dei componenti e delle funzionalità che verranno disinstallate.</span><span class="sxs-lookup"><span data-stu-id="6a237-153">On the **Ready to Remove** page, review the list of components and features that will be uninstalled.</span></span> <span data-ttu-id="6a237-154">Fare clic su **Rimuovi** per avviare la disinstallazione.</span><span class="sxs-lookup"><span data-stu-id="6a237-154">Click **Remove** to begin uninstalling</span></span>  
+  
+6.  <span data-ttu-id="6a237-155">Immediatamente dopo la disinstallazione dell'ultima istanza di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] , gli altri programmi associati a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] saranno ancora visibili nell'elenco dei programmi in **Programmi e funzionalità**.</span><span class="sxs-lookup"><span data-stu-id="6a237-155">Immediately after you uninstall the last [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] instance, the other programs associated with [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] will still be visible in the list of programs in **Programs and Features**.</span></span> <span data-ttu-id="6a237-156">Tuttavia, se si chiude **Programmi e funzionalità**, alla successiva apertura di **Programmi e funzionalità**, l'elenco dei programmi verrà aggiornato per visualizzare solo i programmi ancora installati.</span><span class="sxs-lookup"><span data-stu-id="6a237-156">However, if you close **Programs and Features**, the next time you open **Programs and Features**, it will refresh the list of programs, to show only the ones that are actually still installed.</span></span>  
+  
+### <a name="if-the-uninstallation-fails"></a><span data-ttu-id="6a237-157">Se la disinstallazione non viene completata</span><span class="sxs-lookup"><span data-stu-id="6a237-157">If the Uninstallation Fails</span></span>  
+  
+1.  <span data-ttu-id="6a237-158">Se il processo di disinstallazione non viene completato correttamente, tentare di eliminare la causa del problema.</span><span class="sxs-lookup"><span data-stu-id="6a237-158">If the uninstallation process does not complete successfully, attempt to fix the problem that caused the uninstallation to fail.</span></span> <span data-ttu-id="6a237-159">Gli articoli seguenti possono aiutare a individuare la causa della mancata disinstallazione:</span><span class="sxs-lookup"><span data-stu-id="6a237-159">The following articles can help you understand the cause of the failed uninstallation:</span></span>  
+  
+    -   [<span data-ttu-id="6a237-160">Come identificare i problemi del programma di installazione di SQL Server 2008 nei file di log dell'installazione</span><span class="sxs-lookup"><span data-stu-id="6a237-160">How to identify SQL Server 2008 setup issues in the setup log files</span></span>](https://support.microsoft.com/kb/955396/en-us)  
+  
+    -   [<span data-ttu-id="6a237-161">Visualizzare e leggere i file di log del programma di installazione di SQL Server</span><span class="sxs-lookup"><span data-stu-id="6a237-161">View and Read SQL Server Setup Log Files</span></span>](../../database-engine/install-windows/view-and-read-sql-server-setup-log-files.md)  
+  
+2.  <span data-ttu-id="6a237-162">Se non è possibile eliminare la causa del problema di disinstallazione, contattare il Supporto tecnico [!INCLUDE[msCoName](../../includes/msconame-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="6a237-162">If you are unable to fix the cause of the uninstallation failure, you can contact [!INCLUDE[msCoName](../../includes/msconame-md.md)] Support.</span></span> <span data-ttu-id="6a237-163">In alcuni casi, ad esempio quando si eliminano inavvertitamente file importanti, la reinstallazione del sistema operativo può essere necessaria per reinstallare [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] nel computer.</span><span class="sxs-lookup"><span data-stu-id="6a237-163">In some cases, such as unintentional deletion of important files, reinstalling the operating system may be required before reinstalling [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] on the computer.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="6a237-164">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="6a237-164">See Also</span></span>  
+ [<span data-ttu-id="6a237-165">Visualizzare e leggere i file di log del programma di installazione di SQL Server</span><span class="sxs-lookup"><span data-stu-id="6a237-165">View and Read SQL Server Setup Log Files</span></span>](../../database-engine/install-windows/view-and-read-sql-server-setup-log-files.md)  
+  
+  

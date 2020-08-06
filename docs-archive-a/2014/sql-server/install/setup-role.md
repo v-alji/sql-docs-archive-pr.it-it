@@ -1,0 +1,49 @@
+---
+title: Impostazione del ruolo | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: database-engine
+ms.topic: conceptual
+ms.assetid: c7e9db15-89f2-4d4d-8860-1e64c5821c4d
+author: heidisteen
+ms.author: heidist
+ms.openlocfilehash: add000eed671303c78ab0500303f826bafe4ab77
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87628157"
+---
+# <a name="setup-role"></a><span data-ttu-id="ea014-102">Impostazione ruolo</span><span class="sxs-lookup"><span data-stu-id="ea014-102">Setup Role</span></span>
+  <span data-ttu-id="ea014-103">Utilizzare questa pagina per specificare se utilizzare la pagina Selezione funzionalità per selezionare le funzionalità singole oppure eseguire l'installazione tramite un ruolo di installazione.</span><span class="sxs-lookup"><span data-stu-id="ea014-103">Use this page to specify whether to use the Feature Selection page to select individual features, or to install using a setup role.</span></span>  
+  
+ <span data-ttu-id="ea014-104">Il `setup role` è una selezione predefinita di tutte le funzionalità e di tutti i componenti condivisi necessari per implementare una configurazione predefinita di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="ea014-104">A `setup role` is a fixed selection of all the features and shared components that are required to implement a predefined [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] configuration.</span></span>  
+  
+## <a name="options"></a><span data-ttu-id="ea014-105">Opzioni</span><span class="sxs-lookup"><span data-stu-id="ea014-105">Options</span></span>  
+ <span data-ttu-id="ea014-106">**[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]Installazione funzionalità**</span><span class="sxs-lookup"><span data-stu-id="ea014-106">**[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Feature Installation**</span></span>  
+ <span data-ttu-id="ea014-107">Scegliere questa opzione per selezionare le funzionalità singole e i componenti condivisi.</span><span class="sxs-lookup"><span data-stu-id="ea014-107">Choose this option to select individual features and shared components.</span></span> <span data-ttu-id="ea014-108">Le funzionalità dell'istanza includono Servizi Motore di database, Analysis Services (modalità nativa) e Reporting Services.</span><span class="sxs-lookup"><span data-stu-id="ea014-108">Instance features include Database Engine Services, Analysis Services (native mode), and Reporting Services.</span></span>  
+  
+ <span data-ttu-id="ea014-109">**[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]PowerPivot per SharePoint**</span><span class="sxs-lookup"><span data-stu-id="ea014-109">**[!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] PowerPivot for SharePoint**</span></span>  
+ <span data-ttu-id="ea014-110">Scegliere questa opzione per installare i componenti del server Analysis Services in una farm SharePoint 2010.</span><span class="sxs-lookup"><span data-stu-id="ea014-110">Choose this option to install Analysis Services server components in a SharePoint 2010 farm.</span></span> <span data-ttu-id="ea014-111">Questa opzione consente di distribuire il servizio di sistema PowerPivot e il server Analysis Services in una farm, abilitando l'elaborazione di dati e query per cartelle di lavoro di Excel pubblicate che contengono dati di [!INCLUDE[ssGemini](../../includes/ssgemini-md.md)] incorporati.</span><span class="sxs-lookup"><span data-stu-id="ea014-111">This option deploys the PowerPivot System Service and the Analysis Services server in a farm, enabling query and data processing for published Excel workbooks that contain embedded [!INCLUDE[ssGemini](../../includes/ssgemini-md.md)] data.</span></span>  
+  
+ <span data-ttu-id="ea014-112">Se necessario, è possibile aggiungere un'istanza del motore di database relazionale all'installazione per ospitare i database in una farm di SharePoint.</span><span class="sxs-lookup"><span data-stu-id="ea014-112">Optionally, you can add a relational database engine instance to your installation if you require it to host databases in a SharePoint farm.</span></span> <span data-ttu-id="ea014-113">Se la farm è già configurata, è possibile ignorare questa opzione.</span><span class="sxs-lookup"><span data-stu-id="ea014-113">If the farm is already configured, you can skip this option.</span></span>  
+  
+ <span data-ttu-id="ea014-114">Al termine dell'installazione, è necessario configurare il software utilizzando uno degli approcci seguenti: strumento di configurazione PowerPivot, cmdlet di PowerShell o Amministrazione centrale SharePoint 2010.</span><span class="sxs-lookup"><span data-stu-id="ea014-114">After Setup is finished, you must configure the software using one of the following approaches: PowerPivot Configuration tool, PowerShell cmdlets, or SharePoint 2010 Central Administration.</span></span> <span data-ttu-id="ea014-115">A differenza delle versioni precedenti, durante l'installazione non viene più eseguita alcuna attività di configurazione per un'installazione di PowerPivot.</span><span class="sxs-lookup"><span data-stu-id="ea014-115">In contrast with previous releases, Setup no longer performs any configuration tasks for a PowerPivot installation.</span></span>  
+  
+ <span data-ttu-id="ea014-116">In un'installazione basata su ruoli non è incluso [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] PowerPivot per l'applicazione client di Excel.</span><span class="sxs-lookup"><span data-stu-id="ea014-116">A role-based installation does not include the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] PowerPivot for Excel client application.</span></span> <span data-ttu-id="ea014-117">L'applicazione client viene installata separatamente.</span><span class="sxs-lookup"><span data-stu-id="ea014-117">The client application is installed separately.</span></span>  
+  
+ <span data-ttu-id="ea014-118">**Tutte le funzionalità con valori predefiniti**</span><span class="sxs-lookup"><span data-stu-id="ea014-118">**All Features With Defaults**</span></span>  
+ <span data-ttu-id="ea014-119">Scegliere questo ruolo per installare tutte le funzionalità disponibili per questa versione.</span><span class="sxs-lookup"><span data-stu-id="ea014-119">Choose this setup role to install all features that are available for this release.</span></span> <span data-ttu-id="ea014-120">Si noti che PowerPivot per SharePoint è escluso da questo ruolo.</span><span class="sxs-lookup"><span data-stu-id="ea014-120">Note that PowerPivot for SharePoint is excluded from this role.</span></span> <span data-ttu-id="ea014-121">È necessario utilizzare il ruolo di installazione PowerPivot per SharePoint per installare tale funzionalità.</span><span class="sxs-lookup"><span data-stu-id="ea014-121">You must use the PowerPivot for SharePoint setup role to install that feature.</span></span>  
+  
+ <span data-ttu-id="ea014-122">Il [!INCLUDE[ssDE](../../includes/ssde-md.md)] è configurato per l'avvio tramite l'account **NT AUTHORITY\NETWORK SERVICE** .</span><span class="sxs-lookup"><span data-stu-id="ea014-122">The [!INCLUDE[ssDE](../../includes/ssde-md.md)] is configured to start using the **NT AUTHORITY\NETWORK SERVICE** account.</span></span> <span data-ttu-id="ea014-123">Per l'utente corrente viene eseguito il provisioning come membro del ruolo **sysadmin** di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="ea014-123">The current user will be provisioned as a member of the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]**sysadmin** role.</span></span> <span data-ttu-id="ea014-124">È possibile eseguire l'override dei valori impostati con questa opzione specificando i parametri della riga di comando aggiuntivi.</span><span class="sxs-lookup"><span data-stu-id="ea014-124">Values set by this option can be overridden by specifying additional command line parameters.</span></span>  
+  
+ <span data-ttu-id="ea014-125">Quando il sistema operativo non è un controller di dominio, per impostazione predefinita nel motore di database e in Reporting Services verrà utilizzato l'account NTAUTHORITY\NETWORK SERVICE, in Integration Services l'account NTAUTHORITY\NETWORK SERVICE e nell'Utilità di avvio del daemon filtri full-text di SQL l'account NTAUTHORITY\LOCAL SERVICE.</span><span class="sxs-lookup"><span data-stu-id="ea014-125">When the operating system is not a domain controller, by default the Database Engine and Reporting Services will use the NTAUTHORITY\NETWORK SERVICE account, Integration Services will use the NTAUTHORITY\NETWORK SERVICE account, and the SQL Full text Filter Daemon Launcher will use the NTAUTHORITY\LOCAL SERVICE account.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="ea014-126">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="ea014-126">See Also</span></span>  
+ <span data-ttu-id="ea014-127">[Installazione di PowerPivot per SharePoint](https://go.microsoft.com/fwlink/?LinkId=206906) </span><span class="sxs-lookup"><span data-stu-id="ea014-127">[Installing PowerPivot for SharePoint](https://go.microsoft.com/fwlink/?LinkId=206906) </span></span>  
+ <span data-ttu-id="ea014-128">[Requisiti hardware e software (PowerPivot per SharePoint](https://go.microsoft.com/fwlink/?LinkId=216823) </span><span class="sxs-lookup"><span data-stu-id="ea014-128">[Hardware and Software Requirements (PowerPivot for SharePoint](https://go.microsoft.com/fwlink/?LinkId=216823) </span></span>  
+ [<span data-ttu-id="ea014-129">Selezione delle funzioni</span><span class="sxs-lookup"><span data-stu-id="ea014-129">Feature Selection</span></span>](../../../2014/sql-server/install/feature-selection.md)  
+  
+  

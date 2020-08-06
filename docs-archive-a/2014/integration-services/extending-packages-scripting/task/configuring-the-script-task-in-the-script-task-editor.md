@@ -1,0 +1,66 @@
+---
+title: Configurazione dell'attività Script nell'editor attività Script | Microsoft Docs
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: integration-services
+ms.topic: reference
+dev_langs:
+- VB
+helpviewer_keywords:
+- Script task [Integration Services], configuring
+- Script Task Editor
+- SSIS Script task, configuring
+ms.assetid: 232de0c9-b24d-4c38-861d-6c1f4a75bdf3
+author: chugugrace
+ms.author: chugu
+ms.openlocfilehash: b75b4a030e6c5baa2e26c610b0e8216843c8cca7
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87626154"
+---
+# <a name="configuring-the-script-task-in-the-script-task-editor"></a><span data-ttu-id="1694b-102">Configurazione dell'attività Script nell'editor attività Script</span><span class="sxs-lookup"><span data-stu-id="1694b-102">Configuring the Script Task in the Script Task Editor</span></span>
+  <span data-ttu-id="1694b-103">Prima di scrivere codice personalizzato nell'attività Script, configurarne le principali proprietà nelle tre pagine di **Editor attività Script**.</span><span class="sxs-lookup"><span data-stu-id="1694b-103">Before you write custom code in the Script task, you configure its principal properties in the three pages of the **Script Task Editor**.</span></span> <span data-ttu-id="1694b-104">È possibile configurare proprietà di attività aggiuntive che non sono specifiche dell'attività Script utilizzando la finestra Proprietà.</span><span class="sxs-lookup"><span data-stu-id="1694b-104">You can configure additional task properties that are not unique to the Script task by using the Properties window.</span></span>
+
+> [!NOTE]
+>  <span data-ttu-id="1694b-105">A differenza delle versioni precedenti in cui era possibile indicare se gli script erano precompilati o meno, a partire da [!INCLUDE[ssISversion10](../../../includes/ssisversion10-md.md)] tutti gli script sono precompilati.</span><span class="sxs-lookup"><span data-stu-id="1694b-105">Unlike earlier versions where you could indicate whether scripts were precompiled, all scripts are precompiled beginning in [!INCLUDE[ssISversion10](../../../includes/ssisversion10-md.md)].</span></span>
+
+## <a name="general-page-of-the-script-task-editor"></a><span data-ttu-id="1694b-106">Pagina Generale dell'editor attività Script</span><span class="sxs-lookup"><span data-stu-id="1694b-106">General Page of the Script Task Editor</span></span>
+ <span data-ttu-id="1694b-107">Nella pagina **Generale** di **Editor attività Script** è possibile assegnare un nome univoco e una descrizione per l'attività Script.</span><span class="sxs-lookup"><span data-stu-id="1694b-107">On the **General** page of the **Script Task Editor**, you assign a unique name and a description for the Script task.</span></span>
+
+## <a name="script-page-of-the-script-task-editor"></a><span data-ttu-id="1694b-108">Pagina Script dell'editor attività Script</span><span class="sxs-lookup"><span data-stu-id="1694b-108">Script Page of the Script Task Editor</span></span>
+ <span data-ttu-id="1694b-109">Nella pagina **Script** di **Editor attività Script** vengono visualizzate le proprietà personalizzate dell'attività Script.</span><span class="sxs-lookup"><span data-stu-id="1694b-109">The **Script** page of the **Script Task Editor** displays the custom properties of the Script task.</span></span>
+
+### <a name="scriptlanguage-property"></a><span data-ttu-id="1694b-110">Proprietà ScriptLanguage</span><span class="sxs-lookup"><span data-stu-id="1694b-110">ScriptLanguage Property</span></span>
+ [!INCLUDE[msCoName](../../../includes/msconame-md.md)] <span data-ttu-id="1694b-111">[!INCLUDE[vsprvs](../../../includes/vsprvs-md.md)] Tools for Applications (VSTA) supporta i linguaggi di programmazione [!INCLUDE[msCoName](../../../includes/msconame-md.md)] Visual Basic e [!INCLUDE[msCoName](../../../includes/msconame-md.md)] Visual C#.</span><span class="sxs-lookup"><span data-stu-id="1694b-111">[!INCLUDE[vsprvs](../../../includes/vsprvs-md.md)] Tools for Applications (VSTA) supports the [!INCLUDE[msCoName](../../../includes/msconame-md.md)] Visual Basic or [!INCLUDE[msCoName](../../../includes/msconame-md.md)] Visual C# programming languages.</span></span> <span data-ttu-id="1694b-112">Dopo aver creato uno script nell'attività Script, non è possibile modificare il valore della proprietà **ScriptLanguage**.</span><span class="sxs-lookup"><span data-stu-id="1694b-112">After you create a script in the Script task, you cannot change value of the **ScriptLanguage** property.</span></span>
+
+ <span data-ttu-id="1694b-113">Per impostare il linguaggio di scripting predefinito per le attività Script e i componenti script, usare la proprietà **ScriptLanguage** nella pagina **Generale** della finestra di dialogo **Opzioni**.</span><span class="sxs-lookup"><span data-stu-id="1694b-113">To set the default script language for Script tasks and Script components, use the **ScriptLanguage** property on the **General** page of the **Options** dialog box.</span></span> <span data-ttu-id="1694b-114">Per ulteriori informazioni, vedere [General Page](../../general-page-of-integration-services-designers-options.md).</span><span class="sxs-lookup"><span data-stu-id="1694b-114">For more information, see [General Page](../../general-page-of-integration-services-designers-options.md).</span></span>
+
+### <a name="entrypoint-property"></a><span data-ttu-id="1694b-115">Proprietà EntryPoint</span><span class="sxs-lookup"><span data-stu-id="1694b-115">EntryPoint Property</span></span>
+ <span data-ttu-id="1694b-116">La proprietà `EntryPoint` specifica il metodo nella classe `ScriptMain` nel progetto VSTA chiamato dal runtime di [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] come punto di ingresso nel codice dell'attività Script.</span><span class="sxs-lookup"><span data-stu-id="1694b-116">The `EntryPoint` property specifies the method on the `ScriptMain` class in the VSTA project that the [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] runtime calls as the entry point into the Script task code.</span></span> <span data-ttu-id="1694b-117">La classe `ScriptMain` è la classe predefinita generata dai modelli di script.</span><span class="sxs-lookup"><span data-stu-id="1694b-117">The `ScriptMain` class is the default class generated by the script templates.</span></span>
+
+ <span data-ttu-id="1694b-118">Se si modifica il nome del metodo nel progetto VSTA, è necessario modificare il valore della proprietà `EntryPoint`.</span><span class="sxs-lookup"><span data-stu-id="1694b-118">If you change the name of the method in the VSTA project, you must change the value of the `EntryPoint` property.</span></span>
+
+### <a name="readonlyvariables-and-readwritevariables-properties"></a><span data-ttu-id="1694b-119">Proprietà ReadOnlyVariables e ReadWriteVariables</span><span class="sxs-lookup"><span data-stu-id="1694b-119">ReadOnlyVariables and ReadWriteVariables Properties</span></span>
+ <span data-ttu-id="1694b-120">È possibile immettere elenchi delimitati da virgole di variabili esistenti come valori di queste proprietà per rendere le variabili disponibili per l'accesso di sola lettura o di lettura/scrittura all'interno del codice dell'attività Script.</span><span class="sxs-lookup"><span data-stu-id="1694b-120">You can enter comma-delimited lists of existing variables as the values of these properties to make the variables available for read-only or read/write access within the Script task code.</span></span> <span data-ttu-id="1694b-121">Le variabili di entrambi i tipi sono accessibili nel codice tramite la proprietà <xref:Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptObjectModel.Variables%2A> dell'oggetto `Dts`.</span><span class="sxs-lookup"><span data-stu-id="1694b-121">Variables of both types are accessed in code through the <xref:Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptObjectModel.Variables%2A> property of the `Dts` object.</span></span> <span data-ttu-id="1694b-122">Per altre informazioni, vedere [Utilizzo di variabili nell'attività Script](../../extending-packages-scripting/task/using-variables-in-the-script-task.md).</span><span class="sxs-lookup"><span data-stu-id="1694b-122">For more information, see [Using Variables in the Script Task](../../extending-packages-scripting/task/using-variables-in-the-script-task.md).</span></span>
+
+> [!NOTE]
+>  <span data-ttu-id="1694b-123">Per i nomi delle variabili viene fatta distinzione tra maiuscole e minuscole.</span><span class="sxs-lookup"><span data-stu-id="1694b-123">Variable names are case-sensitive.</span></span>
+
+ <span data-ttu-id="1694b-124">Per selezionare le variabili, fare clic sui puntini di sospensione ( **...** ) accanto al campo della proprietà.</span><span class="sxs-lookup"><span data-stu-id="1694b-124">To select the variables, click the ellipsis (**...**) button next to the property field.</span></span> <span data-ttu-id="1694b-125">Per altre informazioni, vedere [Pagina Seleziona variabili](../../control-flow/select-variables-page.md).</span><span class="sxs-lookup"><span data-stu-id="1694b-125">For more information, see [Select Variables Page](../../control-flow/select-variables-page.md).</span></span>
+
+### <a name="edit-script-button"></a><span data-ttu-id="1694b-126">Pulsante Modifica script</span><span class="sxs-lookup"><span data-stu-id="1694b-126">Edit Script Button</span></span>
+ <span data-ttu-id="1694b-127">Il pulsante **Modifica script** avvia l'ambiente di sviluppo di VSTA in cui scrivere lo script personalizzato.</span><span class="sxs-lookup"><span data-stu-id="1694b-127">The **Edit Script** button launches the VSTA development environment in which you write your custom script.</span></span> <span data-ttu-id="1694b-128">Per altre informazioni, vedere [Scrittura di codice e debug dell'attività Script](coding-and-debugging-the-script-task.md).</span><span class="sxs-lookup"><span data-stu-id="1694b-128">For more information, see [Coding and Debugging the Script Task](coding-and-debugging-the-script-task.md).</span></span>
+
+## <a name="expressions-page-of-the-script-task-editor"></a><span data-ttu-id="1694b-129">Pagina Espressioni dell'editor attività Script</span><span class="sxs-lookup"><span data-stu-id="1694b-129">Expressions Page of the Script Task Editor</span></span>
+ <span data-ttu-id="1694b-130">Nella pagina **Espressioni** di **Editor attività Script** è possibile usare espressioni per fornire valori per le proprietà dell'attività Script descritte in precedenza e per molte altre proprietà di attività.</span><span class="sxs-lookup"><span data-stu-id="1694b-130">On the **Expressions** page of the **Script Task Editor**, you can use expressions to provide values for the properties of the Script task listed above and for many other task properties.</span></span> <span data-ttu-id="1694b-131">Per altre informazioni, vedere [Espressioni di Integration Services &#40;SSIS&#41;](../../expressions/integration-services-ssis-expressions.md).</span><span class="sxs-lookup"><span data-stu-id="1694b-131">For more information, see [Integration Services &#40;SSIS&#41; Expressions](../../expressions/integration-services-ssis-expressions.md).</span></span>
+
+<span data-ttu-id="1694b-132">![Integration Services icona (piccola)](../../media/dts-16.gif "Icona di Integration Services (piccola)")  **rimane aggiornata con Integration Services**</span><span class="sxs-lookup"><span data-stu-id="1694b-132">![Integration Services icon (small)](../../media/dts-16.gif "Integration Services icon (small)")  **Stay Up to Date with Integration Services**</span></span><br /> <span data-ttu-id="1694b-133">Per i download, gli articoli, gli esempi e i video [!INCLUDE[msCoName](../../../includes/msconame-md.md)] più recenti, oltre alle soluzioni selezionate dalla community, visitare la pagina [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] su MSDN:</span><span class="sxs-lookup"><span data-stu-id="1694b-133">For the latest downloads, articles, samples, and videos from [!INCLUDE[msCoName](../../../includes/msconame-md.md)], as well as selected solutions from the community, visit the [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] page on MSDN:</span></span><br /><br /> [<span data-ttu-id="1694b-134">Visitare la pagina relativa a Integration Services su MSDN</span><span class="sxs-lookup"><span data-stu-id="1694b-134">Visit the Integration Services page on MSDN</span></span>](https://go.microsoft.com/fwlink/?LinkId=136655)<br /><br /> <span data-ttu-id="1694b-135">Per ricevere una notifica automatica su questi aggiornamenti, sottoscrivere i feed RSS disponibili nella pagina.</span><span class="sxs-lookup"><span data-stu-id="1694b-135">For automatic notification of these updates, subscribe to the RSS feeds available on the page.</span></span>
+
+## <a name="see-also"></a><span data-ttu-id="1694b-136">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="1694b-136">See Also</span></span>
+ [<span data-ttu-id="1694b-137">Scrittura di codice e debug dell'attività Script</span><span class="sxs-lookup"><span data-stu-id="1694b-137">Coding and Debugging the Script Task</span></span>](coding-and-debugging-the-script-task.md)
+
+
