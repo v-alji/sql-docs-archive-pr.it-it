@@ -1,0 +1,80 @@
+---
+title: Creazione di un provider di log personalizzato | Microsoft Docs
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: integration-services
+ms.topic: reference
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- custom log providers [Integration Services], creating
+ms.assetid: fc20af96-9eb8-4195-8d3f-8a4d7c753f24
+author: chugugrace
+ms.author: chugu
+ms.openlocfilehash: c1efb736aece2cc8d118c81326989559f0d17a60
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87716420"
+---
+# <a name="creating-a-custom-log-provider"></a><span data-ttu-id="af781-102">Creazione di un provider di log personalizzato</span><span class="sxs-lookup"><span data-stu-id="af781-102">Creating a Custom Log Provider</span></span>
+  <span data-ttu-id="af781-103">L'ambiente di runtime di [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] include funzionalità estese di registrazione.</span><span class="sxs-lookup"><span data-stu-id="af781-103">The [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] run-time environment has extensive logging capabilities.</span></span> <span data-ttu-id="af781-104">Un log consente di acquisire gli eventi che si verificano durante l'esecuzione di pacchetti.</span><span class="sxs-lookup"><span data-stu-id="af781-104">A log lets you capture events that occur during package execution.</span></span> <span data-ttu-id="af781-105">In [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] è inclusa una varietà di provider di log che consentono di creare e archiviare log in più formati quali XML, testo, database o nel registro eventi di Windows.</span><span class="sxs-lookup"><span data-stu-id="af781-105">[!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] includes a variety of log providers that enable logs to be created and stored in multiple formats, such as XML, text, database, or in the Windows event log.</span></span> <span data-ttu-id="af781-106">Se uno di questi provider o formati di output non soddisfano specifiche esigenze, è possibile creare un provider di log personalizzato.</span><span class="sxs-lookup"><span data-stu-id="af781-106">If one of these providers or output formats does not fit your needs, you can create a custom log provider.</span></span>
+
+ <span data-ttu-id="af781-107">I passaggi per la creazione di un provider di log personalizzato sono simili a quelli richiesti per la creazione di qualsiasi altro oggetto personalizzato per [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)]:</span><span class="sxs-lookup"><span data-stu-id="af781-107">The steps involved in creating a custom log provider are similar to the steps for creating any other custom object for [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)]:</span></span>
+
+-   <span data-ttu-id="af781-108">Creare una nuova classe che eredita dalla classe di base.</span><span class="sxs-lookup"><span data-stu-id="af781-108">Create a new class that inherits from the base class.</span></span> <span data-ttu-id="af781-109">Per un provider di log, la classe di base è <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase>.</span><span class="sxs-lookup"><span data-stu-id="af781-109">For a log provider, the base class is <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase>.</span></span>
+
+-   <span data-ttu-id="af781-110">Applicare alla classe l'attributo che identifica il tipo di oggetto.</span><span class="sxs-lookup"><span data-stu-id="af781-110">Apply the attribute that identifies the type of object to the class.</span></span> <span data-ttu-id="af781-111">Per un provider di log, l'attributo è <xref:Microsoft.SqlServer.Dts.Runtime.DtsLogProviderAttribute>.</span><span class="sxs-lookup"><span data-stu-id="af781-111">For a log provider, the attribute is <xref:Microsoft.SqlServer.Dts.Runtime.DtsLogProviderAttribute>.</span></span>
+
+-   <span data-ttu-id="af781-112">Eseguire l'override dell'implementazione dei metodi e delle proprietà della classe di base.</span><span class="sxs-lookup"><span data-stu-id="af781-112">Override the implementation of the base class's methods and properties.</span></span> <span data-ttu-id="af781-113">Per un provider di log, questi includono la proprietà <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase.ConfigString%2A> e i metodi <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase.OpenLog%2A>, <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase.Log%2A> e <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase.CloseLog%2A>.</span><span class="sxs-lookup"><span data-stu-id="af781-113">For a log provider, these include the <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase.ConfigString%2A> property and the <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase.OpenLog%2A>, <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase.Log%2A>, and <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase.CloseLog%2A> methods.</span></span>
+
+-   <span data-ttu-id="af781-114">Le interfacce utente personalizzate per i provider di log personalizzati non sono implementate in [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="af781-114">Custom user interfaces for custom log providers are not implemented in [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)].</span></span>
+
+## <a name="getting-started-with-a-custom-log-provider"></a><span data-ttu-id="af781-115">Introduzione ai provider di log personalizzati</span><span class="sxs-lookup"><span data-stu-id="af781-115">Getting Started with a Custom Log Provider</span></span>
+
+### <a name="creating-projects-and-classes"></a><span data-ttu-id="af781-116">Creazione di progetti e classi</span><span class="sxs-lookup"><span data-stu-id="af781-116">Creating Projects and Classes</span></span>
+ <span data-ttu-id="af781-117">Poiché tutti i provider di log gestiti derivano dalla classe di base <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase>, il primo passaggio da completare quando si crea un provider di log personalizzato consiste nel creare un progetto di libreria di classi nel linguaggio di programmazione gestito preferito e creare una classe che eredita dalla classe di base.</span><span class="sxs-lookup"><span data-stu-id="af781-117">Because all managed log providers derive from the <xref:Microsoft.SqlServer.Dts.Runtime.LogProviderBase> base class, the first step when you create a custom log provider is to create a class library project in your preferred managed programming language, and then create a class that inherits from the base class.</span></span> <span data-ttu-id="af781-118">In questa classe derivata si eseguirà l'override dei metodi e delle proprietà della classe di base per implementare la funzionalità personalizzata.</span><span class="sxs-lookup"><span data-stu-id="af781-118">In this derived class you will override the methods and properties of the base class to implement your custom functionality.</span></span>
+
+ <span data-ttu-id="af781-119">Configurare il progetto per firmare l'assembly che verrà generato utilizzando un file di chiave con nome sicuro.</span><span class="sxs-lookup"><span data-stu-id="af781-119">Configure the project to sign the assembly that will be generated with a strong name key file.</span></span>
+
+> [!NOTE]
+>  <span data-ttu-id="af781-120">Molti provider di log di [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] hanno un'interfaccia utente personalizzata che implementa <xref:Microsoft.SqlServer.Dts.Runtime.Design.IDtsLogProviderUI> e sostituisce la casella di testo **Configurazione** nella finestra di dialogo **Configura log SSIS** con un elenco a discesa filtrato di gestioni connessioni disponibili.</span><span class="sxs-lookup"><span data-stu-id="af781-120">Many [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] log providers have a custom user interface that implements <xref:Microsoft.SqlServer.Dts.Runtime.Design.IDtsLogProviderUI> and replaces the **Configuration** text box in the **Configure SSIS Logs** dialog box with a filtered dropdown list of available connection managers.</span></span> <span data-ttu-id="af781-121">Tuttavia, le interfacce utente personalizzate per i provider di log personalizzati non sono implementate in [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)].</span><span class="sxs-lookup"><span data-stu-id="af781-121">However custom user interfaces for custom log providers are not implemented in [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)].</span></span>
+
+### <a name="applying-the-dtslogprovider-attribute"></a><span data-ttu-id="af781-122">Applicazione dell'attributo DtsLogProvider</span><span class="sxs-lookup"><span data-stu-id="af781-122">Applying the DtsLogProvider Attribute</span></span>
+ <span data-ttu-id="af781-123">Applicare l'attributo <xref:Microsoft.SqlServer.Dts.Runtime.DtsLogProviderAttribute> alla classe creata per identificarla come provider di log.</span><span class="sxs-lookup"><span data-stu-id="af781-123">Apply the <xref:Microsoft.SqlServer.Dts.Runtime.DtsLogProviderAttribute> attribute to the class that you have created to identify it as a log provider.</span></span> <span data-ttu-id="af781-124">Questo attributo fornisce informazioni in fase di progettazione, ad esempio il nome e la descrizione del provider di log.</span><span class="sxs-lookup"><span data-stu-id="af781-124">This attribute provides design-time information such as the name and description of the log provider.</span></span> <span data-ttu-id="af781-125">Le `DisplayName` `Description` proprietà e dell'attributo corrispondono al **nome** e alle `Description` colonne visualizzate nell'editor **Configura log SSIS** , visualizzato quando si configura la registrazione per un pacchetto in [!INCLUDE[ssBIDevStudioFull](../../../includes/ssbidevstudiofull-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="af781-125">The `DisplayName` and `Description` properties of the attribute correspond to the **Name** and `Description` columns displayed in the **Configure SSIS Logs** editor, which is displayed when configuring logging for a package in [!INCLUDE[ssBIDevStudioFull](../../../includes/ssbidevstudiofull-md.md)].</span></span>
+
+> [!IMPORTANT]
+>  <span data-ttu-id="af781-126">La proprietà <xref:Microsoft.SqlServer.Dts.Runtime.DtsLogProviderAttribute.LogProviderType%2A> dell'attributo non viene utilizzata.</span><span class="sxs-lookup"><span data-stu-id="af781-126">The <xref:Microsoft.SqlServer.Dts.Runtime.DtsLogProviderAttribute.LogProviderType%2A> property of the attribute is not used.</span></span> <span data-ttu-id="af781-127">È tuttavia necessario immettere un valore per tale proprietà, altrimenti il provider di log personalizzato non verrà visualizzato nell'elenco di provider di log disponibili.</span><span class="sxs-lookup"><span data-stu-id="af781-127">However, you must enter a value for it, or the custom log provider will not appear in the list of available log providers.</span></span>
+
+> [!NOTE]
+>  <span data-ttu-id="af781-128">Poiché le interfacce utente personalizzate per i provider di log personalizzati non vengono implementate in [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)], l'impostazione di un valore per la proprietà <xref:Microsoft.SqlServer.Dts.Runtime.DtsLogProviderAttribute.UITypeName%2A> di <xref:Microsoft.SqlServer.Dts.Runtime.DtsLogProviderAttribute> non ha alcun effetto.</span><span class="sxs-lookup"><span data-stu-id="af781-128">Since custom user interfaces for custom log providers are not implemented in [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)], specifying a value for the <xref:Microsoft.SqlServer.Dts.Runtime.DtsLogProviderAttribute.UITypeName%2A> property of the <xref:Microsoft.SqlServer.Dts.Runtime.DtsLogProviderAttribute> has no effect.</span></span>
+
+```vb
+<DtsLogProvider(DisplayName:="MyLogProvider", Description:="A simple log provider.", LogProviderType:="Custom")> _
+Public Class MyLogProvider
+     Inherits LogProviderBase
+    ' TODO: Override the base class methods.
+End Class
+```
+
+```csharp
+[DtsLogProvider(DisplayName="MyLogProvider", Description="A simple log provider.", LogProviderType="Custom")]
+public class MyLogProvider : LogProviderBase
+{
+    // TODO: Override the base class methods.
+}
+```
+
+## <a name="building-deploying-and-debugging-a-custom-log-provider"></a><span data-ttu-id="af781-129">Compilazione, distribuzione e debug di un provider di log personalizzato</span><span class="sxs-lookup"><span data-stu-id="af781-129">Building, Deploying, and Debugging a Custom Log Provider</span></span>
+ <span data-ttu-id="af781-130">I passaggi per la compilazione, la distribuzione e il debug di un provider di log personalizzato in [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] sono molto simili a quelli richiesti per altri tipi di oggetti personalizzati.</span><span class="sxs-lookup"><span data-stu-id="af781-130">The steps for building, deploying, and debugging a custom log provider in [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] are very similar to the steps required for other types of custom objects.</span></span> <span data-ttu-id="af781-131">Per altre informazioni, vedere [Compilazione, distribuzione e debug di oggetti personalizzati](../building-deploying-and-debugging-custom-objects.md).</span><span class="sxs-lookup"><span data-stu-id="af781-131">For more information, see [Building, Deploying, and Debugging Custom Objects](../building-deploying-and-debugging-custom-objects.md).</span></span>
+
+<span data-ttu-id="af781-132">![Integration Services icona (piccola)](../../media/dts-16.gif "Icona di Integration Services (piccola)")  **rimane aggiornata con Integration Services**</span><span class="sxs-lookup"><span data-stu-id="af781-132">![Integration Services icon (small)](../../media/dts-16.gif "Integration Services icon (small)")  **Stay Up to Date with Integration Services**</span></span><br /> <span data-ttu-id="af781-133">Per i download, gli articoli, gli esempi e i video Microsoft più recenti, oltre alle soluzioni selezionate dalla community, visitare la pagina [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] sul sito MSDN:</span><span class="sxs-lookup"><span data-stu-id="af781-133">For the latest downloads, articles, samples, and videos from Microsoft, as well as selected solutions from the community, visit the [!INCLUDE[ssISnoversion](../../../includes/ssisnoversion-md.md)] page on MSDN:</span></span><br /><br /> [<span data-ttu-id="af781-134">Visitare la pagina relativa a Integration Services su MSDN</span><span class="sxs-lookup"><span data-stu-id="af781-134">Visit the Integration Services page on MSDN</span></span>](https://go.microsoft.com/fwlink/?LinkId=136655)<br /><br /> <span data-ttu-id="af781-135">Per ricevere una notifica automatica su questi aggiornamenti, sottoscrivere i feed RSS disponibili nella pagina.</span><span class="sxs-lookup"><span data-stu-id="af781-135">For automatic notification of these updates, subscribe to the RSS feeds available on the page.</span></span>
+
+## <a name="see-also"></a><span data-ttu-id="af781-136">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="af781-136">See Also</span></span>
+ <span data-ttu-id="af781-137">[Codifica di un provider di log personalizzato](coding-a-custom-log-provider.md) [sviluppo di un'interfaccia utente per un provider di log personalizzato](developing-a-user-interface-for-a-custom-log-provider.md)</span><span class="sxs-lookup"><span data-stu-id="af781-137">[Coding a Custom Log Provider](coding-a-custom-log-provider.md) [Developing a User Interface for a Custom Log Provider](developing-a-user-interface-for-a-custom-log-provider.md)</span></span>
+
+

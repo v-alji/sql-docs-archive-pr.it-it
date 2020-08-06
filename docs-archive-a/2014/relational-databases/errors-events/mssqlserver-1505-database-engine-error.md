@@ -1,0 +1,68 @@
+---
+title: MSSQLSERVER_1505 | Microsoft Docs
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: supportability
+ms.topic: conceptual
+helpviewer_keywords:
+- 1505 (Database Engine error)
+ms.assetid: ef4df75d-0f36-4c8b-b36c-e427f65f91ca
+author: MashaMSFT
+ms.author: mathoma
+ms.openlocfilehash: 74c152404cf2d3710bbe98b29da7a96d86f58859
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87714407"
+---
+# <a name="mssqlserver_1505"></a><span data-ttu-id="99b2f-102">MSSQLSERVER_1505</span><span class="sxs-lookup"><span data-stu-id="99b2f-102">MSSQLSERVER_1505</span></span>
+    
+## <a name="details"></a><span data-ttu-id="99b2f-103">Dettagli</span><span class="sxs-lookup"><span data-stu-id="99b2f-103">Details</span></span>  
+  
+|||  
+|-|-|  
+|<span data-ttu-id="99b2f-104">Nome prodotto</span><span class="sxs-lookup"><span data-stu-id="99b2f-104">Product Name</span></span>|<span data-ttu-id="99b2f-105">SQL Server</span><span class="sxs-lookup"><span data-stu-id="99b2f-105">SQL Server</span></span>|  
+|<span data-ttu-id="99b2f-106">ID evento</span><span class="sxs-lookup"><span data-stu-id="99b2f-106">Event ID</span></span>|<span data-ttu-id="99b2f-107">1505</span><span class="sxs-lookup"><span data-stu-id="99b2f-107">1505</span></span>|  
+|<span data-ttu-id="99b2f-108">Origine evento</span><span class="sxs-lookup"><span data-stu-id="99b2f-108">Event Source</span></span>|<span data-ttu-id="99b2f-109">MSSQLSERVER</span><span class="sxs-lookup"><span data-stu-id="99b2f-109">MSSQLSERVER</span></span>|  
+|<span data-ttu-id="99b2f-110">Componente</span><span class="sxs-lookup"><span data-stu-id="99b2f-110">Component</span></span>|<span data-ttu-id="99b2f-111">SQLEngine</span><span class="sxs-lookup"><span data-stu-id="99b2f-111">SQLEngine</span></span>|  
+|<span data-ttu-id="99b2f-112">Nome simbolico</span><span class="sxs-lookup"><span data-stu-id="99b2f-112">Symbolic Name</span></span>|<span data-ttu-id="99b2f-113">DUP_KEY</span><span class="sxs-lookup"><span data-stu-id="99b2f-113">DUP_KEY</span></span>|  
+|<span data-ttu-id="99b2f-114">Testo del messaggio</span><span class="sxs-lookup"><span data-stu-id="99b2f-114">Message Text</span></span>|<span data-ttu-id="99b2f-115">Istruzione CREATE UNIQUE INDEX interrotta. Trovata chiave duplicata per il nome di oggetto '%.\*ls' and index name '%.\*ls'.</span><span class="sxs-lookup"><span data-stu-id="99b2f-115">CREATE UNIQUE INDEX terminated because a duplicate key was found for object name '%.\*ls' and index name '%.\*ls'.</span></span>  <span data-ttu-id="99b2f-116">Valore della chiave duplicata: %ls.</span><span class="sxs-lookup"><span data-stu-id="99b2f-116">The duplicate key value is %ls.</span></span>|  
+  
+## <a name="explanation"></a><span data-ttu-id="99b2f-117">Spiegazione</span><span class="sxs-lookup"><span data-stu-id="99b2f-117">Explanation</span></span>  
+ <span data-ttu-id="99b2f-118">Questo errore si verifica quando si tenta di creare un indice univoco e il valore duplicato specificato è presente in più di una riga della tabella.</span><span class="sxs-lookup"><span data-stu-id="99b2f-118">This error occurs when you attempt to create a unique index and more than one row in the table contains the specified duplicate value.</span></span> <span data-ttu-id="99b2f-119">Un indice univoco viene creato quando si crea un indice e si specifica la parola chiave UNIQUE o quando si crea un vincolo UNIQUE.</span><span class="sxs-lookup"><span data-stu-id="99b2f-119">A unique index is created when you create an index and specify the UNIQUE keyword, or when you create a UNIQUE constraint.</span></span> <span data-ttu-id="99b2f-120">Nella tabella non può essere contenuta alcuna riga con valori duplicati nelle colonne definite nell'indice o nel vincolo.</span><span class="sxs-lookup"><span data-stu-id="99b2f-120">The table cannot contain any rows that have duplicate values in the columns defined in the index or constraint.</span></span>  
+  
+ <span data-ttu-id="99b2f-121">Si considerino i dati nella tabella **Employee** seguente:</span><span class="sxs-lookup"><span data-stu-id="99b2f-121">Consider the data in the following **Employee** table:</span></span>  
+  
+|<span data-ttu-id="99b2f-122">LastName</span><span class="sxs-lookup"><span data-stu-id="99b2f-122">LastName</span></span>|<span data-ttu-id="99b2f-123">FirstName</span><span class="sxs-lookup"><span data-stu-id="99b2f-123">FirstName</span></span>|<span data-ttu-id="99b2f-124">JobTitle</span><span class="sxs-lookup"><span data-stu-id="99b2f-124">JobTitle</span></span>|<span data-ttu-id="99b2f-125">HireDate</span><span class="sxs-lookup"><span data-stu-id="99b2f-125">HireDate</span></span>|  
+|--------------|---------------|--------------|--------------|  
+|<span data-ttu-id="99b2f-126">Walters</span><span class="sxs-lookup"><span data-stu-id="99b2f-126">Walters</span></span>|<span data-ttu-id="99b2f-127">Rob</span><span class="sxs-lookup"><span data-stu-id="99b2f-127">Rob</span></span>|<span data-ttu-id="99b2f-128">Progettista senior di strumenti</span><span class="sxs-lookup"><span data-stu-id="99b2f-128">Senior Tool Designer</span></span>|<span data-ttu-id="99b2f-129">2004-11-19</span><span class="sxs-lookup"><span data-stu-id="99b2f-129">2004-11-19</span></span>|  
+|<span data-ttu-id="99b2f-130">Brown</span><span class="sxs-lookup"><span data-stu-id="99b2f-130">Brown</span></span>|<span data-ttu-id="99b2f-131">Kevin</span><span class="sxs-lookup"><span data-stu-id="99b2f-131">Kevin</span></span>|<span data-ttu-id="99b2f-132">Assistente marketing</span><span class="sxs-lookup"><span data-stu-id="99b2f-132">Marketing Assistant</span></span>|<span data-ttu-id="99b2f-133">NULL</span><span class="sxs-lookup"><span data-stu-id="99b2f-133">NULL</span></span>|  
+|<span data-ttu-id="99b2f-134">Brown</span><span class="sxs-lookup"><span data-stu-id="99b2f-134">Brown</span></span>|<span data-ttu-id="99b2f-135">Jo</span><span class="sxs-lookup"><span data-stu-id="99b2f-135">Jo</span></span>|<span data-ttu-id="99b2f-136">Progettista</span><span class="sxs-lookup"><span data-stu-id="99b2f-136">Design Engineer</span></span>|<span data-ttu-id="99b2f-137">NULL</span><span class="sxs-lookup"><span data-stu-id="99b2f-137">NULL</span></span>|  
+|<span data-ttu-id="99b2f-138">Walters</span><span class="sxs-lookup"><span data-stu-id="99b2f-138">Walters</span></span>|<span data-ttu-id="99b2f-139">Rob</span><span class="sxs-lookup"><span data-stu-id="99b2f-139">Rob</span></span>|<span data-ttu-id="99b2f-140">Progettista di strumenti</span><span class="sxs-lookup"><span data-stu-id="99b2f-140">Tool Designer</span></span>|<span data-ttu-id="99b2f-141">2001-08-09</span><span class="sxs-lookup"><span data-stu-id="99b2f-141">2001-08-09</span></span>|  
+  
+ <span data-ttu-id="99b2f-142">Non è possibile creare un indice univoco sulle combinazioni delle colonne **LastName** o **LastName**, **FirstName** poiché nelle righe sono presenti valori duplicati.</span><span class="sxs-lookup"><span data-stu-id="99b2f-142">A unique index can not be created on the column combinations **LastName** or **LastName**, **FirstName** because of duplicate values in the rows.</span></span>  
+  
+ <span data-ttu-id="99b2f-143">La potenziale violazione di univocità nella colonna **HireDate** è meno ovvia.</span><span class="sxs-lookup"><span data-stu-id="99b2f-143">Less obvious is the potential for a uniqueness violation in the **HireDate** column.</span></span> <span data-ttu-id="99b2f-144">Ai fini dell'indicizzazione, i valori NULL vengono considerati uguali.</span><span class="sxs-lookup"><span data-stu-id="99b2f-144">For indexing purposes, NULL values compare as equal.</span></span> <span data-ttu-id="99b2f-145">Non è pertanto possibile creare un indice univoco o un vincolo UNIQUE se i valori di chiave sono NULL in più di una riga.</span><span class="sxs-lookup"><span data-stu-id="99b2f-145">Therefore, you cannot create a unique index or constraint if the key values are NULL in more than one row.</span></span> <span data-ttu-id="99b2f-146">In base ai dati precedenti, non è possibile creare un indice univoco nelle combinazioni delle colonne **HireDate** o **LastName**, **HireDate**.</span><span class="sxs-lookup"><span data-stu-id="99b2f-146">Given the data above, a unique index cannot be created on the column combinations **HireDate** or **LastName**, **HireDate**.</span></span>  
+  
+ <span data-ttu-id="99b2f-147">Il messaggio di errore 1505 restituisce la prima riga che viola il vincolo di univocità.</span><span class="sxs-lookup"><span data-stu-id="99b2f-147">Error message 1505 returns the first row that violates the uniqueness constraint.</span></span> <span data-ttu-id="99b2f-148">Nella tabella possono essere presenti altre righe duplicate.</span><span class="sxs-lookup"><span data-stu-id="99b2f-148">There may be other duplicate rows in the table.</span></span> <span data-ttu-id="99b2f-149">Per individuare tutte le righe duplicate, eseguire una query sulla tabella specificata e utilizzare le clausole GROUP BY e HAVING per segnalarle.</span><span class="sxs-lookup"><span data-stu-id="99b2f-149">To find all duplicate rows, query the specified table and use the GROUP BY and HAVING clauses to report the duplicate rows.</span></span> <span data-ttu-id="99b2f-150">Nella query seguente, ad esempio, vengono restituite le righe della tabella **Employee** in cui sono presenti nomi e cognomi duplicati.</span><span class="sxs-lookup"><span data-stu-id="99b2f-150">For example, the following query returns the rows in the **Employee** table that have duplicate first and last names.</span></span>  
+  
+ <span data-ttu-id="99b2f-151">SELEZIONARE LastName, FirstName, Count ( \* ) da dbo. Employee GROUP BY LastName, FirstName con Count ( \* ) > 1;</span><span class="sxs-lookup"><span data-stu-id="99b2f-151">SELECT LastName, FirstName, count(\*) FROM dbo.Employee GROUP BY LastName, FirstName HAVING count(\*) > 1;</span></span>  
+  
+## <a name="user-action"></a><span data-ttu-id="99b2f-152">Azione dell'utente</span><span class="sxs-lookup"><span data-stu-id="99b2f-152">User Action</span></span>  
+ <span data-ttu-id="99b2f-153">Prendere in considerazione le seguenti soluzioni:</span><span class="sxs-lookup"><span data-stu-id="99b2f-153">Consider the following solutions.</span></span>  
+  
+-   <span data-ttu-id="99b2f-154">Aggiungere o rimuovere colonne nella definizione dell'indice o del vincolo per creare un indice composto univoco.</span><span class="sxs-lookup"><span data-stu-id="99b2f-154">Add or remove columns in the index or constraint definition to create a unique composite.</span></span> <span data-ttu-id="99b2f-155">Nell'esempio precedente, l'aggiunta di una colonna **MiddleName** alla definizione dell'indice o del vincolo potrebbe consentire di risolvere il problema di duplicazione.</span><span class="sxs-lookup"><span data-stu-id="99b2f-155">In the previous example, adding a **MiddleName** column to the index or constraint definition might resolve the duplication problem.</span></span>  
+  
+-   <span data-ttu-id="99b2f-156">Selezionare le colonne definite come NOT NULL quando si scelgono le colonne per un indice o un vincolo univoco.</span><span class="sxs-lookup"><span data-stu-id="99b2f-156">Select columns that are defined as NOT NULL when you choose columns for a unique index or constraint.</span></span> <span data-ttu-id="99b2f-157">In questo modo viene eliminata la possibilità di una violazione di univocità causata più di una riga contiene NULL nei valori della chiave.</span><span class="sxs-lookup"><span data-stu-id="99b2f-157">This eliminates the possibility of a uniqueness violation caused when more than one row contains NULL in the key values.</span></span>  
+  
+-   <span data-ttu-id="99b2f-158">Se i valori duplicati sono il risultato di errori di immissione di dati, correggere manualmente i dati e quindi creare l'indice o il vincolo.</span><span class="sxs-lookup"><span data-stu-id="99b2f-158">If the duplicate values are the result of data entry errors, manually correct the data and then create the index or constraint.</span></span> <span data-ttu-id="99b2f-159">Per informazioni sulla rimozione di righe duplicate in una tabella, vedere l'articolo 139444 della Knowledge Base: [How to remove duplicate rows from a table in SQL Server](https://support.microsoft.com/kb/139444) (Come rimuovere le righe duplicate da una tabella in SQL Server)</span><span class="sxs-lookup"><span data-stu-id="99b2f-159">For information about removing duplicate rows in a table, see Knowledge Base article 139444: [How to remove duplicate rows from a table in SQL Server](https://support.microsoft.com/kb/139444).</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="99b2f-160">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="99b2f-160">See Also</span></span>  
+ <span data-ttu-id="99b2f-161">[CREATE INDEX &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-index-transact-sql) </span><span class="sxs-lookup"><span data-stu-id="99b2f-161">[CREATE INDEX &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-index-transact-sql) </span></span>  
+ <span data-ttu-id="99b2f-162">[Creazione di indici univoci](../indexes/indexes.md) </span><span class="sxs-lookup"><span data-stu-id="99b2f-162">[Create Unique Indexes](../indexes/indexes.md) </span></span>  
+ [<span data-ttu-id="99b2f-163">Creare vincoli UNIQUE</span><span class="sxs-lookup"><span data-stu-id="99b2f-163">Create Unique Constraints</span></span>](../tables/create-unique-constraints.md)  
+  
+  
