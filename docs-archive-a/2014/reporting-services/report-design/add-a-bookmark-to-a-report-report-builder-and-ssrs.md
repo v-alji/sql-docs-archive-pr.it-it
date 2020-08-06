@@ -1,0 +1,62 @@
+---
+title: Aggiungere un segnalibro a un report (Generatore report e SSRS) | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services-native
+ms.topic: conceptual
+ms.assetid: f130562e-5673-40e3-8e01-de7227a21d41
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: fae543dd1b071ff38853637a3da57ffd2410c3a0
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87723480"
+---
+# <a name="add-a-bookmark-to-a-report-report-builder-and-ssrs"></a><span data-ttu-id="bb8a8-102">Aggiungere un segnalibro a un report (Generatore report e SSRS)</span><span class="sxs-lookup"><span data-stu-id="bb8a8-102">Add a Bookmark to a Report (Report Builder and SSRS)</span></span>
+  <span data-ttu-id="bb8a8-103">Aggiungere segnalibri e collegamenti a segnalibro a un report quando si desidera fornire un sommario personalizzato o collegamenti interni personalizzati nel report.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-103">Add bookmarks and bookmark links to a report when you want to provide a customized table of contents or to provide customized internal navigation links in the report.</span></span> <span data-ttu-id="bb8a8-104">In genere i segnalibri vengono aggiunti a posizioni del report cui si desidera indirizzare gli utenti, ad esempio a ogni tabella o grafico o ai valori di gruppo univoci visualizzati in una tabella o una matrice.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-104">Typically, you add bookmarks to locations in the report to which you want to direct users, such as to each table or chart or to the unique group values displayed in a table or matrix.</span></span> <span data-ttu-id="bb8a8-105">È possibile creare stringhe da utilizzare come segnalibri o, per i gruppi, è possibile impostare il segnalibro sull'espressione di raggruppamento.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-105">You can create your own strings to use as bookmarks, or, for groups, you can set the bookmark to the group expression.</span></span>  
+  
+ <span data-ttu-id="bb8a8-106">Dopo avere creato i segnalibri, è possibile aggiungere elementi di report su cui l'utente può fare clic su per passare a ogni segnalibro.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-106">After you create bookmarks, you can add report items that the user can click to go to each bookmark.</span></span> <span data-ttu-id="bb8a8-107">Tali elementi sono in genere costituiti da caselle di testo o immagini.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-107">These items are typically text boxes or images.</span></span>  
+  
+ <span data-ttu-id="bb8a8-108">Se nel report ad esempio è visualizzata una tabella raggruppata in base al colore, è possibile aggiungere un segnalibro basato sull'espressione di raggruppamento all'intestazione di gruppo.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-108">For example, if your report displays a table grouped by color, you would add a bookmark based on the group expression to the group header.</span></span> <span data-ttu-id="bb8a8-109">Successivamente è possibile aggiungere una tabella con una sola casella di testo all'inizio del report in cui sono visualizzati i valori relativi al colore e impostare il collegamento a segnalibro in tale casella di testo.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-109">Then you would add a table with a single text box at the beginning of the report that displayed the color values, and set the bookmark link on that text box.</span></span> <span data-ttu-id="bb8a8-110">Quando si fa clic sul colore, si passa alla pagina del report in cui viene visualizzata la riga dell'intestazione di gruppo per il colore specifico.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-110">When you click the color, the report jumps to the page that displays the group header row for that color.</span></span>  
+  
+ <span data-ttu-id="bb8a8-111">È possibile aggiungere un segnalibro a qualsiasi elemento di report e un collegamento a qualsiasi elemento cui sia associata una proprietà **Azione** , ad esempio una casella di testo, un'immagine oppure una serie calcolata in un grafico.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-111">You can add a bookmark to any report item and add a bookmark link to any item that has an **Action** property, for example, a text box, an image, or a calculated series in a chart.</span></span> <span data-ttu-id="bb8a8-112">Per altre informazioni, vedere [Finestra di dialogo Proprietà azione &#40;Generatore report e SSRS&#41;](../action-properties-dialog-box-report-builder-and-ssrs.md).</span><span class="sxs-lookup"><span data-stu-id="bb8a8-112">For more information, see the [Action Properties Dialog Box &#40;Report Builder and SSRS&#41;](../action-properties-dialog-box-report-builder-and-ssrs.md).</span></span>  
+  
+> [!NOTE]  
+>  [!INCLUDE[ssRBRDDup](../../includes/ssrbrddup-md.md)]  
+  
+### <a name="to-add-a-bookmark"></a><span data-ttu-id="bb8a8-113">Per aggiungere un segnalibro</span><span class="sxs-lookup"><span data-stu-id="bb8a8-113">To add a bookmark</span></span>  
+  
+1.  <span data-ttu-id="bb8a8-114">In visualizzazione struttura report selezionare la casella di testo, l'immagine, il grafico o un altro elemento del report a cui si desidera aggiungere un segnalibro.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-114">In report design view, select the text box, image, chart, or other report item to which you want to add a bookmark.</span></span> <span data-ttu-id="bb8a8-115">Le proprietà per l'elemento selezionato verranno visualizzate nel riquadro Proprietà.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-115">The properties for the selected item appear in the Properties pane.</span></span>  
+  
+2.  <span data-ttu-id="bb8a8-116">Nella casella di testo accanto a **Segnalibro**digitare una stringa che rappresenta l'etichetta per il segnalibro specifico.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-116">In the text box next to **Bookmark**, type a string that is the label for this bookmark.</span></span> <span data-ttu-id="bb8a8-117">Ad esempio, è possibile digitare **BikePhoto** come segnalibro per un'immagine nel report.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-117">For example, you could type **BikePhoto** as the bookmark for an image in your report.</span></span> <span data-ttu-id="bb8a8-118">In alternativa, fare clic sul pulsante Espressione (**fx**) per aprire la finestra di dialogo **Espressione** in cui specificare un'espressione che restituisca un'etichetta.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-118">Alternatively, click the Expression (**fx**) button to open the **Expression** dialog box to specify an expression that evaluates to a label.</span></span> <span data-ttu-id="bb8a8-119">Per un gruppo, l'espressione digitata deve essere quella di raggruppamento.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-119">For a group, the expression you type should be the group expression.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="bb8a8-120">Il segnalibro può essere rappresentato da qualsiasi stringa, ma deve essere univoca nell'ambito del report.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-120">The bookmark can be any string, but it must be unique in the report.</span></span> <span data-ttu-id="bb8a8-121">In caso contrario, un collegamento al segnalibro individuerà il primo segnalibro corrispondente.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-121">If the bookmark is not unique, a link to the bookmark finds the first matching bookmark.</span></span>  
+  
+### <a name="to-add-a-bookmark-link"></a><span data-ttu-id="bb8a8-122">Per aggiungere un collegamento a segnalibro</span><span class="sxs-lookup"><span data-stu-id="bb8a8-122">To add a bookmark link</span></span>  
+  
+1.  <span data-ttu-id="bb8a8-123">Nella visualizzazione della struttura fare clic con il pulsante destro del mouse sulla casella di testo, immagine o grafico cui si vuole aggiungere un collegamento, quindi scegliere **Proprietà**.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-123">In Design view, right-click the text box, image, chart, to which you want to add a link and then click **Properties**.</span></span>  
+  
+2.  <span data-ttu-id="bb8a8-124">Nella finestra di dialogo **Proprietà** relativa a tale elemento di report fare clic su **Azione**.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-124">In The **Properties** dialog box for that report item, click **Action**.</span></span>  
+  
+3.  <span data-ttu-id="bb8a8-125">Selezionare **Vai al segnalibro**.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-125">Select **Go to bookmark**.</span></span> <span data-ttu-id="bb8a8-126">Nella finestra di dialogo verrà visualizzata una sezione aggiuntiva per questa opzione.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-126">An additional section appears in the dialog box for this option.</span></span>  
+  
+4.  <span data-ttu-id="bb8a8-127">Nella casella **Selezionare un segnalibro** digitare o selezionare un segnalibro o un'espressione che restituisca un segnalibro.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-127">In the **Select bookmark** box, type or select a bookmark or an expression that evaluates to a bookmark.</span></span> <span data-ttu-id="bb8a8-128">Utilizzando l'esempio precedente, digitare **BikePhoto** per creare un collegamento all'immagine nel report.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-128">Using the previous example, type **BikePhoto** to create a link to the image in your report.</span></span>  
+  
+5.  [!INCLUDE[clickOK](../../includes/clickok-md.md)]  
+  
+6.  <span data-ttu-id="bb8a8-129">(Facoltativo) Il testo non viene formattato automaticamente come un collegamento.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-129">(Optional) The text is not automatically formatted like a link.</span></span> <span data-ttu-id="bb8a8-130">Per il testo è utile modificare il colore e l'effetto del testo per indicare che si tratta di un collegamento.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-130">For text, it is helpful to change the color and effect of the text to indicate that the text is a link.</span></span> <span data-ttu-id="bb8a8-131">È possibile, ad esempio, modificare il colore in blu e sottolineare il testo nella sezione **Carattere** nella scheda Home della barra multifunzione.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-131">For example, change the color to blue and the effect to underline in the **Font** section in the Home tab of the Ribbon.</span></span>  
+  
+7.  <span data-ttu-id="bb8a8-132">Per verificare il collegamento, fare clic su **Esegui** per visualizzare il report in anteprima, quindi fare clic sull'elemento del report su cui è stato impostato il collegamento.</span><span class="sxs-lookup"><span data-stu-id="bb8a8-132">To test the link, click **Run** to preview the report, and then click the report item that you set this link on..</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="bb8a8-133">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="bb8a8-133">See Also</span></span>  
+ <span data-ttu-id="bb8a8-134">[Ordinamento interattivo, mappe documento e collegamenti &#40;Generatore report e SSRS&#41;](interactive-sort-document-maps-and-links-report-builder-and-ssrs.md) </span><span class="sxs-lookup"><span data-stu-id="bb8a8-134">[Interactive Sort, Document Maps, and Links &#40;Report Builder and SSRS&#41;](interactive-sort-document-maps-and-links-report-builder-and-ssrs.md) </span></span>  
+ <span data-ttu-id="bb8a8-135">[Espressioni &#40;Generatore report e SSRS&#41;](expressions-report-builder-and-ssrs.md) </span><span class="sxs-lookup"><span data-stu-id="bb8a8-135">[Expressions &#40;Report Builder and SSRS&#41;](expressions-report-builder-and-ssrs.md) </span></span>  
+ [<span data-ttu-id="bb8a8-136">Filtro, raggruppamento e ordinamento di dati &#40;Generatore report e SSRS&#41;</span><span class="sxs-lookup"><span data-stu-id="bb8a8-136">Filter, Group, and Sort Data &#40;Report Builder and SSRS&#41;</span></span>](filter-group-and-sort-data-report-builder-and-ssrs.md)  
+  
+  

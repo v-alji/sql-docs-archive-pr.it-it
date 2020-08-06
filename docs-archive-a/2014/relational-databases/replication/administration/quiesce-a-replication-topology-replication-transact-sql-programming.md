@@ -1,0 +1,85 @@
+---
+title: Come mettere una topologia di replica in stato di inattività (programmazione Transact-SQL della replica) | Microsoft Docs
+ms.custom: ''
+ms.date: 03/08/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: replication
+ms.topic: conceptual
+dev_langs:
+- TSQL
+helpviewer_keywords:
+- administering replication, quiescing
+- quiesce [SQL Server replication]
+- transactional replication, backup and restore
+ms.assetid: 7626d575-9994-47be-b772-5b6f1b7ef7ca
+author: MashaMSFT
+ms.author: mathoma
+ms.openlocfilehash: f12f0fb8ee3a6118e03799d17836573fb5c733df
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87721395"
+---
+# <a name="quiesce-a-replication-topology-replication-transact-sql-programming"></a><span data-ttu-id="1acf5-102">Come mettere una topologia di replica in stato di inattività (programmazione Transact-SQL della replica)</span><span class="sxs-lookup"><span data-stu-id="1acf5-102">Quiesce a Replication Topology (Replication Transact-SQL Programming)</span></span>
+  <span data-ttu-id="1acf5-103"> Mettere in *stato di inattività* un sistema significa arrestare le attività sulle tabelle pubblicate in tutti i nodi e verificare che ogni nodo abbia ricevuto tutte le modifiche dagli altri nodi.</span><span class="sxs-lookup"><span data-stu-id="1acf5-103">*Quiescing* a system involves stopping activity on published tables at all nodes and ensuring that each node has received all changes from all other nodes.</span></span> <span data-ttu-id="1acf5-104">In questo argomento è illustrato come mettere in stato di inattività una topologia di replica, operazione necessaria per diverse attività amministrative, e assicurarsi che un nodo abbia ricevuto tutte le modifiche dagli altri nodi.</span><span class="sxs-lookup"><span data-stu-id="1acf5-104">This topic explains how to quiesce a replication topology, which is required for a number of administrative tasks, and how to ensure that a node has received all changes from other nodes.</span></span>  
+  
+### <a name="to-quiesce-a-transactional-replication-topology-with-read-only-subscriptions"></a><span data-ttu-id="1acf5-105">Per mettere in stato di inattività una topologia di replica transazionale con sottoscrizioni di sola lettura</span><span class="sxs-lookup"><span data-stu-id="1acf5-105">To quiesce a transactional replication topology with read-only subscriptions</span></span>  
+  
+1.  <span data-ttu-id="1acf5-106">Arrestare l'attività in tutte le tabelle pubblicate nel server di pubblicazione.</span><span class="sxs-lookup"><span data-stu-id="1acf5-106">Stop activity on all published tables at the Publisher.</span></span>  
+  
+2.  <span data-ttu-id="1acf5-107">Nel database di pubblicazione del server di pubblicazione eseguire [sp_posttracertoken &#40;Transact-SQL&#41;](/sql/relational-databases/system-stored-procedures/sp-posttracertoken-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="1acf5-107">At the Publisher on the publication database, execute [sp_posttracertoken &#40;Transact-SQL&#41;](/sql/relational-databases/system-stored-procedures/sp-posttracertoken-transact-sql).</span></span>  
+  
+3.  <span data-ttu-id="1acf5-108">Nel database di pubblicazione del server di pubblicazione eseguire [sp_helptracertokenhistory](/sql/relational-databases/system-stored-procedures/sp-helptracertokenhistory-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="1acf5-108">At the Publisher on the publication database, execute [sp_helptracertokenhistory](/sql/relational-databases/system-stored-procedures/sp-helptracertokenhistory-transact-sql).</span></span>  
+  
+4.  <span data-ttu-id="1acf5-109">Assicurarsi che ciascun Sottoscrittore abbia ricevuto il token di traccia.</span><span class="sxs-lookup"><span data-stu-id="1acf5-109">Ensure that each Subscriber has received the tracer token.</span></span>  
+  
+### <a name="to-quiesce-a-transactional-replication-topology-with-updatable-subscriptions"></a><span data-ttu-id="1acf5-110">Per mettere in stato di inattività una topologia di replica transazionale con sottoscrizioni aggiornabili</span><span class="sxs-lookup"><span data-stu-id="1acf5-110">To quiesce a transactional replication topology with updatable subscriptions</span></span>  
+  
+1.  <span data-ttu-id="1acf5-111">Arrestare l'attività in tutte le tabelle pubblicate nel server di pubblicazione e in tutti i Sottoscrittori.</span><span class="sxs-lookup"><span data-stu-id="1acf5-111">Stop activity on all published tables at the Publisher and all Subscribers.</span></span>  
+  
+2.  <span data-ttu-id="1acf5-112">Se i Sottoscrittori utilizzano sottoscrizioni ad aggiornamento in coda:</span><span class="sxs-lookup"><span data-stu-id="1acf5-112">If any Subscribers use queued updating subscriptions:</span></span>  
+  
+    1.  <span data-ttu-id="1acf5-113">Se l'agente di lettura coda non viene eseguito in modalità continua, eseguire l'agente.</span><span class="sxs-lookup"><span data-stu-id="1acf5-113">If the Queue Reader Agent is not running in continuous mode, run the agent.</span></span> <span data-ttu-id="1acf5-114">Per altre informazioni sull'esecuzione degli agenti, vedere [Concetti di base relativi ai file eseguibili dell'agente di replica](../concepts/replication-agent-executables-concepts.md) o [Avviare e arrestare un agente di replica &#40;SQL Server Management Studio&#41;](../agents/start-and-stop-a-replication-agent-sql-server-management-studio.md).</span><span class="sxs-lookup"><span data-stu-id="1acf5-114">For more information about running agents, see [Replication Agent Executables Concepts](../concepts/replication-agent-executables-concepts.md) or [Start and Stop a Replication Agent &#40;SQL Server Management Studio&#41;](../agents/start-and-stop-a-replication-agent-sql-server-management-studio.md).</span></span>  
+  
+    2.  <span data-ttu-id="1acf5-115">Per verificare che la coda sia vuota, eseguire [sp_replqueuemonitor](/sql/relational-databases/system-stored-procedures/sp-replqueuemonitor-transact-sql) in ciascun Sottoscrittore.</span><span class="sxs-lookup"><span data-stu-id="1acf5-115">To verify that the queue is empty, execute [sp_replqueuemonitor](/sql/relational-databases/system-stored-procedures/sp-replqueuemonitor-transact-sql) at each Subscriber.</span></span>  
+  
+3.  <span data-ttu-id="1acf5-116">Nel database di pubblicazione del server di pubblicazione eseguire [sp_posttracertoken](/sql/relational-databases/system-stored-procedures/sp-posttracertoken-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="1acf5-116">At the Publisher on the publication database, execute [sp_posttracertoken](/sql/relational-databases/system-stored-procedures/sp-posttracertoken-transact-sql).</span></span>  
+  
+4.  <span data-ttu-id="1acf5-117">Nel database di pubblicazione del server di pubblicazione eseguire [sp_helptracertokenhistory](/sql/relational-databases/system-stored-procedures/sp-helptracertokenhistory-transact-sql).</span><span class="sxs-lookup"><span data-stu-id="1acf5-117">At the Publisher on the publication database, execute [sp_helptracertokenhistory](/sql/relational-databases/system-stored-procedures/sp-helptracertokenhistory-transact-sql).</span></span>  
+  
+5.  <span data-ttu-id="1acf5-118">Assicurarsi che ciascun Sottoscrittore abbia ricevuto il token di traccia.</span><span class="sxs-lookup"><span data-stu-id="1acf5-118">Ensure that each Subscriber has received the tracer token.</span></span>  
+  
+### <a name="to-quiesce-a-peer-to-peer-transactional-replication-topology"></a><span data-ttu-id="1acf5-119">Per mettere in stato di inattività una topologia di replica transazionale peer-to-peer</span><span class="sxs-lookup"><span data-stu-id="1acf5-119">To quiesce a peer-to-peer transactional replication topology</span></span>  
+  
+1.  <span data-ttu-id="1acf5-120">Arrestare l'attività in tutte le tabelle pubblicate in tutti i nodi.</span><span class="sxs-lookup"><span data-stu-id="1acf5-120">Stop activity on all published tables at all nodes.</span></span>  
+  
+2.  <span data-ttu-id="1acf5-121">Eseguire [sp_requestpeerresponse](/sql/relational-databases/system-stored-procedures/sp-requestpeerresponse-transact-sql) in ciascun database di pubblicazione nella topologia.</span><span class="sxs-lookup"><span data-stu-id="1acf5-121">Execute [sp_requestpeerresponse](/sql/relational-databases/system-stored-procedures/sp-requestpeerresponse-transact-sql) on each publication database in the topology.</span></span>  
+  
+3.  <span data-ttu-id="1acf5-122">Se l'agente di lettura log o l'agente di distribuzione non viene eseguito in modalità continua, eseguire l'agente.</span><span class="sxs-lookup"><span data-stu-id="1acf5-122">If the Log Reader Agent or Distribution Agent is not running in continuous mode, run the agent.</span></span> <span data-ttu-id="1acf5-123">L'agente di lettura log deve essere avviato prima l'agente di distribuzione.</span><span class="sxs-lookup"><span data-stu-id="1acf5-123">The Log Reader Agent must be started before the Distribution Agent.</span></span> <span data-ttu-id="1acf5-124">Per altre informazioni sull'esecuzione degli agenti, vedere [Concetti di base relativi ai file eseguibili dell'agente di replica](../concepts/replication-agent-executables-concepts.md) o [Avviare e arrestare un agente di replica &#40;SQL Server Management Studio&#41;](../agents/start-and-stop-a-replication-agent-sql-server-management-studio.md).</span><span class="sxs-lookup"><span data-stu-id="1acf5-124">For more information about running agents, see [Replication Agent Executables Concepts](../concepts/replication-agent-executables-concepts.md) or [Start and Stop a Replication Agent &#40;SQL Server Management Studio&#41;](../agents/start-and-stop-a-replication-agent-sql-server-management-studio.md).</span></span>  
+  
+4.  <span data-ttu-id="1acf5-125">Eseguire [sp_helppeerresponses](/sql/relational-databases/system-stored-procedures/sp-helppeerresponses-transact-sql) in ciascun database di pubblicazione nella topologia.</span><span class="sxs-lookup"><span data-stu-id="1acf5-125">Execute [sp_helppeerresponses](/sql/relational-databases/system-stored-procedures/sp-helppeerresponses-transact-sql) on each publication database in the topology.</span></span> <span data-ttu-id="1acf5-126">Assicurarsi che il set di risultati contenga risposte da ciascuno degli altri nodi.</span><span class="sxs-lookup"><span data-stu-id="1acf5-126">Ensure that the result set contains responses from each of the other nodes.</span></span>  
+  
+### <a name="to-ensure-a-peer-to-peer-node-has-received-all-prior-changes"></a><span data-ttu-id="1acf5-127">Per assicurarsi che un nodo peer-to-peer abbia ricevuto tutte le modifiche precedenti</span><span class="sxs-lookup"><span data-stu-id="1acf5-127">To ensure a peer-to-peer node has received all prior changes</span></span>  
+  
+1.  <span data-ttu-id="1acf5-128">Eseguire [sp_requestpeerresponse](/sql/relational-databases/system-stored-procedures/sp-requestpeerresponse-transact-sql) nel nodo del database di pubblicazione in cui viene eseguita la verifica.</span><span class="sxs-lookup"><span data-stu-id="1acf5-128">Execute [sp_requestpeerresponse](/sql/relational-databases/system-stored-procedures/sp-requestpeerresponse-transact-sql) on the publication database at the node you are checking.</span></span>  
+  
+2.  <span data-ttu-id="1acf5-129">Se l'agente di lettura log o l'agente di distribuzione non viene eseguito in modalità continua, eseguire l'agente.</span><span class="sxs-lookup"><span data-stu-id="1acf5-129">If the Log Reader Agent or Distribution Agent is not running in continuous mode, run the agent.</span></span> <span data-ttu-id="1acf5-130">L'agente di lettura log deve essere avviato prima l'agente di distribuzione.</span><span class="sxs-lookup"><span data-stu-id="1acf5-130">The Log Reader Agent must be started before the Distribution Agent.</span></span> <span data-ttu-id="1acf5-131">Per altre informazioni sull'esecuzione degli agenti, vedere [Concetti di base relativi ai file eseguibili dell'agente di replica](../concepts/replication-agent-executables-concepts.md) o [Avviare e arrestare un agente di replica &#40;SQL Server Management Studio&#41;](../agents/start-and-stop-a-replication-agent-sql-server-management-studio.md).</span><span class="sxs-lookup"><span data-stu-id="1acf5-131">For more information about running agents, see [Replication Agent Executables Concepts](../concepts/replication-agent-executables-concepts.md) or [Start and Stop a Replication Agent &#40;SQL Server Management Studio&#41;](../agents/start-and-stop-a-replication-agent-sql-server-management-studio.md).</span></span>  
+  
+3.  <span data-ttu-id="1acf5-132">Eseguire [sp_helppeerresponses](/sql/relational-databases/system-stored-procedures/sp-helppeerresponses-transact-sql) nel nodo del database di pubblicazione in cui viene eseguita la verifica.</span><span class="sxs-lookup"><span data-stu-id="1acf5-132">Execute [sp_helppeerresponses](/sql/relational-databases/system-stored-procedures/sp-helppeerresponses-transact-sql) on the publication database at the node you are checking.</span></span> <span data-ttu-id="1acf5-133">Assicurarsi che il set di risultati contenga risposte da ciascuno degli altri nodi.</span><span class="sxs-lookup"><span data-stu-id="1acf5-133">Ensure that the result set contains responses from each of the other nodes.</span></span>  
+  
+### <a name="to-quiesce-a-merge-replication-topology"></a><span data-ttu-id="1acf5-134">Per mettere in stato di inattività una topologia di replica di tipo merge</span><span class="sxs-lookup"><span data-stu-id="1acf5-134">To quiesce a merge replication topology</span></span>  
+  
+1.  <span data-ttu-id="1acf5-135">Arrestare l'attività in tutte le tabelle pubblicate nel server di pubblicazione e in tutti i Sottoscrittori.</span><span class="sxs-lookup"><span data-stu-id="1acf5-135">Stop activity on all published tables at the Publisher and at all Subscribers.</span></span>  
+  
+2.  <span data-ttu-id="1acf5-136">Eseguire due volte l'agente di merge per ciascuna sottoscrizione: sincronizzare una volta tutte le sottoscrizioni, quindi sincronizzare ciascuna di esse una seconda volta.</span><span class="sxs-lookup"><span data-stu-id="1acf5-136">Run the Merge Agent for each subscription two times: synchronize all subscriptions once and then synchronize each subscription a second time.</span></span> <span data-ttu-id="1acf5-137">In questo modo si garantisce che tutte le modifiche vengano replicate in tutti i nodi.</span><span class="sxs-lookup"><span data-stu-id="1acf5-137">This ensures that all changes are replicated to all nodes.</span></span> <span data-ttu-id="1acf5-138">Per altre informazioni sull'esecuzione degli agenti, vedere [Concetti di base relativi ai file eseguibili dell'agente di replica](../concepts/replication-agent-executables-concepts.md) o [Avviare e arrestare un agente di replica &#40;SQL Server Management Studio&#41;](../agents/start-and-stop-a-replication-agent-sql-server-management-studio.md).</span><span class="sxs-lookup"><span data-stu-id="1acf5-138">For more information about running agents, see [Replication Agent Executables Concepts](../concepts/replication-agent-executables-concepts.md) or [Start and Stop a Replication Agent &#40;SQL Server Management Studio&#41;](../agents/start-and-stop-a-replication-agent-sql-server-management-studio.md).</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="1acf5-139">Se si verificano conflitti durante la sincronizzazione, è possibile che le modifiche richieste per la risoluzione dei conflitti non vengano propagate in tutti i nodi dopo aver eseguito due volte l'agente di merge.</span><span class="sxs-lookup"><span data-stu-id="1acf5-139">If conflicts occur during synchronization, it is possible that changes required by conflict resolution will not be propagated to all nodes after running the Merge Agent two times.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="1acf5-140">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="1acf5-140">See Also</span></span>  
+ <span data-ttu-id="1acf5-141">[Amministrare una topologia peer-to-peer &#40;programmazione Transact-SQL della replica&#41;](administer-a-peer-to-peer-topology-replication-transact-sql-programming.md) </span><span class="sxs-lookup"><span data-stu-id="1acf5-141">[Administer a Peer-to-Peer Topology &#40;Replication Transact-SQL Programming&#41;](administer-a-peer-to-peer-topology-replication-transact-sql-programming.md) </span></span>  
+ [<span data-ttu-id="1acf5-142">Misurare la latenza e convalidare le connessioni per la replica transazionale</span><span class="sxs-lookup"><span data-stu-id="1acf5-142">Measure Latency and Validate Connections for Transactional Replication</span></span>](../monitor/measure-latency-and-validate-connections-for-transactional-replication.md)  
+  
+  

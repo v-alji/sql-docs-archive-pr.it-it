@@ -1,0 +1,62 @@
+---
+title: Pagina contenuto (Gestione report) | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services-native
+ms.topic: conceptual
+ms.assetid: 6b16869b-158a-4934-9c85-bee934b35378
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: 0501be33b9ed19c2ca7e357313eecd283c27d41d
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87723583"
+---
+# <a name="contents-page-report-manager"></a><span data-ttu-id="63f6b-102">Pagina Contenuto (Gestione report)</span><span class="sxs-lookup"><span data-stu-id="63f6b-102">Contents Page (Report Manager)</span></span>
+  <span data-ttu-id="63f6b-103">Utilizzare la pagina Contenuto per visualizzare il contenuto della cartella corrente, selezionare gli elementi da visualizzare oppure esplorare altre cartelle.</span><span class="sxs-lookup"><span data-stu-id="63f6b-103">Use the Contents page to view the contents of the current folder, select items to view, or navigate to other folders.</span></span> <span data-ttu-id="63f6b-104">Questa pagina viene aperta quando si seleziona una cartella</span><span class="sxs-lookup"><span data-stu-id="63f6b-104">This page opens when you select a folder.</span></span> <span data-ttu-id="63f6b-105">e rappresenta inoltre la home page di Gestione report.</span><span class="sxs-lookup"><span data-stu-id="63f6b-105">It is also the home page for Report Manager.</span></span>  
+  
+ <span data-ttu-id="63f6b-106">Nella pagina Contenuto vengono visualizzati gli elementi per i quali si dispone delle autorizzazioni per la visualizzazione.</span><span class="sxs-lookup"><span data-stu-id="63f6b-106">The Contents page shows the items that you have permission to view.</span></span> <span data-ttu-id="63f6b-107">A seconda delle autorizzazioni assegnate, è inoltre possibile che siano consentite operazioni di spostamento, eliminazione e aggiunta di elementi.</span><span class="sxs-lookup"><span data-stu-id="63f6b-107">Depending on the permissions you have, you may also be able to move, delete, and add items.</span></span> <span data-ttu-id="63f6b-108">Per visualizzare i pulsanti **Elimina** e **Sposta** è necessario fare clic su **Visualizzazione Dettagli** .</span><span class="sxs-lookup"><span data-stu-id="63f6b-108">You must click **Details View** to access the **Delete** and **Move** buttons.</span></span> <span data-ttu-id="63f6b-109">Se non viene visualizzato alcun elemento, rivolgersi all'amministratore del server di report.</span><span class="sxs-lookup"><span data-stu-id="63f6b-109">If you cannot see any items at all, check with your report server administrator.</span></span> <span data-ttu-id="63f6b-110">È possibile che non si sia stati assegnati a un ruolo tramite cui viene fornito l'accesso al contenuto o alle operazioni del server di report.</span><span class="sxs-lookup"><span data-stu-id="63f6b-110">It may be that you have not been assigned to a role that provides access to report server content or operations.</span></span>  
+  
+## <a name="options"></a><span data-ttu-id="63f6b-111">Opzioni</span><span class="sxs-lookup"><span data-stu-id="63f6b-111">Options</span></span>  
+ <span data-ttu-id="63f6b-112">**Nuova cartella**</span><span class="sxs-lookup"><span data-stu-id="63f6b-112">**New Folder**</span></span>  
+ <span data-ttu-id="63f6b-113">Fare clic per visualizzare la pagina Nuova cartella, nella quale è possibile creare una sottocartella della cartella corrente.</span><span class="sxs-lookup"><span data-stu-id="63f6b-113">Click to open the New Folder page, which is used to create a folder under the current folder.</span></span>  
+  
+ <span data-ttu-id="63f6b-114">**Nuova origine dati**</span><span class="sxs-lookup"><span data-stu-id="63f6b-114">**New Data Source**</span></span>  
+ <span data-ttu-id="63f6b-115">Fare clic per aprire la pagina Nuova origine dati, nella quale è possibile creare un'origine dati condivisa.</span><span class="sxs-lookup"><span data-stu-id="63f6b-115">Click to open the New Data Source page, which is used to create a shared data source item.</span></span>  
+  
+ <span data-ttu-id="63f6b-116">**Generatore report**</span><span class="sxs-lookup"><span data-stu-id="63f6b-116">**Report Builder**</span></span>  
+ <span data-ttu-id="63f6b-117">Fare clic per avviare Generatore report.</span><span class="sxs-lookup"><span data-stu-id="63f6b-117">Click to start Report Builder.</span></span> <span data-ttu-id="63f6b-118">Per accedere a Generatore report da Gestione report, è necessario che Generatore report sia abilitato nel server di report e che si disponga delle autorizzazioni per utilizzarlo.</span><span class="sxs-lookup"><span data-stu-id="63f6b-118">To access Report Builder from Report Manager, Report Builder must be enabled on the report server and you must have permission to use it.</span></span> <span data-ttu-id="63f6b-119">Per altre informazioni, vedere [Configurare l'accesso a Generatore report](report-server/configure-report-builder-access.md).</span><span class="sxs-lookup"><span data-stu-id="63f6b-119">For more information, see [Configure Report Builder Access](report-server/configure-report-builder-access.md).</span></span>  
+  
+ <span data-ttu-id="63f6b-120">**Impostazioni cartella**</span><span class="sxs-lookup"><span data-stu-id="63f6b-120">**Folder Settings**</span></span>  
+ <span data-ttu-id="63f6b-121">Fare clic per aprire e gestire le proprietà della cartella corrente.</span><span class="sxs-lookup"><span data-stu-id="63f6b-121">Click to open and manage properties of the current folder.</span></span>  
+  
+ <span data-ttu-id="63f6b-122">**Carica file**</span><span class="sxs-lookup"><span data-stu-id="63f6b-122">**Upload File**</span></span>  
+ <span data-ttu-id="63f6b-123">Fare clic per aprire la pagina Carica file, nella quale è possibile copiare un file dal file system a un server di report.</span><span class="sxs-lookup"><span data-stu-id="63f6b-123">Click to open the Upload File page, which is used to copy a file from the file system to a report server.</span></span> <span data-ttu-id="63f6b-124">È possibile caricare file per aggiungere report e risorse, ad esempio grafici, documenti o qualsiasi altro contenuto accessorio che si desidera utilizzare in un report.</span><span class="sxs-lookup"><span data-stu-id="63f6b-124">You can upload files to add reports and resources (such as charts, documents, or any other collateral content that you want to keep with a report).</span></span> <span data-ttu-id="63f6b-125">I file caricati vengono archiviati e gestiti in un database del server di report.</span><span class="sxs-lookup"><span data-stu-id="63f6b-125">Uploaded files are stored in and managed from a report server database.</span></span> <span data-ttu-id="63f6b-126">Per caricare un report, selezionare un file con estensione rdl.</span><span class="sxs-lookup"><span data-stu-id="63f6b-126">To upload a report, select a file that has an .rdl extension.</span></span>  
+  
+ <span data-ttu-id="63f6b-127">**Visualizzazione dettagli**</span><span class="sxs-lookup"><span data-stu-id="63f6b-127">**Details View**</span></span>  
+ <span data-ttu-id="63f6b-128">Fare clic per visualizzare la pagina Contenuto in un elenco che contiene informazioni aggiuntive sugli elementi.</span><span class="sxs-lookup"><span data-stu-id="63f6b-128">Click to display the Contents page in a list that contains additional information about items.</span></span> <span data-ttu-id="63f6b-129">In **Visualizzazione Dettagli**, è possibile utilizzare i pulsanti **Elimina** e **Sposta** per rimuovere e spostare gli elementi nella cartella.</span><span class="sxs-lookup"><span data-stu-id="63f6b-129">In **Details View**, you can use **Delete** and **Move** buttons to remove and relocate items in the folder.</span></span>  
+  
+ <span data-ttu-id="63f6b-130">Passare con il puntatore del mouse su un elemento e fare clic sulla freccia a discesa per aprire il menu a discesa dal quale è possibile accedere alle proprietà dell'elemento selezionato ed eseguirne la configurazione.</span><span class="sxs-lookup"><span data-stu-id="63f6b-130">Hover over an item and click the drop-down arrow to open the drop-down menu from which you can access and configure properties of the selected item.</span></span>  
+  
+ <span data-ttu-id="63f6b-131">**Visualizzazione affiancata**</span><span class="sxs-lookup"><span data-stu-id="63f6b-131">**Tile View**</span></span>  
+ <span data-ttu-id="63f6b-132">Fare clic per visualizzare la pagina Contenuto senza dettagli come in **Visualizzazione dettagli**.</span><span class="sxs-lookup"><span data-stu-id="63f6b-132">Click to display the Contents page without details as in **Details View**.</span></span> <span data-ttu-id="63f6b-133">Visualizzazione Elenco è la visualizzazione predefinita quando si apre una cartella o si accede alla home page di Gestione report.</span><span class="sxs-lookup"><span data-stu-id="63f6b-133">List View is the default view when you open a folder or access the Report Manager Home page.</span></span>  
+  
+ <span data-ttu-id="63f6b-134">Passare con il puntatore del mouse su un elemento e fare clic sulla freccia a discesa per aprire il menu a discesa dal quale è possibile accedere alle proprietà dell'elemento selezionato ed eseguirne la configurazione.</span><span class="sxs-lookup"><span data-stu-id="63f6b-134">Hover over an item and click the drop-down arrow to open the drop-down menu from which you can access and configure properties of the selected item.</span></span>  
+  
+ <span data-ttu-id="63f6b-135">**Elimina**</span><span class="sxs-lookup"><span data-stu-id="63f6b-135">**Delete**</span></span>  
+ <span data-ttu-id="63f6b-136">Fare clic per rimuovere una cartella o un altro elemento.</span><span class="sxs-lookup"><span data-stu-id="63f6b-136">Click to remove a folder or other item.</span></span> <span data-ttu-id="63f6b-137">Prima di fare clic su **Elimina**, selezionare la casella di controllo accanto a ogni elemento che si desidera eliminare.</span><span class="sxs-lookup"><span data-stu-id="63f6b-137">Before clicking **Delete**, select the check box next to each item that you want to delete.</span></span>  
+  
+ <span data-ttu-id="63f6b-138">**Spostamento**</span><span class="sxs-lookup"><span data-stu-id="63f6b-138">**Move**</span></span>  
+ <span data-ttu-id="63f6b-139">Fare clic per spostare un elemento nella gerarchia di cartelle.</span><span class="sxs-lookup"><span data-stu-id="63f6b-139">Click to relocate an item within the folder hierarchy.</span></span> <span data-ttu-id="63f6b-140">Prima di fare clic su **Sposta**selezionare la casella di controllo accanto a ogni elemento che si desidera spostare.</span><span class="sxs-lookup"><span data-stu-id="63f6b-140">Before clicking **Move**, select the check box next to each item that you want to move.</span></span> <span data-ttu-id="63f6b-141">Verrà visualizzata la pagina di spostamento degli elementi, nella quale è possibile esplorare le cartelle per selezionare un nuovo percorso.</span><span class="sxs-lookup"><span data-stu-id="63f6b-141">This opens the Move Items page, where you can browse through folders to select a new location.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="63f6b-142">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="63f6b-142">See Also</span></span>  
+ <span data-ttu-id="63f6b-143">[Gestione report &#40;modalità nativa SSRS&#41;](../../2014/reporting-services/report-manager-ssrs-native-mode.md) </span><span class="sxs-lookup"><span data-stu-id="63f6b-143">[Report Manager  &#40;SSRS Native Mode&#41;](../../2014/reporting-services/report-manager-ssrs-native-mode.md) </span></span>  
+ <span data-ttu-id="63f6b-144">[Gestione contenuto del server di report &#40;modalità nativa SSRS&#41;](report-server/report-server-content-management-ssrs-native-mode.md) </span><span class="sxs-lookup"><span data-stu-id="63f6b-144">[Report Server Content Management &#40;SSRS Native Mode&#41;](report-server/report-server-content-management-ssrs-native-mode.md) </span></span>  
+ [<span data-ttu-id="63f6b-145">Guida sensibile al contesto di Gestione report</span><span class="sxs-lookup"><span data-stu-id="63f6b-145">Report Manager F1 Help</span></span>](../../2014/reporting-services/report-manager-f1-help.md)  
+  
+  

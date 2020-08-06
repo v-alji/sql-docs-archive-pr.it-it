@@ -1,0 +1,77 @@
+---
+title: Estrarre dati delle modifiche tramite l'origine CDC | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: integration-services
+ms.topic: conceptual
+ms.assetid: 604fbafb-15fa-4d11-8487-77d7b626eed8
+author: chugugrace
+ms.author: chugu
+ms.openlocfilehash: ef981a22e286f519c9b93b3181b47df43321548b
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87726123"
+---
+# <a name="extract-change-data-using-the-cdc-source"></a><span data-ttu-id="220db-102">Estrarre dati delle modifiche tramite l'origine CDC</span><span class="sxs-lookup"><span data-stu-id="220db-102">Extract Change Data Using the CDC Source</span></span>
+  <span data-ttu-id="220db-103">Per aggiungere e configurare un'origine CDC, è necessario che il pacchetto includa già almeno un'attività Flusso di dati e un'attività di controllo CDC.</span><span class="sxs-lookup"><span data-stu-id="220db-103">To add and configure a CDC source, the package must already include at least one Data Flow task and a CDC Control task.</span></span>  
+  
+ <span data-ttu-id="220db-104">Per altre informazioni sull'attività di controllo CDC, vedere [Attività di controllo CDC](../control-flow/cdc-control-task.md).</span><span class="sxs-lookup"><span data-stu-id="220db-104">For more information about the CDC Control task, see [CDC Control Task](../control-flow/cdc-control-task.md).</span></span>  
+  
+ <span data-ttu-id="220db-105">Per altre informazioni sull'origine CDC, vedere [Origine CDC](cdc-source.md).</span><span class="sxs-lookup"><span data-stu-id="220db-105">For more information about the CDC source, see [CDC Source](cdc-source.md).</span></span>  
+  
+### <a name="to-extract-change-data-using-a-cdc-source"></a><span data-ttu-id="220db-106">Per estrarre dati delle modifiche tramite un'origine CDC</span><span class="sxs-lookup"><span data-stu-id="220db-106">To extract change data using a CDC source</span></span>  
+  
+1.  <span data-ttu-id="220db-107">In [!INCLUDE[ssBIDevStudio](../../includes/ssbidevstudio-md.md)]aprire il progetto di [!INCLUDE[ssISCurrent](../../includes/ssiscurrent-md.md)] che contiene il pacchetto desiderato.</span><span class="sxs-lookup"><span data-stu-id="220db-107">In [!INCLUDE[ssBIDevStudio](../../includes/ssbidevstudio-md.md)], open the [!INCLUDE[ssISCurrent](../../includes/ssiscurrent-md.md)] project that contains the package you want.</span></span>  
+  
+2.  <span data-ttu-id="220db-108">In Esplora soluzioni fare doppio clic sul pacchetto per aprirlo.</span><span class="sxs-lookup"><span data-stu-id="220db-108">In the Solution Explorer, double-click the package to open it.</span></span>  
+  
+3.  <span data-ttu-id="220db-109">Fare clic sulla scheda **Flusso di dati** e quindi, dalla **casella degli strumenti**, trascinare l'origine CDC sull'area di progettazione.</span><span class="sxs-lookup"><span data-stu-id="220db-109">Click the **Data Flow** tab, and then from the **Toolbox**, drag the CDC source to the design surface.</span></span>  
+  
+4.  <span data-ttu-id="220db-110">Fare doppio clic sull'origine CDC.</span><span class="sxs-lookup"><span data-stu-id="220db-110">Double-click the CDC source.</span></span>  
+  
+5.  <span data-ttu-id="220db-111">Nella pagina **Gestione connessione** della finestra di dialogo **Editor origine CDC** selezionare nell'elenco una gestione connessione ADO.NET esistente oppure fare clic su **Nuova** per creare una nuova connessione.</span><span class="sxs-lookup"><span data-stu-id="220db-111">In the **CDC Source Editor** dialog box, on the **Connection Manager** page, select an existing ADO.NET connection manager from the list, or click **New** to create a new connection.</span></span> <span data-ttu-id="220db-112">La connessione deve essere stabilita a un database di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] contenente le tabelle delle modifiche da leggere.</span><span class="sxs-lookup"><span data-stu-id="220db-112">The connection should be to a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] database that contains the change tables to read.</span></span>  
+  
+6.  <span data-ttu-id="220db-113">Selezionare la **tabella CDC** in cui si vuole elaborare le modifiche.</span><span class="sxs-lookup"><span data-stu-id="220db-113">Select the **CDC table** where you want to process changes.</span></span>  
+  
+7.  <span data-ttu-id="220db-114">Selezionare o digitare il nome dell' **istanza di acquisizione CDC** con la tabella CDC da leggere.</span><span class="sxs-lookup"><span data-stu-id="220db-114">Select or type in the name of the **CDC capture instance** with the CDC table to be read.</span></span>  
+  
+     <span data-ttu-id="220db-115">Una tabella di origine acquisita può contenere una o due istanze acquisite per gestire la transizione senza problemi della definizione di tabella mediante modifiche dello schema.</span><span class="sxs-lookup"><span data-stu-id="220db-115">A captured source table can have one or two captured instances to handle seamless transitioning of table definition through schema changes.</span></span> <span data-ttu-id="220db-116">Se per la tabella di origine in corso di acquisizione sono definite più istanze di acquisizione, selezionare l'istanza di acquisizione che si desidera utilizzare a questo punto.</span><span class="sxs-lookup"><span data-stu-id="220db-116">If more than one capture instance is defined for the source table being captured, select the capture instance you want to use here.</span></span> <span data-ttu-id="220db-117">Il nome dell'istanza di acquisizione predefinito per una tabella [schema].[tabella] è \<schema>_\<table>, ma i nomi delle istanze di acquisizione effettivi in uso possono essere diversi.</span><span class="sxs-lookup"><span data-stu-id="220db-117">The default capture instance name for a table [schema].[table] is \<schema>_\<table> but that actual capture instance names in use may be different.</span></span> <span data-ttu-id="220db-118">L'effettiva tabella da cui viene eseguita la lettura è la tabella CDC **cdc .\<capture-instance>_CT**.</span><span class="sxs-lookup"><span data-stu-id="220db-118">The actual table that is read from is the CDC table **cdc .\<capture-instance>_CT**.</span></span>  
+  
+8.  <span data-ttu-id="220db-119">Selezionare la modalità di elaborazione più adatta per le esigenze di elaborazione correnti.</span><span class="sxs-lookup"><span data-stu-id="220db-119">Select the processing mode that best handles your processing needs.</span></span> <span data-ttu-id="220db-120">Di seguito sono elencate le opzioni possibili:</span><span class="sxs-lookup"><span data-stu-id="220db-120">The possible options are:</span></span>  
+  
+    -   <span data-ttu-id="220db-121">**All**: restituisce le modifiche nell'intervallo CDC corrente senza i valori **Before Update** .</span><span class="sxs-lookup"><span data-stu-id="220db-121">**All**: Returns the changes in the current CDC range without the **Before Update** values.</span></span>  
+  
+    -   <span data-ttu-id="220db-122">**All with old values**: restituisce le modifiche nell'intervallo di elaborazione CDC corrente inclusi i valori precedenti (**Before Update**).</span><span class="sxs-lookup"><span data-stu-id="220db-122">**All with old values**: Returns the changes in the current CDC processing range including the old values (**Before Update**).</span></span> <span data-ttu-id="220db-123">Ogni operazione di aggiornamento prevede due righe: una con i valori prima dell'aggiornamento e una con i valori dopo l'aggiornamento.</span><span class="sxs-lookup"><span data-stu-id="220db-123">For each Update operation, there will be two rows, one with the before-update values and one with the after-update value.</span></span>  
+  
+    -   <span data-ttu-id="220db-124">**Net**: restituisce una sola riga delle modifiche per ogni riga di origine modificata nell'intervallo di elaborazione CDC corrente.</span><span class="sxs-lookup"><span data-stu-id="220db-124">**Net**: Returns only one change row per source row modified in the current CDC processing range.</span></span> <span data-ttu-id="220db-125">Se una riga di origine è stata aggiornata più volte, viene restituita la modifica combinata (ad esempio, inserimento+aggiornamento viene prodotto come un singolo aggiornamento e aggiornamento+eliminazione viene prodotto come una singola eliminazione).</span><span class="sxs-lookup"><span data-stu-id="220db-125">If a source row was updated multiple times, the combined change is produced (for example, insert+update is produced as a single update and update+delete is produced as a single delete).</span></span> <span data-ttu-id="220db-126">Quando si utilizza la modalità di elaborazione delle modifiche Net, è possibile suddividere le modifiche negli output Delete, Insert e Update e gestirli in parallelo, perché la singola riga di origine viene visualizzata in più output.</span><span class="sxs-lookup"><span data-stu-id="220db-126">When working in Net change processing mode, it is possible to split the changes to Delete, Insert and Update outputs and handle them in parallel because the single source row appears in more than one output.</span></span>  
+  
+    -   <span data-ttu-id="220db-127">**Net with update mask** (Net con maschera di aggiornamento): questa modalità è simile alla modalità Net standard, ma aggiunge anche colonne booleane con il modello di nome **__$\<column-name>\___Changed**, che indica la presenza di colonne modificate nella riga delle modifiche corrente.</span><span class="sxs-lookup"><span data-stu-id="220db-127">**Net with update mask**: This mode is similar to the regular Net mode but it also adds boolean columns with the name pattern **__$\<column-name>\__Changed** that indicate changed columns in the current change row.</span></span>  
+  
+    -   <span data-ttu-id="220db-128">**Net with merge**: questa modalità è simile alla modalità Net standard, ma con le operazioni Insert e Update unite in una singola operazione Merge (UPSERT).</span><span class="sxs-lookup"><span data-stu-id="220db-128">**Net with merge**: This mode is similar to the regular Net mode but with Insert and Update operations merged into a single Merge operation (UPSERT).</span></span>  
+  
+9. <span data-ttu-id="220db-129">Selezionare la variabile del pacchetto di stringhe SSIS che gestisce lo stato CDC per il contesto CDC corrente.</span><span class="sxs-lookup"><span data-stu-id="220db-129">Select the SSIS string package variable that maintains the CDC state for the current CDC context.</span></span> <span data-ttu-id="220db-130">Per altre informazioni sulla variabile di stato CDC, vedere [Definire una variabile di stato](define-a-state-variable.md).</span><span class="sxs-lookup"><span data-stu-id="220db-130">For more information about the CDC state variable, see [Define a State Variable](define-a-state-variable.md).</span></span>  
+  
+10. <span data-ttu-id="220db-131">Selezionare la casella di controllo **Include reprocessing indicator column** per creare una speciale colonna di output denominata **__$reprocessing**.</span><span class="sxs-lookup"><span data-stu-id="220db-131">Select the **Include reprocessing indicator column** check box to create a special output column called **__$reprocessing**.</span></span> <span data-ttu-id="220db-132">Questa colonna contiene un valore **true** quando l'intervallo di elaborazione CDC si sovrappone all'intervallo di elaborazione iniziale (l'intervallo di LSN che corrisponde al periodo di caricamento iniziale) o quando un intervallo di elaborazione CDC viene rielaborato a causa di un errore in un'esecuzione precedente.</span><span class="sxs-lookup"><span data-stu-id="220db-132">This column has a value of **true** when the CDC processing range overlaps with the initial processing range (the range of LSNs corresponding to the period of initial load) or when a CDC processing range is reprocessed following an error in a previous run.</span></span> <span data-ttu-id="220db-133">Questa colonna indicatore consente agli sviluppatori di SSIS di gestire gli errori in modo diverso durante la rielaborazione delle modifiche. Azioni quali l'eliminazione di una riga non esistente e l'inserimento non riuscito su una chiave duplicata, ad esempio, possono essere ignorate.</span><span class="sxs-lookup"><span data-stu-id="220db-133">This indicator column lets the SSIS developer handle errors differently when reprocessing changes (for example, actions such as a delete of a non-existing row and an insert that failed on a duplicate key can be ignored).</span></span>  
+  
+     <span data-ttu-id="220db-134">Per altre informazioni, vedere [Proprietà personalizzate dell'origine CDC](cdc-source-custom-properties.md).</span><span class="sxs-lookup"><span data-stu-id="220db-134">For more information, see [CDC Source Custom Properties](cdc-source-custom-properties.md).</span></span>  
+  
+11. <span data-ttu-id="220db-135">Per aggiornare il mapping tra colonne esterne e colonne di output, fare clic su **Colonne** e selezionare colonne diverse nell'elenco **Colonna esterna** .</span><span class="sxs-lookup"><span data-stu-id="220db-135">To update the mapping between external and output columns, click **Columns** and select different columns in the **External Column** list.</span></span>  
+  
+12. <span data-ttu-id="220db-136">Facoltativamente, aggiornare i valori delle colonne di output eliminando i valori nell'elenco **Colonna di output** .</span><span class="sxs-lookup"><span data-stu-id="220db-136">Optionally update the values of the output columns by deleting values in the **Output Column** list.</span></span>  
+  
+13. <span data-ttu-id="220db-137">Per configurare l'output degli errori, fare clic su **Output errori**.</span><span class="sxs-lookup"><span data-stu-id="220db-137">To configure the error output, click **Error Output**.</span></span>  
+  
+14. <span data-ttu-id="220db-138">Facendo clic su **Anteprima** è possibile visualizzare fino a 200 righe di dati estratti dall'origine CDC.</span><span class="sxs-lookup"><span data-stu-id="220db-138">You can click **Preview** to view up to 200 rows of data extracted by the CDC source.</span></span>  
+  
+15. <span data-ttu-id="220db-139">Fare clic su **OK**.</span><span class="sxs-lookup"><span data-stu-id="220db-139">Click **OK**.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="220db-140">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="220db-140">See Also</span></span>  
+ <span data-ttu-id="220db-141">[Editor origine CDC &#40;pagina Gestione connessione&#41;](../cdc-source-editor-connection-manager-page.md) </span><span class="sxs-lookup"><span data-stu-id="220db-141">[CDC Source Editor &#40;Connection Manager Page&#41;](../cdc-source-editor-connection-manager-page.md) </span></span>  
+ <span data-ttu-id="220db-142">[Editor origine CDC &#40;pagina Colonne&#41;](../cdc-source-editor-columns-page.md) </span><span class="sxs-lookup"><span data-stu-id="220db-142">[CDC Source Editor &#40;Columns Page&#41;](../cdc-source-editor-columns-page.md) </span></span>  
+ [<span data-ttu-id="220db-143">Editor origine CDC &#40;pagina Output degli errori&#41;</span><span class="sxs-lookup"><span data-stu-id="220db-143">CDC Source Editor &#40;Error Output Page&#41;</span></span>](../cdc-source-editor-error-output-page.md)  
+  
+  
