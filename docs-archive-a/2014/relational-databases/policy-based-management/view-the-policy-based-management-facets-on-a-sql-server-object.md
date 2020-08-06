@@ -1,0 +1,51 @@
+---
+title: Visualizzare i facet della gestione basata su criteri in un oggetto di SQL Server | Microsoft Docs
+ms.custom: ''
+ms.date: 06/13/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: security
+ms.topic: conceptual
+helpviewer_keywords:
+- Policy-Based Management, view facets
+ms.assetid: 5f423b9f-a6c4-41a7-9d8d-8f4926ce1fb4
+author: MikeRayMSFT
+ms.author: mikeray
+ms.openlocfilehash: 9137971a79e9e5a18e0ef5d901184133a4c3eff3
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87626684"
+---
+# <a name="view-the-policy-based-management-facets-on-a-sql-server-object"></a>Visualizzare i facet della gestione basata su criteri in un oggetto di SQL Server
+  In questo argomento verrà descritto come visualizzare tutti i facet della gestione basata su criteri applicati a un oggetto specifico di SQL Server in [!INCLUDE[ssCurrent](../../includes/sscurrent-md.md)] utilizzando [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)].  
+  
+ **Contenuto dell'articolo**  
+  
+-   **Prima di iniziare:**  
+  
+     [Sicurezza](#Security)  
+  
+-   **Per visualizzare tutti i facet in un oggetto tramite:**  
+  
+     [SQL Server Management Studio](#SSMSProcedure)  
+  
+##  <a name="before-you-begin"></a><a name="BeforeYouBegin"></a> Prima di iniziare  
+  
+###  <a name="security"></a><a name="Security"></a> Sicurezza  
+  
+####  <a name="permissions"></a><a name="Permissions"></a> Autorizzazioni  
+ È necessaria l'appartenenza al ruolo PolicyAdministratorRole nel database msdb.  
+  
+##  <a name="using-sql-server-management-studio"></a><a name="SSMSProcedure"></a> Utilizzo di SQL Server Management Studio  
+  
+#### <a name="to-view-all-of-the-facets-in-an-object"></a>Per visualizzare tutti i facet in un oggetto  
+  
+1.  In Esplora oggetti fare clic con il pulsante destro del mouse su un'istanza di [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], su un oggetto istanza, su un database o su un oggetto di database, quindi scegliere **Facet**.  
+  
+2.  Nella finestra di dialogo **Visualizza facet -**_nome_oggetto_ selezionare un facet nell'elenco **Facet** per visualizzarne le proprietà. Per ulteriori informazioni sulle opzioni disponibili in questa finestra di dialogo, vedere [View Facets Dialog Box](view-facets-dialog-box.md).  
+  
+3.  Al termine, fare clic su **OK**.  
+  
+  
