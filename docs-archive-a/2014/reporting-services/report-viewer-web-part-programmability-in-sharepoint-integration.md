@@ -1,0 +1,64 @@
+---
+title: Programmabilità della web part Visualizzatore di report nell'integrazione con SharePoint | Microsoft Docs
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: reporting-services
+ms.topic: reference
+ms.assetid: 714017b7-1bd6-4950-a3c6-d0df8450a877
+author: maggiesMSFT
+ms.author: maggies
+manager: kfile
+ms.openlocfilehash: 494ebc3e6668e4d95480019e522caf46b83a6c4d
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87719524"
+---
+# <a name="report-viewer-web-part-programmability-in-sharepoint-integration"></a><span data-ttu-id="37e79-102">Programmabilità della web part Visualizzatore report nell'integrazione con SharePoint</span><span class="sxs-lookup"><span data-stu-id="37e79-102">Report Viewer Web Part Programmability in SharePoint Integration</span></span>
+  <span data-ttu-id="37e79-103">La web part Visualizzatore report è un controllo server `T:Microsoft.ReportingServices.SharePoint.UI.WebParts.ReportViewerWebPart` contenente un set di API pubbliche che consentono agli sviluppatori di creare applicazioni di SharePoint personalizzate.</span><span class="sxs-lookup"><span data-stu-id="37e79-103">The Report Viewer Web Part is a `T:Microsoft.ReportingServices.SharePoint.UI.WebParts.ReportViewerWebPart` server control, which contains a set of public application programming interfaces (API) that enables developers to create custom SharePoint applications.</span></span> <span data-ttu-id="37e79-104">È possibile creare web part personalizzate che forniscono parametri e percorsi di report a web part Visualizzatore report tramite connessioni web part.</span><span class="sxs-lookup"><span data-stu-id="37e79-104">You can create custom Web Parts that supply report path and parameters to Report Viewer Web Part using Web Part connections.</span></span> <span data-ttu-id="37e79-105">È inoltre possibile incorporare la web part in una pagina web part di SharePoint personalizzata e personalizzarla usando l'API pubblica.</span><span class="sxs-lookup"><span data-stu-id="37e79-105">You can also embed the Web Part in a custom SharePoint Web Part page and customize it using the public API.</span></span>  
+  
+## <a name="connecting-to-report-viewer-web-part-with-custom-web-parts"></a><span data-ttu-id="37e79-106">Connessione a web part Visualizzatore report con web part personalizzate</span><span class="sxs-lookup"><span data-stu-id="37e79-106">Connecting to Report Viewer Web Part with Custom Web Parts</span></span>  
+ <span data-ttu-id="37e79-107">La web part Visualizzatore report è una connessione dell'utente a web part di SharePoint che implementano <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> o `T:Microsoft.SharePoint.WebPartPages.IFilterValues`.</span><span class="sxs-lookup"><span data-stu-id="37e79-107">The Report Viewer Web Part is a connection consumer to SharePoint Web Parts that implement <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> or `T:Microsoft.SharePoint.WebPartPages.IFilterValues`.</span></span> <span data-ttu-id="37e79-108">Una web part <xref:System.Web.UI.WebControls.WebParts.IWebPartRow>, ad esempio la web part **Documenti**, può fornire il percorso di un report a una web part Visualizzatore di report quando viene inserita nella stessa pagina web part della web part Visualizzatore di report.</span><span class="sxs-lookup"><span data-stu-id="37e79-108">An <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> Web Part, such as the **Documents** Web Part can supply a report path to a Report Viewer Web Part when placed on the same Web Part page as the Report Viewer Web Part.</span></span> <span data-ttu-id="37e79-109">Analogamente, una `T:Microsoft.SharePoint.WebPartPages.IFilterValues` Web part, ad esempio il **filtro di testo** o il **Filtro scelte**, può fornire un parametro di report a una Web part Visualizzatore report quando viene inserita nella stessa pagina Web part della web part Visualizzatore report.</span><span class="sxs-lookup"><span data-stu-id="37e79-109">Likewise, an `T:Microsoft.SharePoint.WebPartPages.IFilterValues` Web Part, such as the **Text Filter** or the **Choice Filter**, can supply a report parameter to a Report Viewer Web Part when placed on the same Web Part page as the Report Viewer Web Part.</span></span>  
+  
+### <a name="implementing-a-report-path-provider-with-iwebpartrow"></a><span data-ttu-id="37e79-110">Implementazione di un provider del percorso report con IWebPartRow</span><span class="sxs-lookup"><span data-stu-id="37e79-110">Implementing a Report Path Provider with IWebPartRow</span></span>  
+ <span data-ttu-id="37e79-111">Per fornire il percorso di un report a una web part Visualizzatore report tramite connessioni web part, eseguire le operazioni seguenti:</span><span class="sxs-lookup"><span data-stu-id="37e79-111">To supply a report path to the Report Viewer Web Part through Web Part connections, do the following:</span></span>  
+  
+1.  <span data-ttu-id="37e79-112">Creare una web part che implementa l'interfaccia <xref:System.Web.UI.WebControls.WebParts.IWebPartRow>.</span><span class="sxs-lookup"><span data-stu-id="37e79-112">Create a Web Part that implements the <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> interface.</span></span>  
+  
+2.  <span data-ttu-id="37e79-113">Aggiungere la web part alla stessa pagina web part della web part Visualizzatore report.</span><span class="sxs-lookup"><span data-stu-id="37e79-113">Add the Web Part to the same Web Part page as the Report Viewer Web Part.</span></span>  
+  
+3.  <span data-ttu-id="37e79-114">Connettere la web part alla web part Visualizzatore report nell'interfaccia utente di progettazione delle web part basata sul Web.</span><span class="sxs-lookup"><span data-stu-id="37e79-114">Connect your Web Part to the Report Viewer Web Part in the Web-based Web Part design user interface.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="37e79-115">Alla web part Visualizzatore report è possibile connettere una sola web part <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> alla volta e non è possibile connettervi contemporaneamente una web part <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> e una web part `T:Microsoft.SharePoint.WebPartPages.IFilterValues`.</span><span class="sxs-lookup"><span data-stu-id="37e79-115">You can only connect one <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> Web Part to the Report Viewer Web Part at a time, and you cannot connect both an <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> Web Part and an `T:Microsoft.SharePoint.WebPartPages.IFilterValues` Web Part to the Report Viewer Web Part at the same time.</span></span>  
+  
+ <span data-ttu-id="37e79-116">Per garantire il funzionamento corretto della web part <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> con `T:Microsoft.ReportingServices.SharePoint.UI.WebParts.ReportViewerWebPart`, è necessario eseguire le operazioni seguenti nel metodo <xref:System.Web.UI.WebControls.WebParts.IWebPartRow.GetRowData%2A>:</span><span class="sxs-lookup"><span data-stu-id="37e79-116">For your <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> Web Part to work properly with the `T:Microsoft.ReportingServices.SharePoint.UI.WebParts.ReportViewerWebPart`, you must do the following in the <xref:System.Web.UI.WebControls.WebParts.IWebPartRow.GetRowData%2A> method:</span></span>  
+  
+-   <span data-ttu-id="37e79-117">Richiamare il metodo di callback con un oggetto <xref:System.Data.DataRowView> come parametro di input.</span><span class="sxs-lookup"><span data-stu-id="37e79-117">Invoke the callback method with a <xref:System.Data.DataRowView> object as the input parameter.</span></span>  
+  
+-   <span data-ttu-id="37e79-118">Verificare che l'oggetto <xref:System.Data.DataRowView> contenga una colonna denominata "DocUrl" contenente il percorso del report.</span><span class="sxs-lookup"><span data-stu-id="37e79-118">Make sure that the <xref:System.Data.DataRowView> object contains a column called "DocUrl" that contains the report path.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="37e79-119">La web part Visualizzatore report nel componente aggiuntivo per [!INCLUDE[offSPServ](../includes/offspserv-md.md)] supporta inoltre la ricezione del percorso del report tramite la colonna "FileRef".</span><span class="sxs-lookup"><span data-stu-id="37e79-119">The Report Viewer Web Part in the add-in for [!INCLUDE[offSPServ](../includes/offspserv-md.md)] 2010 also supports receiving the report path using the "FileRef" column.</span></span>  
+  
+### <a name="implementing-a-report-parameter-provider-with-ifiltervalues"></a><span data-ttu-id="37e79-120">Implementazione del provider di un parametro di report con IFilterValues</span><span class="sxs-lookup"><span data-stu-id="37e79-120">Implementing a Report Parameter Provider with IFilterValues</span></span>  
+ <span data-ttu-id="37e79-121">Una web part che implementa `T:Microsoft.SharePoint.WebPartPages.IFilterValues` può fornire un unico parametro di report alla web part Visualizzatore report.</span><span class="sxs-lookup"><span data-stu-id="37e79-121">A Web Part that implements `T:Microsoft.SharePoint.WebPartPages.IFilterValues` can provide one parameter value to the Report Viewer Web Part.</span></span> <span data-ttu-id="37e79-122">Il valore del parametro inviato alla web part Visualizzatore report è soggetto alle stesse restrizioni esistenti per il parametro del report come specificato nella definizione del report, ad esempio tipo di dati, valori validi e così via.</span><span class="sxs-lookup"><span data-stu-id="37e79-122">The parameter value sent to the Report Viewer Web Part is subject to the same restrictions placed on the report parameter as specified in the report definition, such as data type, valid values, and so on</span></span>  
+  
+ <span data-ttu-id="37e79-123">Per fornire un parametro di report a una web part Visualizzatore report, eseguire le operazioni seguenti:</span><span class="sxs-lookup"><span data-stu-id="37e79-123">To supply a report parameter to the Report Viewer Web Part, do the following:</span></span>  
+  
+1.  <span data-ttu-id="37e79-124">Creare una web part che implementa l'interfaccia `T:Microsoft.SharePoint.WebPartPages.IFilterValues`.</span><span class="sxs-lookup"><span data-stu-id="37e79-124">Create a Web Part that implements the `T:Microsoft.SharePoint.WebPartPages.IFilterValues` interface.</span></span>  
+  
+2.  <span data-ttu-id="37e79-125">Aggiungere la web part alla stessa pagina della web part `T:Microsoft.ReportingServices.SharePoint.UI.WebParts.ReportViewerWebPart`.</span><span class="sxs-lookup"><span data-stu-id="37e79-125">Add the Web Part to the same page as the `T:Microsoft.ReportingServices.SharePoint.UI.WebParts.ReportViewerWebPart`.</span></span>  
+  
+3.  <span data-ttu-id="37e79-126">Connettere la web part `T:Microsoft.SharePoint.WebPartPages.IFilterValues` alla web part Visualizzatore report nell'interfaccia utente di progettazione delle web part basata sul Web.</span><span class="sxs-lookup"><span data-stu-id="37e79-126">Connect your `T:Microsoft.SharePoint.WebPartPages.IFilterValues` Web Part to the Report Viewer Web Part in the Web-based Web Part design user interface.</span></span>  
+  
+    > [!NOTE]  
+    >  <span data-ttu-id="37e79-127">Alla web part Visualizzatore report è possibile connettere più web part `T:Microsoft.SharePoint.WebPartPages.IFilterValues` alla volta.</span><span class="sxs-lookup"><span data-stu-id="37e79-127">You can connect multiple `T:Microsoft.SharePoint.WebPartPages.IFilterValues` Web Parts to the Report Viewer Web Part at a time.</span></span> <span data-ttu-id="37e79-128">Alla web part Visualizzatore report non è tuttavia possibile connettere contemporaneamente una web part <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> e una web part `T:Microsoft.SharePoint.WebPartPages.IFilterValues`.</span><span class="sxs-lookup"><span data-stu-id="37e79-128">However, you cannot connect both an <xref:System.Web.UI.WebControls.WebParts.IWebPartRow> Web Part and an `T:Microsoft.SharePoint.WebPartPages.IFilterValues` Web Part to the Report Viewer Web Part at the same time.</span></span>  
+  
+## <a name="see-also"></a><span data-ttu-id="37e79-129">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="37e79-129">See Also</span></span>  
+ <span data-ttu-id="37e79-130">[Interfaccia IFilterValues](https://msdn.microsoft.com/library/office/microsoft.sharepoint.webpartpages.ifiltervalues\(v=office.15\).aspx)</span><span class="sxs-lookup"><span data-stu-id="37e79-130">[IFilterValues interface](https://msdn.microsoft.com/library/office/microsoft.sharepoint.webpartpages.ifiltervalues\(v=office.15\).aspx)</span></span>  
+  
+  

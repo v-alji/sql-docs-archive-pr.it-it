@@ -1,0 +1,61 @@
+---
+title: Amministratori (Master Data Services) | Microsoft Docs
+ms.custom: ''
+ms.date: 03/06/2017
+ms.prod: sql-server-2014
+ms.reviewer: ''
+ms.technology: master-data-services
+ms.topic: conceptual
+helpviewer_keywords:
+- administrators [Master Data Services], about administrators
+- administrators [Master Data Services]
+- models [Master Data Services], administrators
+ms.assetid: d330aa4e-6ade-4b09-b376-1b15d6c78f7d
+author: lrtoyou1223
+ms.author: lle
+ms.openlocfilehash: 52e16d4e77acc0a6b50b87e00184918cb9ce64b1
+ms.sourcegitcommit: ad4d92dce894592a259721a1571b1d8736abacdb
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87718396"
+---
+# <a name="administrators-master-data-services"></a><span data-ttu-id="81799-102">Amministratori (Master Data Services)</span><span class="sxs-lookup"><span data-stu-id="81799-102">Administrators (Master Data Services)</span></span>
+  <span data-ttu-id="81799-103">In [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] sono presenti due tipi di amministratore: gli amministratori di modelli e l'amministratore di sistema [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)].</span><span class="sxs-lookup"><span data-stu-id="81799-103">In [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)], there are two types of administrators: model administrators, and the [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] system administrator.</span></span>  
+  
+## <a name="model-administrators"></a><span data-ttu-id="81799-104">Amministratori di modelli</span><span class="sxs-lookup"><span data-stu-id="81799-104">Model Administrators</span></span>  
+ <span data-ttu-id="81799-105">In [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] , un amministratore di modelli è un utente che dispone dell'autorizzazione **aggiornamento** assegnata all'oggetto modello di livello superiore nella scheda **oggetti modello** e senza altre autorizzazioni assegnate.</span><span class="sxs-lookup"><span data-stu-id="81799-105">In [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)], a model administrator is a user who has **Update** permission assigned to the top-level model object on the **Model Objects** tab and no other assigned permissions.</span></span>  
+  
+-   <span data-ttu-id="81799-106">Se l'utente dispone dell'accesso all'area funzionale **Esplora risorse** , l'utente può aggiungere, eliminare e aggiornare tutti i dati master in questa area.</span><span class="sxs-lookup"><span data-stu-id="81799-106">If the user has access to the **Explorer** functional area, the user can add, delete, and update all master data in this area.</span></span>  
+  
+-   <span data-ttu-id="81799-107">Se l'utente dispone di accesso ad altre aree funzionali, questo utente può eseguire tutte le attività amministrative disponibili nell'area funzionale.</span><span class="sxs-lookup"><span data-stu-id="81799-107">If the user has access to other functional areas, the user can perform all administrative tasks available in the functional area.</span></span>  
+  
+ <span data-ttu-id="81799-108">Ogni modello può avere più amministratori.</span><span class="sxs-lookup"><span data-stu-id="81799-108">Each model can have multiple administrators.</span></span> <span data-ttu-id="81799-109">Ogni utente può essere un amministratore di uno, alcuni o tutti i modelli della distribuzione [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] .</span><span class="sxs-lookup"><span data-stu-id="81799-109">Each user can be a model administrator for one, several, or all models in the [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] deployment.</span></span>  
+  
+ <span data-ttu-id="81799-110">Un utente può essere configurato come amministratore di modelli in [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] o a livello di codice.</span><span class="sxs-lookup"><span data-stu-id="81799-110">A user can be configured as a model administrator either in [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] or programmatically.</span></span> <span data-ttu-id="81799-111">Per altre informazioni, vedere [Creare un amministratore di modelli &#40;Master Data Services&#41;](create-a-model-administrator-master-data-services.md).</span><span class="sxs-lookup"><span data-stu-id="81799-111">For more information, see [Create a Model Administrator &#40;Master Data Services&#41;](create-a-model-administrator-master-data-services.md).</span></span>  
+  
+## <a name="master-data-services-system-administrator"></a><span data-ttu-id="81799-112">Amministratore del sistema Master Data Services</span><span class="sxs-lookup"><span data-stu-id="81799-112">Master Data Services System Administrator</span></span>  
+ <span data-ttu-id="81799-113">Esiste un solo amministratore del sistema [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)].</span><span class="sxs-lookup"><span data-stu-id="81799-113">There is only one [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] system administrator.</span></span> <span data-ttu-id="81799-114">L'amministratore di sistema è l'utente specificato per l' **account Administrator** quando si crea il [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] database.</span><span class="sxs-lookup"><span data-stu-id="81799-114">The system administrator is the user specified for the **Administrator Account** when you create the [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] database.</span></span>  
+  
+ <span data-ttu-id="81799-115">L'amministratore del sistema [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]:</span><span class="sxs-lookup"><span data-stu-id="81799-115">The [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] system administrator:</span></span>  
+  
+-   <span data-ttu-id="81799-116">Dispone automaticamente dell'accesso a tutte le aree funzionali.</span><span class="sxs-lookup"><span data-stu-id="81799-116">Automatically has access to all functional areas.</span></span>  
+  
+-   <span data-ttu-id="81799-117">Consente di aggiungere, eliminare e aggiornare tutti i dati master per tutti i modelli nell'area funzionale **Esplora** .</span><span class="sxs-lookup"><span data-stu-id="81799-117">Can add, delete, and update all master data for all models in the **Explorer** functional area.</span></span>  
+  
+ <span data-ttu-id="81799-118">È possibile modificare l'utente assegnato come amministratore del sistema.</span><span class="sxs-lookup"><span data-stu-id="81799-118">You can change the user who is assigned as the system administrator.</span></span> <span data-ttu-id="81799-119">Per ulteriori informazioni, vedere [modificare l'account amministratore di sistema &#40;Master Data Services&#41;](../../2014/master-data-services/change-the-system-administrator-account-master-data-services.md).</span><span class="sxs-lookup"><span data-stu-id="81799-119">For more information, see [Change the System Administrator Account &#40;Master Data Services&#41;](../../2014/master-data-services/change-the-system-administrator-account-master-data-services.md).</span></span>  
+  
+## <a name="comparing-administrator-types"></a><span data-ttu-id="81799-120">Confronto tra tipi di amministratore</span><span class="sxs-lookup"><span data-stu-id="81799-120">Comparing Administrator Types</span></span>  
+  
+|<span data-ttu-id="81799-121">Tipo di amministratore</span><span class="sxs-lookup"><span data-stu-id="81799-121">Administrator Type</span></span>|<span data-ttu-id="81799-122">Descrizione</span><span class="sxs-lookup"><span data-stu-id="81799-122">Description</span></span>|  
+|------------------------|-----------------|  
+|<span data-ttu-id="81799-123">Amministratore del sistema [!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)]</span><span class="sxs-lookup"><span data-stu-id="81799-123">[!INCLUDE[ssMDSshort](../includes/ssmdsshort-md.md)] system administrator</span></span>|<span data-ttu-id="81799-124">Le autorizzazioni assegnate in [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] non influiscono sull'accesso dell'amministratore.</span><span class="sxs-lookup"><span data-stu-id="81799-124">Permissions assigned in [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] have no effect on the administrator's access.</span></span><br /><br /> <span data-ttu-id="81799-125">Dispone automaticamente dell'autorizzazione **aggiornamento** per tutti i modelli.</span><span class="sxs-lookup"><span data-stu-id="81799-125">Automatically has **Update** permission to all models.</span></span><br /><br /> <span data-ttu-id="81799-126">Dispone automaticamente dell'accesso a tutte le aree funzionali.</span><span class="sxs-lookup"><span data-stu-id="81799-126">Automatically has access to all functional areas.</span></span><br /><br /> <span data-ttu-id="81799-127">In MDM. tblUser il valore nella colonna **ID** è **1**.</span><span class="sxs-lookup"><span data-stu-id="81799-127">In mdm.tblUser, the value in the **ID** column is **1**.</span></span>|  
+|<span data-ttu-id="81799-128">Amministratore di modelli</span><span class="sxs-lookup"><span data-stu-id="81799-128">Model administrator</span></span>|<span data-ttu-id="81799-129">Le autorizzazioni assegnate in [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] determinano se l'utente è o meno un amministratore di modelli.</span><span class="sxs-lookup"><span data-stu-id="81799-129">Permissions assigned in [!INCLUDE[ssMDSmdm](../includes/ssmdsmdm-md.md)] determine whether or not the user is a model administrator.</span></span><br /><br /> <span data-ttu-id="81799-130">Può essere un amministratore di modelli in base alle autorizzazioni assegnate in modo esplicito o in base alle autorizzazioni ereditate da un gruppo.</span><span class="sxs-lookup"><span data-stu-id="81799-130">Can be a model administrator based on permissions assigned explicitly or permissions inherited from a group.</span></span><br /><br /> <span data-ttu-id="81799-131">È un amministratore solo per i modelli che dispongono dell'autorizzazione **aggiornamento** assegnata all'oggetto modello di livello superiore e non altre autorizzazioni.</span><span class="sxs-lookup"><span data-stu-id="81799-131">Is an administrator only for models that have **Update** permission assigned to top-level model object, and no other permissions.</span></span><br /><br /> <span data-ttu-id="81799-132">Dispone dell'accesso solo alle aree funzionali per le quali è stato concesso l'accesso.</span><span class="sxs-lookup"><span data-stu-id="81799-132">Has access only to functional areas that access is granted to.</span></span><br /><br /> <span data-ttu-id="81799-133">In MDM. tblUser il valore della colonna **ID** non è **1**.</span><span class="sxs-lookup"><span data-stu-id="81799-133">In mdm.tblUser, the value in the **ID** column is not **1**.</span></span>|  
+  
+## <a name="see-also"></a><span data-ttu-id="81799-134">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="81799-134">See Also</span></span>  
+ <span data-ttu-id="81799-135">[Creare un amministratore di modelli &#40;Master Data Services&#41;](create-a-model-administrator-master-data-services.md) </span><span class="sxs-lookup"><span data-stu-id="81799-135">[Create a Model Administrator &#40;Master Data Services&#41;](create-a-model-administrator-master-data-services.md) </span></span>  
+ <span data-ttu-id="81799-136">[Modificare l'account amministratore di sistema &#40;Master Data Services&#41;](../../2014/master-data-services/change-the-system-administrator-account-master-data-services.md) </span><span class="sxs-lookup"><span data-stu-id="81799-136">[Change the System Administrator Account &#40;Master Data Services&#41;](../../2014/master-data-services/change-the-system-administrator-account-master-data-services.md) </span></span>  
+ <span data-ttu-id="81799-137">[Creazione di un database di Master Data Services](install-windows/create-a-master-data-services-database.md) </span><span class="sxs-lookup"><span data-stu-id="81799-137">[Create a Master Data Services Database](install-windows/create-a-master-data-services-database.md) </span></span>  
+ [<span data-ttu-id="81799-138">Notifiche &#40;Master Data Services&#41;</span><span class="sxs-lookup"><span data-stu-id="81799-138">Notifications &#40;Master Data Services&#41;</span></span>](../../2014/master-data-services/notifications-master-data-services.md)  
+  
+  
